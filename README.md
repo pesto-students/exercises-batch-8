@@ -11,9 +11,13 @@ All the answers should be written in proper English.
 
 ---
 
-**1) Why should we write tests?**
+**1) Why should we write tests?**  
+Tests are written for many reasons. Some of them mentioned as below:
+1. To make sure new updates to the code doesn't break the existing logic.
+2. To document what different cases are there in code and how functions behave to different input.
 
-**2) How much code coverage is required? Comment.**
+**2) How much code coverage is required? Comment.**  
+Atleast 80% of code coverage is required that must cover all the control flow like if conditions, loops, inner functions, etc.
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
@@ -57,6 +61,8 @@ All the answers should be written in proper English.
           });
         });
       ```
+
+It is integeration test because here we are testing API calls that is using multiple functions to give response to API.
 
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
@@ -107,6 +113,9 @@ All the answers should be written in proper English.
     }
   ```
 
+  Snippet 2 is better testable because Logic is divided to different functions that can be exported and can be tested differently. 
+  We can write unit test for each function in snippet 2. But in snippet 1, all function are inner to one main function, so we can't write unit test for them.
+
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
 
   ```js
@@ -125,3 +134,5 @@ All the answers should be written in proper English.
         expect(...)to(...);
       });
   ```
+
+snippet 2 is ideal. Different peace of logic should have different test cases. But in case of snippet 1, we are testing two things in single test case.
