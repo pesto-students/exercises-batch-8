@@ -13,6 +13,8 @@ All the answers should be written in proper English.
 
 **1) Why should we write tests?**
 
+We should write tests because they help in ensuring we have a better speed at coding. With tests, we don't have to manually check things again and again which significantly gives us more time for the development. If we are wrong at something or should be fixed, we get early feedback of the things. Tests also work as documentation and give us confidence that we have covered enough scenarios covered.
+
 **2) How much code coverage is required? Comment.**
 
 **3) What kind of test is this? Explain your choice of answer.**
