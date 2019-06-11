@@ -12,10 +12,10 @@
             "completed": true
         },
         "factorial-test": {
-            "completed": false
+            "completed": true
         },
         "get-name-test": {
-            "completed": false
+            "completed": true
         },
         "logical-operators": {
             "completed": false
