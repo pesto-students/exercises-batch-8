@@ -17,6 +17,10 @@ We should write tests because they help in ensuring we have a better speed at co
 
 **2) How much code coverage is required? Comment.**
 
+In any programming, there is no guarantee that 100% of the code can be covered through testing. But the majority of the code should get covered. There is no right number to it.
+
+Less code coverage means you have a possibility to improve the coverage by refactoring your code and making it more testable. As the coverage increases, it might get difficult to cover it all, but that's fine. There can be situations that can not be tested depending on situations.
+
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
   - End to end (E2E)
