@@ -1,7 +1,10 @@
-function applyOperator(...args) {
-  const [operator, ...operands] = args;
+function getRounded(number, precision) {
+  return Math.round(number * (10 ** precision)) / (10 ** precision);
+}
+
+function applyOperator(operator, ...operands) {
   if (operator === undefined) {
-    throw new Error();
+    throw new Error('No operator found');
   }
   if (operands.length === 0) {
     return 0;
@@ -10,16 +13,15 @@ function applyOperator(...args) {
     case '+':
       return operands.reduce((a, b) => a + b);
     case '-':
-      operands[0] = -operands[0];
-      return operands.reduce((a, b) => a - b);
+      return operands.reduce((a, b) => a - b, 0);
     case '*':
       return operands.reduce((a, b) => a * b);
     case '/':
-      return Math.round(operands.reduce((a, b) => a / b) * 10000) / 10000;
+      return getRounded(operands.reduce((a, b) => a / b), 4);
     case '%':
       return operands.reduce((a, b) => a % b);
     default:
-      throw new Error();
+      throw new Error('Invalid Operator');
   }
 }
 
