@@ -117,6 +117,10 @@ Also, we can say it's not an End to End test because these tests involve interac
     }
   ```
 
+The second code is better testable because each function is written separately and has a specific purpose. Each function in the second code can be tested independently.
+
+Whereas in the first code we don't have a choice which function to invoke. By executing the main function, internally it calls other functions, whether or not we want to test/cover them. This is against the purpose of the unit testing, where we essentially want to test each logic separately.
+
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
 
   ```js
