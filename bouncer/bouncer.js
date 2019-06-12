@@ -1,6 +1,6 @@
-
-function bouncer(...args) {
-  return args;
+function bouncer(inputArray) {
+  const truthyArray = inputArray.filter(item => item);
+  return truthyArray;
 }
 
 export {
