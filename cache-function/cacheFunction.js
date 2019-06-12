@@ -8,8 +8,7 @@ function cacheFunction(fn) {
 
   return (arg) => {
     if (!(arg in memo)) {
-      const result = fn(arg);
-      memo[arg] = result;
+      memo[arg] = fn(arg);
     }
     return memo[arg];
   };
