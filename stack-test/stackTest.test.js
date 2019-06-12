@@ -42,8 +42,25 @@ describe('stack test', () => {
 
   test('should push elements to stack in order', () => {
     const actual = myStack.items;
-    const expected = [3, 2, 1];
+    const expected = [1, 2, 3];
 
     expect(actual).toEqual(expected);
   });
+
+  test('should pop and return the top element, if exists, else return undefined', () => {
+    expect(myStack.pop()).toBe(3);
+    expect(myStack.pop()).toBe(2);
+    expect(myStack.pop()).toBe(1);
+    expect(myStack.pop()).toBe(undefined);
+  });
+
+  test('should return the length of the stack', () => {
+    myStack.pop();
+    expect(myStack.getLength()).toBe(2);
+  });
+
+  test('should show the top most element', () => {
+    expect(myStack.peek()).toBe(3);
+  });
+
 });
