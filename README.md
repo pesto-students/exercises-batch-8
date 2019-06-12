@@ -15,6 +15,7 @@ All the answers should be written in proper English.
 1. Tests are written to make sure that most general bugs and guessable bugs are not in the system. Tests can't give the complete assurance that product can't be broken. But tests determine, whether the system is working or not. If it's failing when exposed to general points of failute. 
 2. Tests is another way of documentation of the software. One by looking at tests can get understanding of the functionality of the software, even without looking at the code. 
 3. Tests when written, they solve a lot of time, instead of manually testing the product by giving input manually each time.
+
 **2) How much code coverage is required? Comment.**
 More the code coverage is lesser the chances of finding bugs. Code coverage can be done using different crietria. Each criteria tests the software in a particular manner. Function coverage, statement coverage, parameter coverage, branch coverage, condition coverage are some of the criteria based coverages. All these criterias tests perform how the software is going to perform in different and difficult conditions.
 
