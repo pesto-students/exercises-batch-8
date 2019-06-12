@@ -1,8 +1,7 @@
-
-function sumTest(...args) {
-  return args;
+function sum(a, b) {
+  return a + b;
 }
 
 export {
-  sumTest,
+  sum,
 };
