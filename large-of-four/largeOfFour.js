@@ -1,6 +1,6 @@
 
-function largeOfFour(...args) {
-  return args;
+function largeOfFour(numArrays) {
+  return numArrays.map(numbers => Math.max(...numbers));
 }
 
 export {
