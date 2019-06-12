@@ -33,7 +33,7 @@
             "completed": false
         },
         "sum-all": {
-            "completed": false
+            "completed": true
         },
         "pairwise": {
             "completed": false
