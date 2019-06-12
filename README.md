@@ -13,7 +13,18 @@ All the answers should be written in proper English.
 
 **1) Why should we write tests?**
 
+We should write tests in order to establish the best practices around quality expectations for the product, there are many reasons for establishing a rigour to the software development as well as deployment of the software product.
+
+- From an `end user` perspective, the most critical aspect is that our code or software actually solves the problem that it was designed to solve.
+
+- From a `development team` perspective, the tests actually also serve as a means of `documenting` the behaviour of any unit or aspect of the system.
+
+- Writing tests facilitates the team in being confident in making changes and make the system more adaptable to the changing requirements of the user or the environment.
+
+
 **2) How much code coverage is required? Comment.**
+
+I think that achieving a `100%` code test coverage is elusive and a vague goal since the necessity of higher test coverage also depends on other factors such as the implementation language being dynamically typed or statically typed, the architecture of the system, differences between the development and deployment environments such as simulators and actual devices. However, in most cases a goal of around 60-70% of the code-base i.e. testing the most critical aspects of the system should suffice.
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
@@ -57,6 +68,18 @@ All the answers should be written in proper English.
           });
         });
       ```
+
+
+
+The snippet mentioned above is an example of `Integration` testing as the tests are designed to validate the `/tasks API` behavior for the `GET` and `POST` requests. These tests are necessary to ensure that the clients of the `API` receive the correct responses.
+
+Some of the possible clients could be 
+
+- `Browser Front-end`
+- `Command Line Tools`
+- `Plug-ins` for other systems such as browsers or IDEs etc
+
+
 
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
@@ -106,6 +129,12 @@ All the answers should be written in proper English.
       return substituteVal(val, 0, 10)
     }
   ```
+
+I believe that the `Snippet-1` is much more understandable as well as testable since the design of the program is basically a single function which will act as an interface for the consumer. Moreover it follows a design principle of composability of independent units i.e functions and referential transparency as the functions such as 
+
+In the `Snippet-2` the logic within each function is 
+
+(tldr)
 
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
 
