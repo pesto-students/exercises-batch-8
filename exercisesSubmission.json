@@ -9,10 +9,10 @@
             "completed": false
         },
         "is-even": {
-            "completed": false
+            "completed": true
         },
         "is-triangle": {
-            "completed": false
+            "completed": true
         },
         "counter": {
             "completed": true
@@ -39,7 +39,7 @@
             "completed": false
         },
         "rectangle-diagonal": {
-            "completed": false
+            "completed": true
         },
         "three-sum": {
             "completed": false
