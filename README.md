@@ -13,13 +13,17 @@ All the answers should be written in proper English.
 
 **1) Why should we write tests?**
 
+Tests help ensure the quality of code. They also serve as a kind of documentation for the code by providing explanations and sample usages. We should write tests as it helps improve the code.    
+
 **2) How much code coverage is required? Comment.**
+
+The optimal Code coverage depends on various factors including the age of the project, number of developers involved, etc. Writing good tests must be given more priority than achieving any fixed % of coverage. Conventions suggest >80% code coverage as a minimum requirement.
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
-  - End to end (E2E)
-  - Integration
-  - Unit
+  - [ ] End to end (E2E)
+  - [x] Integration
+  - [ ] Unit
 
       ```js
         var request = require('supertest');
@@ -60,6 +64,8 @@ All the answers should be written in proper English.
 
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
+Snipper 2 is better as it's functionality is contained in modular functions, which could be tested individually. This makes it easier to undestand, maintain and debug code.   
+  
   ```js
     // 1
     function valIncrementer(val, disabled) {
@@ -108,6 +114,9 @@ All the answers should be written in proper English.
   ```
 
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
+
+  The first test contains two condition checks which can only be run sequentialy, whereas the second one contain seperate tests which could be run independent of each other. 
+  The second test is ideal as the absence of dependency among test cases makes the tests more reliable by catching more of any possible bugs. 
 
   ```js
       // 1
