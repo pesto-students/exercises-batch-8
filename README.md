@@ -12,8 +12,12 @@ All the answers should be written in proper English.
 ---
 
 **1) Why should we write tests?**
+- To detect and minimize the presence of bugs.
+- To ensure that the code is working as expected for the given parameters.
+- To better document the code and its functionality.
 
 **2) How much code coverage is required? Comment.**
+    Depending on how easily testable the code is, its ideal to aim at getting as close as possible to 100%. But this 100% should be prioritized for features of the code, than just the code itself. 
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
@@ -57,6 +61,7 @@ All the answers should be written in proper English.
           });
         });
       ```
+    This is Integration testing. This is because it makes calls to external endpoints and also does not test for the said endpoints through user interface.
 
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
@@ -106,6 +111,7 @@ All the answers should be written in proper English.
       return substituteVal(val, 0, 10)
     }
   ```
+    The second snippet is better testable because each function is separate from one another and hence, its easier to test each function individually and determine the point of failure with more precision.
 
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
 
@@ -125,3 +131,4 @@ All the answers should be written in proper English.
         expect(...)to(...);
       });
   ```
+  While the first test combines the testing of both, sending data to the server and updating the sent data on the server, making the no of tests less as a whole, it makes it difficult to identify the exact point of failure in that sequence of actions. The second set of tests, by separating the actions, affords more precision and hence  is more ideal.
