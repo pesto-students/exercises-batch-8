@@ -1,7 +1,7 @@
 const returnAString = () => 'helloworld';
 
-describe('returnAString', () => {
+describe('returnAString test', () => {
   test('should return a string', () => {
-    expect(returnAString()).toContain('word');
+    expect(returnAString()).toContain('helloworld');
   });
 });
