@@ -1,35 +1,7 @@
 /**
  * Pass the test below and then complete 100% coverage
  */
-
-class Stack {
-  constructor() {
-    this.items = [];
-    this.count = 0;
-  }
-
-  getLength() {
-    return this.count;
-  }
-
-  push(item) {
-    this.items.push(item);
-    this.count = this.count + 1;
-  }
-
-  pop() {
-    if (this.count > 0) {
-      this.count = this.count - 1;
-    }
-
-    return this.items.pop();
-  }
-
-  // returns top element in the stack
-  peek() {
-    return this.items.slice(-1)[0];
-  }
-}
+import { Stack } from './stackTest';
 
 describe('stack test', () => {
   let myStack;
@@ -42,8 +14,54 @@ describe('stack test', () => {
 
   test('should push elements to stack in order', () => {
     const actual = myStack.items;
-    const expected = [3, 2, 1];
+    const expected = [1, 2, 3];
 
     expect(actual).toEqual(expected);
+  });
+
+  test('should pop elements from top of the stack', () => {
+    const actualReturnValue = myStack.pop();
+    const expectedReturnValue = 3;
+
+    expect(actualReturnValue).toBe(expectedReturnValue);
+
+    const actualStack = myStack.items;
+    const expectedStack = [1, 2];
+
+    expect(actualStack).toEqual(expectedStack);
+  });
+
+  test('should return length of the stack', () => {
+    const actual = myStack.getLength();
+    const expected = 3;
+
+    expect(actual).toBe(expected);
+  });
+
+  test('should return peek (top) value of the stack', () => {
+    const actualReturnValue = myStack.peek();
+    const expectedReturnValue = 3;
+
+    expect(actualReturnValue).toBe(expectedReturnValue);
+
+    const actualStack = myStack.items;
+    const expectedStack = [1, 2, 3];
+
+    expect(actualStack).toEqual(expectedStack);
+  });
+
+  test('should return undefined if stack is empty', () => {
+    myStack.pop();
+    myStack.pop();
+    myStack.pop();
+
+    const actual = myStack.pop();
+
+    expect(actual).toBe(undefined);
+
+    const actualStack = myStack.items;
+    const expectedStack = [];
+
+    expect(actualStack).toEqual(expectedStack);
   });
 });
