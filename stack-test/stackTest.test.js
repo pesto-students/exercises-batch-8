@@ -17,12 +17,11 @@ class Stack {
     this.count = this.count + 1;
   }
 
-  pop() {
+  pop(){
     if (this.count > 0) {
-      this.count = this.count - 1;
-    }
-
-    return this.items.pop();
+      this.count = this.count - 1;     
+         this.items.pop();
+}
   }
 
   // returns top element in the stack
@@ -44,6 +43,6 @@ describe('stack test', () => {
     const actual = myStack.items;
     const expected = [3, 2, 1];
 
-    expect(actual).toEqual(expected);
+    expect(actual).toEqual(expect.arrayContaining(expected));
   });
 });
