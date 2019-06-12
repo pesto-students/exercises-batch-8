@@ -1,8 +1,5 @@
-
-function arraySumTest(...args) {
-  return args;
-}
+const sumArray = (...args) => args.reduce((acc, el) => acc + el, 0);
 
 export {
-  arraySumTest,
+  sumArray,
 };

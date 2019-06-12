@@ -1,24 +1,16 @@
-const factorial = (number) => {
-  let fact = 1;
-  while (number !== 0) {
-    fact *= number;
-    // eslint-disable-next-line
-    --number;
-  }
-  return fact;
-};
-
+import { factorialTest } from './factorialTest';
 
 describe('factorial test', () => {
   test('should find factorial of an integer', () => {
-    const actual = factorial(5);
+    const actual = factorialTest(5);
     const expected = 120;
 
     expect(actual).toEqual(expected);
   });
 
-  test('should find factorial of 0', () => {
-    // delete next line and replace it with proper test
-    expect(true).toEqual(false);
+  test('should find factorial of 0', () => {  
+    const actual = factorialTest(0);
+    const expected = 1;
+    expect(actual).toEqual(expected);
   });
 });

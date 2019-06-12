@@ -1,8 +1,7 @@
-
-function createObjectTest(...args) {
-  return args;
+function createObject(a, b) {
+  return { fname: a, lname: b };
 }
 
 export {
-  createObjectTest,
+  createObject,
 };

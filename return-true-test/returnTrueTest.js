@@ -1,8 +1,5 @@
 
-function returnTrueTest(...args) {
-  return args;
-}
-
+const returnTrueTest = () => true;
 export {
   returnTrueTest,
 };
