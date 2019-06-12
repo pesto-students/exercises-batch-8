@@ -130,9 +130,9 @@ Some of the possible clients could be
     }
   ```
 
-I believe that the `Snippet-1` is much more understandable as well as testable since the design of the program is basically a single function which will act as an interface for the consumer. Moreover it follows a design principle of composability of independent units i.e functions and referential transparency as the functions such as 
+I believe that the `Snippet-1` is much more understandable as well as testable since the design of the program is basically a single function which will act as an interface for the consumer. Moreover it follows a design principle of composability of independent units i.e functions and referential transparency as the functions such as `secondStageSetter` and `clipToLowerLimit` essentially operate on a single global variable and this makes them easier to test.
 
-In the `Snippet-2` the logic within each function is 
+In the `Snippet-2` the program logic within each function is tougher to follow as there are too many procedural constructs within a single function such as multiple `return` statements as well as expressions with nested comparison operators.
 
 (tldr)
 
