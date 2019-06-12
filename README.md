@@ -11,9 +11,14 @@ All the answers should be written in proper English.
 
 ---
 
-**1) Why should we write tests?**
+**1) Why should we write tests?**  
+A: 
+   - To make sure the code doesn't break during production
+   - To cover edge case
+   - Documentation
 
-**2) How much code coverage is required? Comment.**
+**2) How much code coverage is required? Comment.**  
+A: As much as possible. Most of the code needs to be covered by the test as we don't not know where the code would break.  
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
@@ -56,8 +61,8 @@ All the answers should be written in proper English.
             });
           });
         });
-      ```
-
+      ```  
+A: Unit testing or Integration Testing as the function called due to the api call may or may not be dependent on other functions.  
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
   ```js
@@ -106,7 +111,7 @@ All the answers should be written in proper English.
       return substituteVal(val, 0, 10)
     }
   ```
-
+A: Second one as we will be able to test each function separately.  
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
 
   ```js
@@ -124,4 +129,5 @@ All the answers should be written in proper English.
       it('should update the profile view properly', function() {
         expect(...)to(...);
       });
-  ```
+  ```  
+  A: Second one is the better way to write test as we will be able to pinpoint which test case failed.

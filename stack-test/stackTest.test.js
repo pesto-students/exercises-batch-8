@@ -46,4 +46,23 @@ describe('stack test', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test('should return length of the stack', () => {
+    const actual = myStack.getLength();
+    const expected = 3;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('should peek top element in the array', () => {
+    const actual = myStack.peek();
+    const expected = 3;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('pop should remove the last element that was added', () => {
+    const actual = myStack.pop()
+    expect(actual).toEqual(3);
+  });
 });
