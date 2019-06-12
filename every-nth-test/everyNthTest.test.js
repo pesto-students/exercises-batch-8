@@ -1,4 +1,4 @@
-const everyNth = (string, n) => string.split('').filter((a, i) => i % n === 0).join('');
+import { everyNth } from './everyNthTest';
 
 describe('everyNth test', () => {
   test('should get every nth character in given string', () => {
