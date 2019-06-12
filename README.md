@@ -8,6 +8,7 @@
     }
     console.log(y);
   ```
+  "1NAN"
 
 2) Assuming obj is an “empty” object in scope, say:
   ```js
