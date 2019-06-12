@@ -9,6 +9,8 @@
     console.log(y);
   ```
 
+The output of the code snippet will be `1undefined` because `function f(){}` evaluates to `undefined` and therefore `typeof undefined` evaluates to `undefined` as a `string` which causes the `y= 1 + 'undefined'` to eventually become `1undefined`.
+
 2) Assuming obj is an “empty” object in scope, say:
   ```js
     var obj = {};
@@ -20,6 +22,11 @@
     });
   ```
 
+The above code snippet iterates the array `['JS','C++']` and applies the `function` for that element as an arg like `function('JS')` which eventually leads to `JS` being the key to the object `obj` and `undefined` being the value.
+
+`{ JS: undefined, 'C++': undefined }`
+
+
 3) What will the code below output to the console and why?
   ```js
     (function() {
@@ -29,6 +36,12 @@
     console.log("a defined? " + (typeof a !== 'undefined'));
     console.log("b defined? " + (typeof b !== 'undefined'));
   ```
+
+
+```
+a defined? false
+b defined? true
+```
 
 4) What will the following code output and why?
   ```js
@@ -45,7 +58,13 @@
     outer();
   ```
 
+`3`
+
+
 5) What will the following code output and why?
   ```js
     console.log(typeof typeof 1);
   ```
+
+`string`
+
