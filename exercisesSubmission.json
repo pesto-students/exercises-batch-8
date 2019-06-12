@@ -3,7 +3,7 @@
     "segmentName": "segment-1",
     "exercises": {
         "factorial": {
-            "completed": false
+            "completed": true
         },
         "is-odd": {
             "completed": false
@@ -15,10 +15,10 @@
             "completed": false
         },
         "counter": {
-            "completed": false
+            "completed": true
         },
         "counter-factory": {
-            "completed": false
+            "completed": true
         },
         "limit-function-call-count": {
             "completed": false
