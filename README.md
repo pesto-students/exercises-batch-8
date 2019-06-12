@@ -64,6 +64,10 @@ Less code coverage means you have a possibility to improve the coverage by refac
         });
       ```
 
+The given example is of Integration test. An Integration test is a combination of unit tests - which essentially test the smallest unit of the logic. When such tests are combined to test a meaningful action or interaction, it becomes an Integration test.
+
+Also, we can say it's not an End to End test because these tests involve interacting with UI, getting information from UI elements and then using that for testing things. Hence the given example is of Integration test.
+
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
   ```js
