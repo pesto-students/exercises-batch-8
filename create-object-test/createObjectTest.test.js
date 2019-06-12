@@ -1,9 +1,11 @@
-function createObject(a, b) {
-  return { fname: a, lname: b };
-}
+import { createObjectTest as createObject } from './createObjectTest';
 
 describe('createObject', () => {
-  test('should return an object with fname and lname as key with values as passed to function', () => {
-    expect(createObject('anshu', 'rathee')).toBe({ fname: 'anshu', lname: 'rathee' });
+  test('should return an object with fname', () => {
+    expect(createObject('anshu', 'rathee').fname).toBe('anshu');
+  });
+
+  test('should return an object with fname', () => {
+    expect(createObject('anshu', 'rathee').lname).toBe('rathee');
   });
 });

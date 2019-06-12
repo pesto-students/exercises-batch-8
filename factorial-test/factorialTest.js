@@ -1,7 +1,13 @@
+const factorialTest = (number) => {
+  let fact = 1;
+  while (number !== 0) {
+    fact *= number;
+    // eslint-disable-next-line
+    --number;
+  }
+  return fact;
+};
 
-function factorialTest(...args) {
-  return args;
-}
 
 export {
   factorialTest,
