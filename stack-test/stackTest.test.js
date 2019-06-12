@@ -51,7 +51,7 @@ describe('stack test', () => {
     expect(myStack.pop()).toBe(3);
     expect(myStack.pop()).toBe(2);
     expect(myStack.pop()).toBe(1);
-    expect(myStack.pop()).toBe(undefined);
+    expect(myStack.pop()).toBeUndefined();
   });
 
   test('should return the length of the stack', () => {
