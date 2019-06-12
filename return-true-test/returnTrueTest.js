@@ -1,8 +1,8 @@
 
-function returnTrueTest(...args) {
-  return args;
+function returnTrue() {
+  return true;
 }
 
 export {
-  returnTrueTest,
+  returnTrue,
 };
