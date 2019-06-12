@@ -1,13 +1,4 @@
-const factorial = (number) => {
-  let fact = 1;
-  while (number !== 0) {
-    fact *= number;
-    // eslint-disable-next-line
-    --number;
-  }
-  return fact;
-};
-
+import { factorialTest as factorial } from './factorialTest';
 
 describe('factorial test', () => {
   test('should find factorial of an integer', () => {
