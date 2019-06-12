@@ -12,6 +12,9 @@ All the answers should be written in proper English.
 ---
 
 **1) Why should we write tests?**
+We should write tests beacouse   
+1. tests serve as a means of documentation
+2. They assure robustness
 
 **2) How much code coverage is required? Comment.**
 
