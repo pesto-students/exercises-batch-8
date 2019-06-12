@@ -15,7 +15,7 @@ describe('applyOperator', () => {
     expect(applyOperator('*', 1, 2, 3, 4, 5)).toEqual(120);
     expect(applyOperator('*', 1)).toEqual(1);
 
-    expect(applyOperator('/', 1, 2, 3, 4, 5)).toEqual(0.0083);
+    expect(applyOperator('/', 1, 2, 3, 4, 5)).toBeCloseTo(0.0083);
     expect(applyOperator('/', 1)).toEqual(1);
 
     expect(applyOperator('%', 27, 13, 3)).toEqual(1);
