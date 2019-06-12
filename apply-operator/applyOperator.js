@@ -1,7 +1,7 @@
 
 function applyOperator(...args) {
         if(args.length===0){
-                throw "error";
+                throw "error : no argument present";
         }
         if(args.length===1){
                 return 0;
@@ -9,12 +9,14 @@ function applyOperator(...args) {
         if(args[0]==='+'){
                 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-               args.shift();return args.reduce(reducer);
+               args.shift();
+               return args.reduce(reducer);
         }
         if (args[0] === '-') {
                 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-                args.shift(); return -args.reduce(reducer);
+                args.shift(); 
+                return -args.reduce(reducer);
         }
         if(args[0]==='*'){
                 const reducer = (accumulator, currentValue) => accumulator * currentValue;
