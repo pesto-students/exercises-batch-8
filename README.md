@@ -139,3 +139,7 @@ Whereas in the first code we don't have a choice which function to invoke. By ex
         expect(...)to(...);
       });
   ```
+
+The second way is ideal for testing. The reason is there are two things being tested, so the feedback we receive after the tests should also be separate and independent of other tests. 
+
+The message in the first way can be confusing, especially when the tests fail. This doesn't serve a purpose as it essentially creates confusion because there can be three scenarios when the test fails and we get the same message (first assert fails, the second assert fails, both assert fails).
