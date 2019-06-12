@@ -62,5 +62,4 @@ describe('stack test', () => {
   test('should show the top most element', () => {
     expect(myStack.peek()).toBe(3);
   });
-
 });
