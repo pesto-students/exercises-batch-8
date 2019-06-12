@@ -11,9 +11,11 @@ All the answers should be written in proper English.
 
 ---
 
-**1) Why should we write tests?**
+**1) Why should we write tests?**  
+=> Since we know bugs are costly, we should try to prevent them and hence we should write tests. Tests also serve as a means of documentation by providing the explanations and sample usage. We should write tests as it is a practice often used to decide and improve software quality. 
 
-**2) How much code coverage is required? Comment.**
+**2) How much code coverage is required? Comment.**  
+=> Code Coverage talks about unit testing practices that have to target all areas of the code at least once and is done by developers. There is not a single number that is going to make sense as a standard for every project but the conventions suggests 80% as the minimum requirement.
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
@@ -56,7 +58,8 @@ All the answers should be written in proper English.
             });
           });
         });
-      ```
+      ```   
+ => [x] Integration
 
 **4) Below are 2 snippets of code which achieve the same functionality. Which snippet of code is better testable and WHY?**
 
@@ -105,7 +108,8 @@ All the answers should be written in proper English.
       }
       return substituteVal(val, 0, 10)
     }
-  ```
+  ```  
+  => Snippet 2 is better as it breaked into modular functions which makes the code easier to understand, maintain and debug.
 
   **5) Describe the difference between the two tests below. Which one is ideal and WHY?**
 
@@ -124,4 +128,7 @@ All the answers should be written in proper English.
       it('should update the profile view properly', function() {
         expect(...)to(...);
       });
-  ```
+  ```  
+  => First test: sequentialy checks two conditions  
+     Second test: conatins independent separate tests for both conditions  
+     Since there is no dependency among test cases in second one, it is the ideal one.
