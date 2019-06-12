@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 
-const numberSum = (a, b) => a + b;
+import { numberSum } from './numberSumTest';
 
 describe('numberSum test', () => {
-  testing('should sum two numbers', () => {
+  it('should sum two numbers', () => {
     const actual = numberSum(2, 3);
     const expected = 5;
 
-    expects(actual).toEqual(expected);
+    expect(actual).toEqual(expected);
   });
 });
