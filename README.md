@@ -22,9 +22,7 @@ The output of the code snippet will be `1undefined` because `function f(){}` eva
     });
   ```
 
-The above code snippet iterates the array `['JS','C++']` and applies the `function` for that element as an arg like `function('JS')` which eventually leads to `JS` being the key to the object `obj` and `undefined` being the value.
-
-`{ JS: undefined, 'C++': undefined }`
+The above code snippet iterates the array `['JS','C++']` and applies the `function` for that element as an arg like `function('JS')` which eventually leads to `JS` being the key to the object `obj` and `undefined` being the value yielding the result `{ JS: undefined, 'C++': undefined }`
 
 
 3) What will the code below output to the console and why?
@@ -58,7 +56,9 @@ b defined? true
     outer();
   ```
 
-`3`
+The above code snippet prints `3` to the console as even though in the scope of `outer` the value of `b = 2`, as soon as the program execution reaches `inner` the variable `b` holds the value `3` due to the usage of `var` in the `inner` function, which essentially creates a new variable `b` only in the scope of `inner` function.
+
+However, before reaching `var b=3` in `inner` function the `global b` has been updated using the `b++` statement and therefore both `inner b` and `outer b` hold the value `3`.
 
 
 5) What will the following code output and why?
@@ -66,5 +66,5 @@ b defined? true
     console.log(typeof typeof 1);
   ```
 
-`string`
+The above code snippet results in the `string` as the output since the first execution of `typeof 1` yields a `'number'` and the second `typeof` returns ``string'` when it runs upon the result of `typeof 1`.
 
