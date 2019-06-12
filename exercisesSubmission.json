@@ -30,7 +30,7 @@
             "completed": false
         },
         "boo-who": {
-            "completed": false
+            "completed": true
         },
         "sum-fibs": {
             "completed": false
