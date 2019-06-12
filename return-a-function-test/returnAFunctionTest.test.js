@@ -1,7 +1,7 @@
 const fun = () => {};
 
-describe('returnAFunction', () => {
+describe('returnAFunction Test', () => {
   test('should return a Function', () => {
-    expect(fun).toBeInstanceOf('Function');
+    expect(fun).toBeInstanceOf(Function);
   });
 });
