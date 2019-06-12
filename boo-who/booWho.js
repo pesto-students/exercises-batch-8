@@ -1,13 +1,6 @@
 function booWho(...args) {
-  let x;
 
-  try {
-    x = (typeof args[0] === 'boolean');
-  } catch (err) {
-    console.log(err);
-  }
-
-  return x;
+  return typeof args[0] === 'boolean'
 }
 
 export { booWho };

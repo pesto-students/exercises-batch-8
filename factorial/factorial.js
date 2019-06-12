@@ -1,18 +1,20 @@
 
 function factorial(...args) {
-  //return args;
 
-for(var i=0; i<= args.length; i++){
+if (typeof aNumber === Number) {
+  const aNumber = args[0];
+} else {
+  return "Not a number"
+}
 
-  if(args[i] === 0){
+
+  if(aNumber === 0){
     return 1 
+  } else if (aNumber === 1){
+    return 1 
+  } else {
+    return aNumber * factorial(aNumber - 1)
   }
-
-  if(args[i] === 0){
-    return 1 
-  }}
-
-  
 }
 
 export {
