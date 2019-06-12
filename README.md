@@ -24,7 +24,7 @@ We should write tests in order to establish the best practices around quality ex
 
 **2) How much code coverage is required? Comment.**
 
-I think that achieving a `100%` code test coverage is elusive and a vague goal since the necessity of higher test coverage also depends on other factors such as the implementation language being dynamically typed or statically typed, the architecture of the system, differences between the development and deployment environments such as simulators and actual devices. However, in most cases a goal of around 60-70% of the code-base i.e. testing the most critical aspects of the system should suffice.
+I think that achieving a `100%` code test coverage is an elusive and a vague goal since the necessity of higher test coverage also depends on other factors such as the implementation language being dynamically typed or statically typed, the architecture of the system, differences between the development and deployment environments such as simulators and actual devices. However, in most cases a goal of around 60-75% of the code-base i.e. testing the most critical aspects of the system should suffice.
 
 **3) What kind of test is this? Explain your choice of answer.**
   #### Options:
@@ -154,3 +154,5 @@ In the `Snippet-2` the program logic within each function is tougher to follow a
         expect(...)to(...);
       });
   ```
+
+I believe that the `Test-2` is much better as it separates the program behavior to a more atomic level, thus making it easier to figure out the exact point of failure in the called function which is we would know whether the point of failure is `sending data to server` or `updating the profile view`. This facilitates comprehension and thus programmar time is much better utilized in this case.
