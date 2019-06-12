@@ -2,34 +2,7 @@
  * Pass the test below and then complete 100% coverage
  */
 
-class Stack {
-  constructor() {
-    this.items = [];
-    this.count = 0;
-  }
-
-  getLength() {
-    return this.count;
-  }
-
-  push(item) {
-    this.items.push(item);
-    this.count = this.count + 1;
-  }
-
-  pop() {
-    if (this.count > 0) {
-      this.count = this.count - 1;
-    }
-
-    return this.items.pop();
-  }
-
-  // returns top element in the stack
-  peek() {
-    return this.items.slice(-1)[0];
-  }
-}
+import { StackTest as Stack } from './stackTest';
 
 describe('stack test', () => {
   let myStack;
@@ -42,7 +15,41 @@ describe('stack test', () => {
 
   test('should push elements to stack in order', () => {
     const actual = myStack.items;
-    const expected = [3, 2, 1];
+    const expected = [1, 2, 3];
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('should increase the length when push() method is called', () => {
+    const previous = myStack.getLength();
+    myStack.push(4);
+    const actual = myStack.getLength();
+
+    expect(actual).toEqual(previous + 1);
+  });
+
+  test('should decrease length when pop() method is called', () => {
+    const previous = myStack.getLength();
+    myStack.pop();
+    const actual = myStack.getLength();
+
+    expect(actual).toEqual(previous - 1);
+  });
+
+  test('should give correct length zero size list', () => {
+    myStack.pop();
+    myStack.pop();
+    myStack.pop();
+    myStack.pop();
+    myStack.pop();
+
+    expect(myStack.getLength()).not.toBeLessThan(0);
+  });
+
+  test('should return correct top value', () => {
+    const expected = 234;
+    myStack.push(expected);
+    const actual = myStack.peek();
 
     expect(actual).toEqual(expected);
   });
