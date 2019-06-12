@@ -1,6 +1,6 @@
 
-function booWho(...args) {
-  return args;
+function booWho(val) {
+  return val === true || val === false;
 }
 
 export {
