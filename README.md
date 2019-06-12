@@ -8,7 +8,7 @@
     }
     console.log(y);
   ```
-  "1NAN"
+  "1undefined"
 
 2) Assuming obj is an “empty” object in scope, say:
   ```js
@@ -20,6 +20,7 @@
       obj[k] = undefined;
     });
   ```
+  object for the key JS,C++ is initialised with value undifined
 
 3) What will the code below output to the console and why?
   ```js
@@ -27,8 +28,8 @@
       var a = b = 3;
     })();
 
-    console.log("a defined? " + (typeof a !== 'undefined'));
-    console.log("b defined? " + (typeof b !== 'undefined'));
+    console.log("a defined? " + (typeof a !== 'undefined')); //true
+    console.log("b defined? " + (typeof b !== 'undefined')); //true
   ```
 
 4) What will the following code output and why?
@@ -50,3 +51,4 @@
   ```js
     console.log(typeof typeof 1);
   ```
+  string beaccuse type of 1 is number which is a string
