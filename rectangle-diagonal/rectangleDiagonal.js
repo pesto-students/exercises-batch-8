@@ -1,6 +1,6 @@
 
-function rectangleDiagonal(...args) {
-  return args;
+function rectangleDiagonal(a, b) {
+  return Math.sqrt(a * a + b * b);
 }
 
 export {
