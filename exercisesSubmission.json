@@ -3,7 +3,7 @@
     "segmentName": "segment-2",
     "exercises": {
         "array-sum-test": {
-            "completed": false
+            "completed": true
         },
         "create-object-test": {
             "completed": true
