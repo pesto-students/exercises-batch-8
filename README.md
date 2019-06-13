@@ -16,6 +16,12 @@
     console.log(obj.innerMessage());
   ```
 
+```
+undefined
+undefined
+```
+
+
 2) What would be the output of the following code ?
 
 ```js
@@ -31,6 +37,13 @@
     console.log(obj.innerMessage());
 ```
 
+```
+Hello
+
+undefined
+```
+
+
 3) What would be the output of the following code ?
   ```js
     function myFunc(){
@@ -41,6 +54,13 @@
     console.log(myFunc());
   ```
 
+```
+undefined
+
+undefined
+```
+
+
 4) What would be the output of the following code ?
   ```js
     function myFunc() {
@@ -48,4 +68,11 @@
       console.log(myFunc.message);
     }
     console.log(myFunc());
+  ```
+
+  ```
+  Hi John
+
+  undefined
+
   ```
