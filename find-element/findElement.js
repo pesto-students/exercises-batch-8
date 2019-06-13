@@ -1,6 +1,6 @@
 
-function findElement(array, func) {
-  return array.filter(ele => func(ele))[0];
+function findElement(array, filter) {
+  return array.filter(filter)[0];
 }
 
 export {

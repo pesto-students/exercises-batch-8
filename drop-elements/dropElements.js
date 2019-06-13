@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 
-function dropElements(array, func) {
-  return array.filter(ele => func(ele));
+function dropElements(array, filter) {
+  return array.filter(filter);
 }
 
 export {
