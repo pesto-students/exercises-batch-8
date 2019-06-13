@@ -1,6 +1,5 @@
-
-function bouncer(...args) {
-  return args;
+function bouncer(values) {
+  return values.filter(value => !!value);
 }
 
 export {
