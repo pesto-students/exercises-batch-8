@@ -1,6 +1,6 @@
 
-function findElement(...args) {
-  return args;
+function findElement(elements, truthFn) {
+  return elements.find(truthFn);
 }
 
 export {
