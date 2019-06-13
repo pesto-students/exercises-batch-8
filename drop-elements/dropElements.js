@@ -1,6 +1,6 @@
 
-function dropElements(...args) {
-  return args;
+function dropElements(elements, predicateFn) {
+  return elements.filter(predicateFn);
 }
 
 export {
