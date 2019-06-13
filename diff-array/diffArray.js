@@ -1,18 +1,8 @@
 
 function diffArray(array1, array2) {
   const resultArray = [];
-  array1.map((array1val) => {
-    if (!array2.includes(array1val)) {
-      resultArray.push(array1val);
-    }
-    return null;
-  });
-  array2.map((array2val) => {
-    if (!array1.includes(array2val)) {
-      resultArray.push(array2val);
-    }
-    return null;
-  });
+  resultArray.concat(array1.filter(array1val => !array2.includes(array1val)));
+  resultArray.concat(array2.filter(array2val => !array1.includes(array2val)));
   return resultArray;
 }
 
