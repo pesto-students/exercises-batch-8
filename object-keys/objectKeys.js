@@ -1,6 +1,11 @@
 
 function objectKeys(object) {
-  return Object.keys(object);
+  const keys = [];
+  // eslint-disable-next-line guard-for-in
+  for (const key in object) {
+    keys.push(key);
+  }
+  return keys;
 }
 
 export {
