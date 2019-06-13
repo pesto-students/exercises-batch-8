@@ -1,8 +1,12 @@
+import { throwStatement } from "@babel/types";
 
 // (*)
 // Follow the instructions and fill in the blank sections.
-function User() {
+function User(username, password) {
   // set a username and password property on the user object that is created
+  this.username = username;
+  this.password = password;
+
 }
 
 // create a method on User called `checkPassword`
