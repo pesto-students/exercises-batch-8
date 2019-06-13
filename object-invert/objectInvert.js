@@ -1,6 +1,10 @@
 
-function objectInvert(...args) {
-  return args;
+function objectInvert(inputObject) {
+  const invertedObject = Object.assign(...Object.entries(inputObject)
+    .map(([k, v]) => ({
+      [v]: k,
+    })));
+  return invertedObject;
 }
 
 export {
