@@ -1,6 +1,10 @@
 
 function squareNumbersArray(...args) {
-  return args;
+  args.forEach((arg) => {
+    if (typeof arg !== 'number') {
+      throw new Error('My custom error');
+    }
+  });
 }
 
 export {
