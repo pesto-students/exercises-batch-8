@@ -1,6 +1,6 @@
 
-function findElement(numbers, conditionFunction) {
-  return numbers.filter(conditionFunction);
+function findElement(numbers, condition) {
+  return numbers.find(condition);
 }
 
 export {
