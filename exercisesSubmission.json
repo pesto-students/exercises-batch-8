@@ -45,7 +45,7 @@
             "completed": false
         },
         "user-check-password": {
-            "completed": false
+            "completed": true
         }
     }
 }
