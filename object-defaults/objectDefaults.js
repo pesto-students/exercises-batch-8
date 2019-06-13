@@ -1,6 +1,6 @@
 
-function objectDefaults(...args) {
-  return args;
+function objectDefaults(obj, defaultObj) {
+  return Object.assign(defaultObj, obj);
 }
 
 export {
