@@ -1,9 +1,6 @@
 
 function objectKeys(obj) {
-        let resultArray=[];
-        Object.keys(obj).forEach(function (key) {
-                resultArray.push(key);
-        });
+        let resultArray=obj.entries();
         return resultArray;
 }
 

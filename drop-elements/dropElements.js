@@ -1,7 +1,7 @@
 
 function dropElements([...args], operatorFunction) {
-       return args.filter((element)=>{
-        return operatorFunction(element);
+   return     args.filter((element)=>{
+         operatorFunction(element);
        });
 }
 
