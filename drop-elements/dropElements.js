@@ -1,6 +1,8 @@
 
-function dropElements(...args) {
-  return args;
+function dropElements(listOfNumbers, fnIsTruethy) {
+  const modifiedList = listOfNumbers.filter(fnIsTruethy);
+
+  return modifiedList;
 }
 
 export {
