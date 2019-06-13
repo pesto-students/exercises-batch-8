@@ -1,6 +1,12 @@
 
-function objectValues(...args) {
-  return args;
+function objectValues(object) {
+    let objectValues = [ ];
+    for (const key in object) {
+      if (object.hasOwnProperty(key)) {
+        objectValues.push(object[key])
+      }
+    }
+    return objectValues;
 }
 
 export {
