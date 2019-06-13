@@ -1,6 +1,6 @@
 
-function truthCheck(...args) {
-  return args;
+function truthCheck(arrayOfObjects, keyToCheck) {
+  return arrayOfObjects.every(obj => obj[keyToCheck]);
 }
 
 export {
