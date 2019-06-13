@@ -1,6 +1,9 @@
 
-function objectPairs(...args) {
-  return args;
+function objectPairs(obj) {
+  return Object.keys(obj).reduce((acc, key) => {
+    acc.push([key, obj[key]]);
+    return acc;
+  }, []);
 }
 
 export {
