@@ -1,4 +1,4 @@
-
+// Placeholder for the mathFns export required by the test file
 function mathFns(...args) {
   return args;
 }
