@@ -1,18 +1,20 @@
-var http = require('http');
-var net = require('net');
-var url = require('url');
-var zlib = require('zlib');
-var fs = require('fs');
-var server, proxy;
+const http = require('http');
+const net = require('net');
+const url = require('url');
+const zlib = require('zlib');
+const fs = require('fs');
 
-var axios = () => ({});
+let server;
+let proxy;
+
+const axios = () => ({});
 
 module.exports = {
-  tearDown: function (callback) {
+  tearDown: (callback) => {
     server.close();
     server = null;
     if (proxy) {
-      proxy.close()
+      proxy.close();
       proxy = null;
     }
 
@@ -23,25 +25,26 @@ module.exports = {
     callback();
   },
 
-  testTimeout: function (test) {
-    server = http.createServer(function (req, res) {
-      setTimeout(function () {
+  testTimeout: (test) => {
+    server = http.createServer((res) => {
+      setTimeout(() => {
         res.end();
       }, 1000);
-    }).listen(4444, function () {
-      var success = false, failure = false;
-      var error;
+    }).listen(4444, () => {
+      let success = false;
+      let failure = false;
+      let error;
 
       axios.get('http://localhost:4444/', {
-        timeout: 250
-      }).then(function (res) {
+        timeout: 250,
+      }).then(() => {
         success = true;
-      }).catch(function (err) {
+      }).catch((err) => {
         error = err;
         failure = true;
       });
 
-      setTimeout(function () {
+      setTimeout(() => {
         test.equal(success, false, 'request should not succeed');
         test.equal(failure, true, 'request should fail');
         test.equal(error.code, 'ECONNABORTED');
@@ -51,18 +54,18 @@ module.exports = {
     });
   },
 
-  testJSON: function (test) {
-    var data = {
+  testJSON: (test) => {
+    const data = {
       firstName: 'Fred',
       lastName: 'Flintstone',
-      emailAddr: 'fred@example.com'
+      emailAddr: 'fred@example.com',
     };
 
-    server = http.createServer(function (req, res) {
+    server = http.createServer((res) => {
       res.setHeader('Content-Type', 'application/json;charset=utf-8');
       res.end(JSON.stringify(data));
-    }).listen(4444, function () {
-      axios.get('http://localhost:4444/').then(function (res) {
+    }).listen(4444, () => {
+      axios.get('http://localhost:4444/').then((res) => {
         test.deepEqual(res.data, data);
         test.done();
       });

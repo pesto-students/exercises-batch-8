@@ -6,7 +6,7 @@
       "completed": false
     },
     "fix-eslint-errors": {
-      "completed": false
+      "completed": true
     }
   }
 }
