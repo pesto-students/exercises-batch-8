@@ -10,8 +10,7 @@ function round(number, precision) {
 }
 
 function filterAccounts(predicate) {
-  return accounts
-    .filter(account => predicate(account.amount));
+  return accounts.filter(account => predicate(account.amount));
 }
 
 function hundredThousandairs() {
@@ -19,69 +18,58 @@ function hundredThousandairs() {
 }
 
 function datasetWithRoundedDollar() {
-  return accounts
-    .map(account => { 
-      const updatedAccount = { ...account, rounded: round(account.amount, 0) };
-      return updatedAccount;
-    });
+  return accounts.map(account => ({ ...account, rounded: round(account.amount, 0) }));
 }
 
-function sumOfBankBalancesForAccounts(accounts) {
-  const sum = accounts
-    .reduce((sumAccumulator, account) => sumAccumulator + Number(account.amount), 0);
+function sumBalances(accountList) {
+  const sum = accountList.reduce(
+    (sumAccumulator, account) => sumAccumulator + Number(account.amount),
+    0,
+  );
   return round(sum, 2);
 }
 
 function sumOfBankBalances() {
-  return sumOfBankBalancesForAccounts(accounts);
+  return sumBalances(accounts);
 }
 
 function sumOfInterests() {
-  const interestSum = accounts
-    .reduce((interestSumAccumulator, account) => {
-      if( STATES.includes(account.state) ){
-        const interest = round(account.amount * INTEREST_RATE / 100, 2);
-        return interestSumAccumulator + interest;
-      }
-      else{
-        return interestSumAccumulator;
-      }
-    }, 0);
+  const interestSum = accounts.reduce((interestSumAccumulator, account) => {
+    if (STATES.includes(account.state)) {
+      const interest = round((account.amount * INTEREST_RATE) / 100, 2);
+      return interestSumAccumulator + interest;
+    }
+    return interestSumAccumulator;
+  }, 0);
   return round(interestSum, 2);
 }
 
 function higherStateSums() {
   const amountSumHashTable = accounts.reduce((accumulatedHashTable, account) => {
-    const accumulatedHashTableCopy = {...accumulatedHashTable}
-    const state = account.state;
-    const amount = account.amount;
-    if(accumulatedHashTableCopy[state] == undefined){
-      accumulatedHashTableCopy[state] = Number(amount)
+    const accumulatedHashTableCopy = { ...accumulatedHashTable };
+    const { state } = account;
+    const { amount } = account;
+    if (accumulatedHashTableCopy[state] === undefined) {
+      accumulatedHashTableCopy[state] = Number(amount);
+    } else {
+      accumulatedHashTableCopy[state] += Number(amount);
     }
-    else{
-      accumulatedHashTableCopy[state] += Number(amount)
-    }
-    return accumulatedHashTableCopy
-  },{});
+    return accumulatedHashTableCopy;
+  }, {});
 
-  const aggregatedSum =  Object.keys(amountSumHashTable).reduce((acc, key) => {
-    if(amountSumHashTable[key] > 1000000){
+  const aggregatedSum = Object.keys(amountSumHashTable).reduce((acc, key) => {
+    if (amountSumHashTable[key] > 1000000) {
       return acc + amountSumHashTable[key];
     }
-    else{
-      return acc;
-    }
-  },0);
+    return acc;
+  }, 0);
   return round(aggregatedSum, 2);
 }
-
-
-
 
 export {
   hundredThousandairs,
   datasetWithRoundedDollar,
   sumOfBankBalances,
   sumOfInterests,
-  higherStateSums
+  higherStateSums,
 };
