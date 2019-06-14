@@ -9,3 +9,6 @@ describe('pairwise', () => {
     expect(pairwise([], 100)).toBe(0);
   });
 });
+
+
+
