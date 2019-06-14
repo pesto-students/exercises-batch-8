@@ -12,10 +12,10 @@
             "completed": false
         },
         "lowercase-keys": {
-            "completed": false
+            "completed": true
         },
         "math-fns": {
-            "completed": false
+            "completed": true
         },
         "parse-ms": {
             "completed": false
