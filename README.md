@@ -16,6 +16,9 @@
     console.log(obj.innerMessage());
   ```
 
+
+The output of the above code snippet would be the following
+
 ```
 undefined
 undefined
@@ -37,6 +40,8 @@ undefined
     console.log(obj.innerMessage());
 ```
 
+The output of the above code snippet would be the following
+
 ```
 Hello
 
@@ -54,6 +59,7 @@ undefined
     console.log(myFunc());
   ```
 
+The output of the above code snippet would be the following
 ```
 undefined
 
@@ -70,6 +76,7 @@ undefined
     console.log(myFunc());
   ```
 
+The output of the above code snippet would be the following
   ```
   Hi John
 
