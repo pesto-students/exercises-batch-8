@@ -1,3 +1,11 @@
+const SECONDS_IN_MINUTE = 60;
+const SECONDS_IN_HOUR = 60 * 60;
+const SECONDS_IN_DAY = 60 * 60 * 24;
+const SECONDS_IN_WEEK = 60 * 60 * 24 * 7;
+const SECONDS_IN_MONTH = 60 * 60 * 24 * 30;
+const SECONDS_IN_YEAR = 60 * 60 * 24 * 365;
+
+
 const orderedUnits = [
   {
     unitName: 'second',
@@ -7,32 +15,32 @@ const orderedUnits = [
   {
     unitName: 'minute',
     maxValue: 60,
-    divisor: 60,
+    divisor: SECONDS_IN_MINUTE,
   },
   {
     unitName: 'hour',
     maxValue: 24,
-    divisor: 60 * 60,
+    divisor: SECONDS_IN_HOUR,
   },
   {
     unitName: 'day',
     maxValue: 7,
-    divisor: 60 * 60 * 24,
+    divisor: SECONDS_IN_DAY,
   },
   {
     unitName: 'week',
     maxValue: 5,
-    divisor: 60 * 60 * 24 * 7,
+    divisor: SECONDS_IN_WEEK,
   },
   {
     unitName: 'month',
     maxValue: 12,
-    divisor: 60 * 60 * 24 * 30,
+    divisor: SECONDS_IN_MONTH,
   },
   {
     unitName: 'year',
     maxValue: null,
-    divisor: 60 * 60 * 24 * 365,
+    divisor: SECONDS_IN_YEAR,
   },
 ];
 
