@@ -1,6 +1,9 @@
 
-function isEven(...args) {
-  return args;
+function isEven(number) {
+  const RADIX = 10;
+  const operatedNumber = parseInt(number / 2, RADIX) * 2;
+
+  return operatedNumber === number;
 }
 
 export {
