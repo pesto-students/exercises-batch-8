@@ -1,8 +1,5 @@
-
-function smallestCommons(...args) {
-  return args;
+function smallestCommons([...array], sliceno) {
+  return array.splice(sliceno);
 }
 
-export {
-  smallestCommons,
-};
+export { smallestCommons };

@@ -1,8 +1,9 @@
-
-function chunkArrayInGroups(...args) {
-  return args;
+function spliceHowMuch([...args], index) {
+  return args.length / index;
 }
 
-export {
-  chunkArrayInGroups,
-};
+function chunkArrayInGroups([...args], index) {
+  return [args, args.splice];
+}
+
+export { chunkArrayInGroups };

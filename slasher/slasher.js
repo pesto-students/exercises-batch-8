@@ -1,8 +1,5 @@
-
-function slasher(...args) {
-  return args;
+function slasher([...array], sliceno) {
+  return array.splice(sliceno);
 }
 
-export {
-  slasher,
-};
+export { slasher };

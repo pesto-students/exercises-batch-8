@@ -1,9 +1,6 @@
-
 function objectKeys(obj) {
-        let resultArray=obj.entries();
-        return resultArray;
+  const resultArray = obj.entries();
+  return resultArray;
 }
 
-export {
-  objectKeys,
-};
+export { objectKeys };

@@ -3,7 +3,7 @@
     "segmentName": "segment-1",
     "exercises": {
         "slasher": {
-            "completed": false
+            "completed": true
         },
         "chunk-array-in-groups": {
             "completed": false
@@ -45,7 +45,7 @@
             "completed": false
         },
         "user-check-password": {
-            "completed": false
+            "completed": true
         }
     }
 }
