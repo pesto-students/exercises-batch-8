@@ -6,6 +6,6 @@ describe('squareNumbersArray', () => {
     expect(() => squareNumbersArray(...myArray)).toThrow('My custom error');
   });
   test('should return square array', () => {
-    
+    expect(squareNumbersArray(1, 2, 3)).toEqual([1, 4, 9]);
   });
 });
