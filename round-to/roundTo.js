@@ -1,8 +1,6 @@
-
-function roundTo(...args) {
-  return args;
+function roundTo(num, precision) {
+  precision = Math.pow(10, precision);
+ 
 }
 
-export {
-  roundTo,
-};
+export { roundTo };
