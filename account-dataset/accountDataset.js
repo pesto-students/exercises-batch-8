@@ -16,20 +16,24 @@ function sumOfBankBalances() {
   return Number(roundedSumOfBankBalances);
 }
 function sumOfInterests() {
-  // const selectedStates = [
-  //   'Wisconsin',
-  //   'Illinois',
-  //   'Wyoming',
-  //   'Ohio',
-  //   'Georgia',
-  //   'Delaware',
-  // ];
-  const sumOfBankBalancesValue = dataset.bankBalances.reduce((acc, account) => {
-    const amountRoundedToCents = Math.round(account.amount * 100) / 100;
-    return acc + amountRoundedToCents;
+  const selectedStates = [
+    'WI',
+    'IL',
+    'WY',
+    'OH',
+    'GA',
+    'DE',
+  ];
+  const sumOfInterestsValue = selectedStates.reduce((acc, state) => {
+    const stateAccounts = dataset.bankBalances.filter(account => account.state === state);
+    return acc + stateAccounts.reduce((partialSum, account) => {
+      console.log(account.state, account.amount);
+      // eslint-disable-next-line no-param-reassign
+      partialSum += account.amount * 0.189;
+      return Number(partialSum.toFixed(2));
+    }, 0);
   }, 0);
-  const roundedSumOfBankBalances = sumOfBankBalancesValue.toFixed(2);
-  return Number(roundedSumOfBankBalances);
+  return Number(sumOfInterestsValue.toFixed(2));
 }
 function higherStateSums() {
   const stateWiseAmounts = dataset.bankBalances.reduce((acc, account) => {
