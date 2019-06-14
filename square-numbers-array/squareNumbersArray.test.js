@@ -7,6 +7,6 @@ describe('squareNumbersArray', () => {
   });
   test('should return square array', () => {
           const mArray = [1, 2, 4];
-          expect(() => squareNumbersArray(...mArray)).toEqual([1,4,16]);
+          expect((() => squareNumbersArray(...mArray))()).toEqual([1, 4, 16]);
   });
 });
