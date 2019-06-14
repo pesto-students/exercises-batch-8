@@ -281,7 +281,7 @@ module.exports = {
   },
 
   testBuffer(test) {
-    const buf = new Buffer(1024); // Unsafe buffer < Buffer.poolSize (8192 bytes)
+    const buf = Buffer.from(1024); // Unsafe buffer < Buffer.poolSize (8192 bytes)
     buf.fill('x');
     server = http.createServer((req, res) => {
       test.equal(req.headers['content-length'], buf.length.toString());
@@ -324,7 +324,7 @@ module.exports = {
           });
           res.on('end', () => {
             response.setHeader('Content-Type', 'text/html; charset=UTF-8');
-            response.end(body + '6789');
+            response.end(body.concat('6789'));
           });
         });
       }).listen(4000, () => {
@@ -378,7 +378,7 @@ module.exports = {
           });
           res.on('end', () => {
             response.setHeader('Content-Type', 'text/html; charset=UTF-8');
-            response.end(body + '1234');
+            response.end(body.concat('1234'));
           });
         });
       }).listen(4000, () => {
@@ -427,8 +427,8 @@ module.exports = {
             },
           },
         }).then((res) => {
-          let base64 = new Buffer('user:pass', 'utf8').toString('base64');
-          test.equal(res.data, `Basic ${  base64}`, 'should authenticate to the proxy');
+          const base64 = Buffer.from('user:pass', 'utf8').toString('base64');
+          test.equal(res.data, `Basic ${base64}`, 'should authenticate to the proxy');
           test.done();
         });
       });
@@ -462,8 +462,8 @@ module.exports = {
         process.env.http_proxy = 'http://user:pass@localhost:4000/';
 
         axios.get('http://localhost:4444/').then((res) => {
-          let base64 = new Buffer('user:pass', 'utf8').toString('base64');
-          test.equal(res.data, `Basic ${  base64}`, 'should authenticate to the proxy set by process.env.http_proxy');
+          const base64 = Buffer.from('user:pass', 'utf8').toString('base64');
+          test.equal(res.data, `Basic ${base64}`, 'should authenticate to the proxy set by process.env.http_proxy');
           test.done();
         });
       });
@@ -507,8 +507,8 @@ module.exports = {
             'Proxy-Authorization': 'Basic abc123',
           },
         }).then((res) => {
-          let base64 = new Buffer('user:pass', 'utf8').toString('base64');
-          test.equal(res.data, `Basic ${  base64}`, 'should authenticate to the proxy');
+          const base64 = Buffer.from('user:pass', 'utf8').toString('base64');
+          test.equal(res.data, `Basic ${base64}`, 'should authenticate to the proxy');
           test.done();
         });
       });
