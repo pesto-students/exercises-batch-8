@@ -1,6 +1,6 @@
 
-function boolean(...args) {
-  return args;
+function boolean(testInput) {
+  return Boolean(testInput).valueOf();
 }
 
 export {
