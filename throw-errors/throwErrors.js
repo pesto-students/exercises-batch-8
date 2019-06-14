@@ -9,7 +9,6 @@ function invokeErrors() {
     throwErrors();
   } catch (e) {
     nameOfError = e.name;
-    return e.name;
   }
   return nameOfError;
 }
