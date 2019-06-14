@@ -16,6 +16,10 @@ function lcm(a, b) {
 }
 
 
+/**
+ * This is Euclidean Algorithm.
+ * Explanation of algorithm : https://austinwsmith.wordpress.com/2018/01/31/euclidean/
+ */
 function smallestCommons([number1, number2] = []) {
   let min;
   let max;
