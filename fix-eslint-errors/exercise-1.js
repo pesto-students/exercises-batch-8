@@ -65,7 +65,7 @@ describe('Promise.each', () => {
     });
   });
 
-  it('doesnt iterate with an empty array', () => Promise.each([], (val) => {
+  it('doesnt iterate with an empty array', () => Promise.each([], () => {
     throw new Error();
   }).then((ret) => {
     assert.deepEqual(ret, []);
