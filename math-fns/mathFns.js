@@ -1,8 +1,18 @@
+function sqrt(num) {
+  return Math.sqrt(num);
+}
 
-function mathFns(...args) {
-  return args;
+function power(num, exponent) {
+  /* eslint-disable-next-line */
+  return Math.pow(num, exponent);
+}
+
+function round(num) {
+  return Math.round(num);
 }
 
 export {
-  mathFns,
+  sqrt,
+  power,
+  round,
 };
