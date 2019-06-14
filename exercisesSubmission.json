@@ -12,10 +12,10 @@
             "completed": false
         },
         "memoize": {
-            "completed": false
+            "completed": true
         },
         "curry": {
-            "completed": false
+            "completed": true
         },
         "account-dataset": {
             "completed": true
