@@ -6,7 +6,7 @@
             "completed": false
         },
         "is-palindrome": {
-            "completed": false
+            "completed": true
         },
         "diff-array": {
             "completed": true
@@ -21,7 +21,7 @@
             "completed": false
         },
         "get-index-to-ins": {
-            "completed": false
+            "completed": true
         },
         "repeat-string-num-times": {
             "completed": false
