@@ -1,10 +1,4 @@
-
-function boolean(input) {
-  if (typeof input === 'boolean') {
-    return true;
-  }
-  return false;
-}
+const boolean = Boolean;
 
 export {
   boolean,
