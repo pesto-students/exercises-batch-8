@@ -1,11 +1,11 @@
 const assert = require('assert');
 
 function promised(val) {
-  return new Promise(((f) => {
+  return new Promise((f) => {
     setTimeout(() => {
       f(val);
     }, 1);
-  }));
+  });
 }
 
 function thenabled(val, arr) {
