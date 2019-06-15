@@ -1,7 +1,7 @@
 
 function abbreviateString(name) {
   if (typeof name !== 'string') {
-    throw new Error('Invalid parameters.');
+    throw new Error(`Expected a string. Received ${typeof name}`);
   }
 
   const names = name.split(' ');
