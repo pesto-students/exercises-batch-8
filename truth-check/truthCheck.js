@@ -1,6 +1,7 @@
 
-function truthCheck(...args) {
-  return args;
+function truthCheck(objects, key) {
+  return objects
+    .reduce((acc, object) => (acc && Boolean(object[key])), true);
 }
 
 export {
