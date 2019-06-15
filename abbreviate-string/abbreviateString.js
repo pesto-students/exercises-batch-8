@@ -1,7 +1,10 @@
 
 function abbreviateString(string) {
-  const splittedString = string.split(' ');
-  return `${splittedString[0]} ${splittedString[splittedString.length - 1][0].toUpperCase()}.`;
+  if (typeof string !== 'string') {
+    throw new Error('Input is not a string');
+  }
+  const words = string.split(' ');
+  return `${words[0]} ${words[words.length - 1][0].toUpperCase()}.`;
 }
 
 export {
