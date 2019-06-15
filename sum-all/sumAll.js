@@ -1,6 +1,10 @@
+function sumUpto(N) {
+  return N * (N + 1) / 2;
+}
 
-function sumAll(bounds) {
-  return (bounds[0] + bounds[1]) * (Math.abs(bounds[1] - bounds[0]) + 1) / 2;
+function sumAll(range) {
+  const [lowerIndex, upperIndex] = range[0] > range[1] ? [1, 0] : [0, 1];
+  return sumUpto(range[upperIndex]) - sumUpto(range[lowerIndex] - 1);
 }
 
 export {
