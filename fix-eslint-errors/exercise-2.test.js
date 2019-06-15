@@ -1,25 +1,24 @@
-function noop () {}
+function noop() {}
 
 if (typeof console === 'undefined') {
-  window.console = {
+  this.window.console = {
     warn: noop,
-    error: noop
-  }
+    error: noop,
+  };
 }
 
 // avoid info messages during test
-console.info = noop
+console.info = noop;
 
-let asserted
+let asserted;
 
-function createCompareFn (spy) {
-  const hasWarned = msg => {
-    var count = spy.calls.count()
-    var args
+function createCompareFn(spy) {
+  const hasWarned = (msg) => {
+    let count = spy.calls.count();
     while (count--) {
-      args = spy.calls.argsFor(count)
+      const args = spy.calls.argsFor(count)
       if (args.some(containsMsg)) {
-        return true
+        return true;
       }
     }
 
