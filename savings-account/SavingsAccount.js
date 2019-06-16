@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(sa".+"))@(([^<>()[]\.,;:\s@"]+\.)+[^<>()[]\.,;:\s@"]{2,})$/i;
+const emailRegex = /^([a-z]+@[a-z.]+)$/i;
 function SavingsAccount(accountNumber, email, firstName, lastName) {
   if (accountNumber.length !== 6) {
     throw new Error('Account Number must be a 6-digit number');
