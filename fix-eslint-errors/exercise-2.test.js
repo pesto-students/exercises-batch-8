@@ -48,16 +48,11 @@ function createCompareFn(spy) {
 // define custom matcher for warnings
 beforeEach(() => {
   asserted = [];
-  spyOn(console, 'warn');
-  spyOn(console, 'error');
-  jasmine.addMatchers({
-    toHaveBeenWarned: () => createCompareFn(console.error),
-    toHaveBeenTipped: () => createCompareFn(console.warn),
-  });
+  createCompareFn(console.warn);
 });
 
 afterEach((done) => {
-  const warned = msg => asserted.some(assertedMsg => msg.toString().indexOf(assertedMsg) > -1)
+  const warned = msg => asserted.some(assertedMsg => msg.toString().indexOf(assertedMsg) > -1);
   let count = console.error.calls.count();
   let args;
   while (count) {
