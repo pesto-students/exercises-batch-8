@@ -6,22 +6,22 @@
             "completed": true
         },
         "days-in-month": {
-            "completed": false
+            "completed": true
         },
         "json-parse": {
-            "completed": false
+            "completed": true
         },
         "lowercase-keys": {
             "completed": true
         },
         "math-fns": {
-            "completed": false
+            "completed": true
         },
         "parse-ms": {
-            "completed": false
+            "completed": true
         },
         "round-to": {
-            "completed": false
+            "completed": true
         },
         "time-was": {
             "completed": false
@@ -30,16 +30,16 @@
             "completed": true
         },
         "add-big-integers": {
-            "completed": false
+            "completed": true
         },
         "alien-alphabet": {
             "completed": false
         },
         "permutate-with-repetitions": {
-            "completed": false
+            "completed": true
         },
         "throw-errors": {
-            "completed": false
+            "completed": true
         }
     }
 }

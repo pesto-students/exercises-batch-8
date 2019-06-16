@@ -1,9 +1,7 @@
 function throwErrors(...args) {
-  function doesNothing() {
-    notdefined;
-  }
+  
   try {
-    doesNothing();
+  a++;
   } catch (e) {
     if (e instanceof ReferenceError) {
       return e.name;
