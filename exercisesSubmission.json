@@ -15,10 +15,10 @@
             "completed": true
         },
         "update-inventory": {
-            "completed": false
+            "completed": true
         },
         "smallest-commons": {
-            "completed": false
+            "completed": true
         },
         "truth-check": {
             "completed": true
