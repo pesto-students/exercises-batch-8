@@ -36,7 +36,7 @@
             "completed": true
         },
         "pairwise": {
-            "completed": false
+            "completed": true
         },
         "convert-to-roman": {
             "completed": true
