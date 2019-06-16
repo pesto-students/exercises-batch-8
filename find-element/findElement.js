@@ -1,6 +1,8 @@
 
-function findElement(...args) {
-  return args;
+function findElement([...args],operatorFunction) {
+ args.find(function(element){
+        return operatorFunction(element);
+ });
 }
 
 export {

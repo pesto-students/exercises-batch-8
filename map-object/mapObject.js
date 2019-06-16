@@ -1,8 +1,9 @@
+function mapObject(obj, squareFunction) {
+  const resultObj = {};
 
-function mapObject(...args) {
-  return args;
+  obj.entries;
+
+  return resultObj;
 }
 
-export {
-  mapObject,
-};
+export { mapObject };
