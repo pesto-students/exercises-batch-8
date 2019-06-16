@@ -18,10 +18,10 @@
             "completed": true
         },
         "parse-ms": {
-            "completed": false
+            "completed": true
         },
         "round-to": {
-            "completed": false
+            "completed": true
         },
         "time-was": {
             "completed": false
