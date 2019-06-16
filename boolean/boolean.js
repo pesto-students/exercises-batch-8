@@ -1,6 +1,7 @@
 
 function boolean(...args) {
-  return args;
+        var a=false;
+  return a;
 }
 
 export {

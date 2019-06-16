@@ -1,8 +1,12 @@
-
 function throwErrors(...args) {
-  return args;
+  
+  try {
+  a++;
+  } catch (e) {
+    if (e instanceof ReferenceError) {
+      return e.name;
+    }
+  }
 }
 
-export {
-  throwErrors,
-};
+export { throwErrors };

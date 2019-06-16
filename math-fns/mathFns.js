@@ -1,8 +1,9 @@
+// const mathFns={
+//         sqrt:argu=>Math.sqrt(argu),
+//         power:argu=>Math.pow(argu),
+//         round:argu=>Math.round(argu),
+// }
 
-function mathFns(...args) {
-  return args;
-}
+const { sqrt, round, pow: power } = Math;
 
-export {
-  mathFns,
-};
+export { sqrt, round, power };
