@@ -1,11 +1,13 @@
 
-function memoize(...args,unused) {
-        
-        const fib = memoize((n) => {
-      called += 1;
-      if (n < 2) return n;
-      return fib(n - 1) + fib(n - 2);
-    });
+function memoize(fun) {
+       const cache = {};
+  return function(...args){
+    const key = args.toString();
+    if (cache[key] === undefined) {
+      cache[key] = fun(...args);
+    }
+    return cache[key];
+};
 }
 
 export {
