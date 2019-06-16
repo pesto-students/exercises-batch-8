@@ -3,7 +3,7 @@
     "segmentName": "segment-2",
     "exercises": {
         "reverse-string": {
-            "completed": false
+            "completed": true
         },
         "is-palindrome": {
             "completed": true
@@ -24,7 +24,7 @@
             "completed": true
         },
         "repeat-string-num-times": {
-            "completed": false
+            "completed": true
         },
         "binary-agent": {
             "completed": true
