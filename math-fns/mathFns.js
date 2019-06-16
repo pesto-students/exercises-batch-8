@@ -1,15 +1,4 @@
-function sqrt(num) {
-  return Math.sqrt(num);
-}
-
-function power(num, exponent) {
-  /* eslint-disable-next-line */
-  return Math.pow(num, exponent);
-}
-
-function round(num) {
-  return Math.round(num);
-}
+const { sqrt, power, round } = Math;
 
 export {
   sqrt,
