@@ -1,6 +1,5 @@
-
-function longestWordInString(...args) {
-  return args;
+function longestWordInString(str) {
+  return Math.max(...str.split(' ').map(string => string.length));
 }
 
 export {
