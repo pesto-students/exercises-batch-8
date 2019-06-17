@@ -6,7 +6,7 @@
             "completed": false
         },
         "block-scoping": {
-            "completed": false
+            "completed": true
         },
         "const-immutable": {
             "completed": false
