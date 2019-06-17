@@ -27,7 +27,7 @@
             "completed": true
         },
         "is-promise": {
-            "completed": false
+            "completed": true
         },
         "promise-all-props": {
             "completed": false
