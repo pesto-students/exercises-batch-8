@@ -1,6 +1,7 @@
 
-function allPromises(...args) {
-  return args;
+function allPromises(promises) {
+  // TODO: do without Promise.all
+  return Promise.all(promises);
 }
 
 export {
