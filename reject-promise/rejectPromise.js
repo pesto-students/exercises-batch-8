@@ -1,6 +1,7 @@
 
-function rejectPromise(...args) {
-  return args;
+function rejectPromise() {
+  // eslint-disable-next-line prefer-promise-reject-errors
+  return Promise.resolve('REJECTED!');
 }
 
 export {
