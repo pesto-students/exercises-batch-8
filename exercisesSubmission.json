@@ -33,7 +33,7 @@
             "completed": false
         },
         "sum-even-args": {
-            "completed": false
+            "completed": true
         },
         "template-literals": {
             "completed": true
