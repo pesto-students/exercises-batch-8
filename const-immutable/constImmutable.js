@@ -1,6 +1,7 @@
 
-function constImmutable(...args) {
-  return args;
+function constImmutable() {
+  const password = 'initialPassword';
+  return password;
 }
 
 export {
