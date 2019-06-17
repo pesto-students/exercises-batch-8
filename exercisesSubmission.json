@@ -39,7 +39,7 @@
             "completed": true
         },
         "throw-errors": {
-            "completed": false
+            "completed": true
         }
     }
 }
