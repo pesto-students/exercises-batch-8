@@ -15,7 +15,7 @@
             "completed": false
         },
         "queue": {
-            "completed": false
+            "completed": true
         },
         "person": {
             "completed": true
@@ -30,7 +30,7 @@
             "completed": true
         },
         "promise-all-props": {
-            "completed": false
+            "completed": true
         },
         "sleep-promise": {
             "completed": false
