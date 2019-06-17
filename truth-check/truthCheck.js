@@ -1,6 +1,6 @@
 
-function truthCheck(...args) {
-  return args;
+function truthCheck(objArr, predicate) {
+  return Boolean(objArr.reduce((acc, curr) => acc && curr[predicate], true));
 }
 
 export {

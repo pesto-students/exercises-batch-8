@@ -1,6 +1,6 @@
 
-function slasher(...args) {
-  return args;
+function slasher(arr, slashBy) {
+  return arr.slice(slashBy);
 }
 
 export {
