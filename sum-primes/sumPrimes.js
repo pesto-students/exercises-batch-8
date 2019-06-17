@@ -1,3 +1,4 @@
+const range = (min, max) => [...Array(max).keys()].map(num => num + min);
 const isPrime = (number) => {
   for (let index = 2; index < number; index += 1) {
     if (number % index === 0) {
@@ -8,8 +9,7 @@ const isPrime = (number) => {
 };
 
 function sumPrimes(number) {
-  const numberRange = [...Array(number).keys()];
-  numberRange.splice(0, 2);
+  const numberRange = range(2, number - 1);
 
   const primesWithinRange = numberRange.filter(isPrime);
   const sum = primesWithinRange.reduce((num, prevNum) => num + prevNum);
