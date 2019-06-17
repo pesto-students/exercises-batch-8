@@ -1,6 +1,7 @@
+function allOfConditions(...functions) {
+  const trueOrFalse = params => functions.every(fn => fn(params));
 
-function allOfConditions(...args) {
-  return args;
+  return trueOrFalse;
 }
 
 export {
