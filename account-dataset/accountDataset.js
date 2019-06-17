@@ -51,14 +51,13 @@ function higherStateSums() {
   const minium = 1000000;
   const amountOfStates = {};
   bankBalances.forEach((account) => {
-    if (amountOfStates[account.state] === undefined) {
-      amountOfStates[account.state] = account.amount;
+    if (amountOfStates[account.state]) {
+      amountOfStates[account.state] += parseFloat(account.amount);
     } else {
-      amountOfStates[account.state] += account.amount;
+      amountOfStates[account.state] = parseFloat(account.amount);
     }
   });
   const amountOfStatesArray = Object.values(amountOfStates);
-  console.log(amountOfStatesArray);
   return amountOfStatesArray.reduce((acc, curr) => {
     if (curr > minium) {
       return acc + curr;
