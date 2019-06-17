@@ -1,8 +1,9 @@
+function templateTagFunction(args) {
+  callTemplateTagFunction`${args}`;
 
-function templateTagFunction(...args) {
-  return args;
+  function callTemplateTagFunction(argument) {
+    return argument.filter(element => element === '"' || '>' || '<' || '&');
+  }
 }
 
-export {
-  templateTagFunction,
-};
+export { templateTagFunction };
