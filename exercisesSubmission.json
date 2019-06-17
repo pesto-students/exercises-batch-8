@@ -27,10 +27,10 @@
             "completed": false
         },
         "place-in-middle": {
-            "completed": false
+            "completed": true
         },
         "print-full-name": {
-            "completed": false
+            "completed": true
         },
         "sum-even-args": {
             "completed": true
