@@ -3,13 +3,13 @@
     "segmentName": "segment-2",
     "exercises": {
         "alphabetic-shift": {
-            "completed": false
+            "completed": true
         },
         "all-promises": {
             "completed": true
         },
         "greet": {
-            "completed": false
+            "completed": true
         },
         "reject-promise": {
             "completed": false
@@ -18,7 +18,7 @@
             "completed": false
         },
         "person": {
-            "completed": false
+            "completed": true
         },
         "sequential-promise": {
             "completed": false
@@ -27,7 +27,7 @@
             "completed": false
         },
         "is-promise": {
-            "completed": false
+            "completed": true
         },
         "promise-all-props": {
             "completed": false
