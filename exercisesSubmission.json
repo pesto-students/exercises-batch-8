@@ -9,7 +9,7 @@
             "completed": false
         },
         "const-immutable": {
-            "completed": false
+            "completed": true
         },
         "create-student": {
             "completed": false
@@ -24,7 +24,7 @@
             "completed": false
         },
         "map-filter-and-reduce": {
-            "completed": false
+            "completed": true
         },
         "place-in-middle": {
             "completed": false
