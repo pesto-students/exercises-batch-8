@@ -1,6 +1,6 @@
 
-function findElement(...args) {
-  return args;
+function findElement(args, condition) {
+  return args.find(condition);
 }
 
 export {
