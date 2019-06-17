@@ -15,13 +15,13 @@
             "completed": false
         },
         "double-odd-numbers": {
-            "completed": false
+            "completed": true
         },
         "instructor": {
-            "completed": false
+            "completed": true
         },
         "join-arrays": {
-            "completed": false
+            "completed": true
         },
         "map-filter-and-reduce": {
             "completed": false
