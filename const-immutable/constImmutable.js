@@ -6,9 +6,11 @@ function constImmutable() {
   Object.defineProperty(account, 'password', {
     value: 'initialPassword',
     writable: false,
-    ennumerable: false,
+    enumerable: false,
     configurable: false,
   });
+
+  account.username = 'someOtherPassword';
 
   return account.password;
 }
