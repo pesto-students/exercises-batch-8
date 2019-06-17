@@ -1,7 +1,5 @@
 
-function rejectPromise(...args) {
-  return args;
-}
+const rejectPromise = () => new Promise(() => 'REJECTED!');
 
 export {
   rejectPromise,
