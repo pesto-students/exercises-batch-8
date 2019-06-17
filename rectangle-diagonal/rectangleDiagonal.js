@@ -1,6 +1,6 @@
 
-function rectangleDiagonal(...args) {
-  return args;
+function rectangleDiagonal(length, breadth) {
+  return Math.sqrt((length ** 2) + (breadth ** 2));
 }
 
 export {
