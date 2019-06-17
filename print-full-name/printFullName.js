@@ -1,6 +1,7 @@
 
-function printFullName(...args) {
-  return args;
+function printFullName(person) {
+  const { first: firstName, last: lastName } = person;
+  return `My name is ${firstName} ${lastName}`;
 }
 
 export {
