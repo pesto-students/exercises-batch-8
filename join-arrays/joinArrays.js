@@ -1,6 +1,6 @@
 
 function joinArrays(...arrays) {
-  return (arrays.flat());
+  return arrays.flat();
 }
 
 export {
