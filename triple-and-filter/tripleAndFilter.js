@@ -1,9 +1,8 @@
+import { arrayExpression } from '@babel/types';
+
 function tripleAndFilter([...args]) {
-  return args.reduce((accumultaor, current) => {
-    if ((current * 3) % 5 === 0) {
-      return [...accumultaor, current * 5];
-    }
-  }, []);
+  const newarr = args.map(element => element * 3);
+  return newarr.filter(element => element % 5 === 0);
 }
 
 export { tripleAndFilter };

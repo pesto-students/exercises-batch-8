@@ -3,9 +3,10 @@ function sumEvenArgs(...args) {
     if (key % 2 !== 0) {
       return accumulator + current;
     }
-  });
+    return accumulator;
+  }) - args[0];
 
-  return result - args[0];
+  return result;
 }
 
 export { sumEvenArgs };
