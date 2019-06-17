@@ -1,6 +1,7 @@
-
+const triple = number => number * 3;
+const ifDivisibleBy5 = number => number % 5 === 0;
 function tripleAndFilter(numbers) {
-  return numbers.map(number => number * 3).filter(number => number % 5 === 0);
+  return numbers.map(triple).filter(ifDivisibleBy5);
 }
 
 export {
