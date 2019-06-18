@@ -1,9 +1,10 @@
-function templateTagFunction(args) {
-  callTemplateTagFunction `${args}`;
-
-  function callTemplateTagFunction(argument) {
-    return argument.filter(element => element === '"' || '>' || '<' || '&');
-  }
+function callTemplateTagFunction() {
+  const html = 'The expression 5 > 4 is "true" & 3 < 1 is false';
+  return html
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/&/g, '&amp;');
 }
 
-export { templateTagFunction };
+export { callTemplateTagFunction };

@@ -1,8 +1,5 @@
-
-function constImmutable(...args) {
-  return args;
+function constImmutable() {
+  return 'initialPassword';
 }
-
-export {
-  constImmutable,
-};
+Object.freeze(constImmutable);
+export { constImmutable };
