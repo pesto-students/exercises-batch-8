@@ -1,8 +1,7 @@
-
-function sleepPromise(...args) {
-  return args;
+function sleep(time) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
 }
 
-export {
-  sleepPromise,
-};
+export { sleep };
