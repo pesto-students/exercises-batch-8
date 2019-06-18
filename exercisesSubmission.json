@@ -15,7 +15,7 @@
             "completed": false
         },
         "iterable-protocol": {
-            "completed": false
+            "completed": true
         },
         "is-iterable": {
             "completed": true
@@ -27,7 +27,7 @@
             "completed": false
         },
         "simple-iterable": {
-            "completed": false
+            "completed": true
         }
     }
 }
