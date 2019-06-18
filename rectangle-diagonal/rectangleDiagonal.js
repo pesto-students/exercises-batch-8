@@ -1,8 +1,9 @@
-
-function rectangleDiagonal(...args) {
-  return args;
+function square(number) {
+  return number ** 2;
 }
 
-export {
-  rectangleDiagonal,
-};
+function rectangleDiagonal(length, breadth) {
+  return Math.sqrt(square(length) + square(breadth));
+}
+
+export { rectangleDiagonal };
