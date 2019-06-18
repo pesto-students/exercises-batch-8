@@ -1,8 +1,8 @@
 
 function createStudent(studentLikes) {
   const generalLikes = {
-    likesJavaScript: false,
-    likesES2015: false,
+    likesJavaScript: true,
+    likesES2015: true,
   };
   const finalLikes = Object.assign(generalLikes, studentLikes);
   if (finalLikes.likesES2015 && finalLikes.likesJavaScript) {
