@@ -1,8 +1,7 @@
-
 function cycled(...args) {
-  return args;
+    return args;
 }
 
 export {
-  cycled,
+    cycled,
 };

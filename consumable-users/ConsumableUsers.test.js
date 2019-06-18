@@ -4,7 +4,6 @@ describe('Iterator usages', () => {
   let usersIterable;
   beforeEach(() => {
     const consumableUsers = new ConsumableUsers();
-
     function iteratorFunction() {
       return {
         next: () => ({

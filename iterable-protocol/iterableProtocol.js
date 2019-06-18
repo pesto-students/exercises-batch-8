@@ -1,6 +1,10 @@
 
-function iterableProtocol(...args) {
-  return args;
+function iterableProtocol() {
+  return {
+    next() {
+      return { done: true };
+    },
+  };
 }
 
 export {
