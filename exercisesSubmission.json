@@ -9,13 +9,13 @@
             "completed": true
         },
         "const-immutable": {
-            "completed": false
+            "completed": true
         },
         "create-student": {
-            "completed": false
+            "completed": true
         },
         "double-odd-numbers": {
-            "completed": false
+            "completed": true
         },
         "instructor": {
             "completed": false
