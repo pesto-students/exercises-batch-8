@@ -1,8 +1,8 @@
-
-function rejectPromise(...args) {
-  return args;
+// eslint-disable-next-line no-unused-vars
+function rejectPromise() {
+  return new Promise((resolve) => {
+    resolve('REJECTED!');
+  });
 }
 
-export {
-  rejectPromise,
-};
+export { rejectPromise };
