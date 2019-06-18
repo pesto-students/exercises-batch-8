@@ -1,6 +1,6 @@
 
-function joinArrays(...args) {
-  return args;
+function joinArrays(...numbers) {
+  return numbers.reduce((accumulator, oneNumberArray) => [...accumulator, ...oneNumberArray], []);
 }
 
 export {

@@ -1,6 +1,6 @@
 
-function allOfConditions(...args) {
-  return args;
+function allOfConditions(...predicates) {
+  return value => predicates.every(func => func(value));
 }
 
 export {
