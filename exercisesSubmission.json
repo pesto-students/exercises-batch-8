@@ -18,7 +18,7 @@
             "completed": true
         },
         "smallest-commons": {
-            "completed": false
+            "completed": true
         },
         "truth-check": {
             "completed": true
@@ -45,7 +45,7 @@
             "completed": true
         },
         "user-check-password": {
-            "completed": false
+            "completed": true
         }
     }
 }
