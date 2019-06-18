@@ -1,6 +1,6 @@
 
-function printFullName(...args) {
-  return args;
+function printFullName(user) {
+  return `My name is ${user.first} ${user.last}`;
 }
 
 export {
