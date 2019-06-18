@@ -1,6 +1,6 @@
 
-function isPromise(...args) {
-  return args;
+function isPromise(promise) {
+  return Promise.resolve(promise) === promise;
 }
 
 export {
