@@ -1,8 +1,9 @@
-
 function objectAssign(...args) {
-  return args;
+  const resultantObject = {};
+  args.forEach(arg => {
+    Object.assign(resultantObject, arg);
+  });
+  return resultantObject;
 }
 
-export {
-  objectAssign,
-};
+export { objectAssign };
