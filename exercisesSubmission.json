@@ -3,7 +3,7 @@
     "segmentName": "segment-1",
     "exercises": {
         "consumable-users": {
-            "completed": false
+            "completed": true
         },
         "cycled": {
             "completed": false
