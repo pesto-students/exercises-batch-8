@@ -30,7 +30,7 @@
             "completed": true
         },
         "print-full-name": {
-            "completed": false
+            "completed": true
         },
         "sum-even-args": {
             "completed": false
