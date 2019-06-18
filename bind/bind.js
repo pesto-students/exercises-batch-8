@@ -1,8 +1,5 @@
-
-function bind(...args) {
-  return args;
+function bind(inputFunc, ...argument) {
+  return inputFunc.bind(...argument);
 }
 
-export {
-  bind,
-};
+export { bind };
