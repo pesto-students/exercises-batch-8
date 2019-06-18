@@ -1,8 +1,8 @@
 
 function promiseAllProps(promisesObject) {
   const resultObject = {};
-  const promisesInArray = Object.keys(promisesObject).map(key => promisesObject[key]);
-  return Promise.all(promisesInArray)
+  const promisesArray = Object.keys(promisesObject).map(key => promisesObject[key]);
+  return Promise.all(promisesArray)
     .then(results => results.forEach((result, i) => {
       resultObject[Object.keys(promisesObject)[i]] = result;
     }))
