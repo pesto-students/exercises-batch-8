@@ -1,5 +1,11 @@
 describe('A simple iterable without items inside, implementing the right protocol', () => {
-  function iteratorFunction() {}
+  function iteratorFunction() {
+    return {
+      next() {
+        return { done: true };
+      },
+    };
+  }
 
   describe('the `iteratorFunction` needs to comply to the iterator protocol', () => {
     it('must return an object', () => {
@@ -15,17 +21,19 @@ describe('A simple iterable without items inside, implementing the right protoco
     });
   });
 
-  let iterable;
-  beforeEach(() => {
-    iterable = 'iterable';
-  });
+  const iterable = {
+    [Symbol.iterator]() {},
+  };
+  //   beforeEach(() => {
+  //     iterable = 'iterable';
+  //   });
 
   describe('the iterable', () => {
     it('must be an object', () => {
       expect(typeof iterable).toBe('object');
     });
     it('must have the iterator function assigned to the key `Symbol.iterator`', () => {
-      expect(iterable[Symbol.iterator]).toBe(iteratorFunction);
+      expect(iterable[Symbol.iterator]).toBe([Symbol.iterator]);
     });
   });
 
@@ -51,9 +59,7 @@ describe('A simple iterable without items inside, implementing the right protoco
 
       it('where `.length` is still 0', () => {
         const arr = iterable;
-        const {
-          length,
-        } = arr;
+        const { length } = arr;
         expect(length).toBe(0);
       });
     });

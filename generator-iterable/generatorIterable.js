@@ -1,8 +1,7 @@
 
-function generatorIterable(...args) {
-  return args;
+const fibonacciIter={
 }
 
 export {
-  generatorIterable,
+  fibonacciIter,
 };
