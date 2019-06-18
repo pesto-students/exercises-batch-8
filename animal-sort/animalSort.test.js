@@ -16,6 +16,7 @@ describe('animalSort', () => {
       { name: 'Bird', numberOfLegs: 2 },
       { name: 'Dog', numberOfLegs: 4 },
     ];
+    console.log('sorting here', animalSort(arr));
     expect(animalSort(arr)).toEqual(result);
   });
 
