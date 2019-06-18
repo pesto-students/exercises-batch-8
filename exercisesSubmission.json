@@ -9,13 +9,13 @@
             "completed": true
         },
         "aperture": {
-            "completed": false
+            "completed": true
         },
         "animal-sort": {
-            "completed": false
+            "completed": true
         },
         "args-string": {
-            "completed": false
+            "completed": true
         },
         "arithmetic-expression-evaluator": {
             "completed": false
