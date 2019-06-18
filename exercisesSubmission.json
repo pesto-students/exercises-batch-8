@@ -45,7 +45,7 @@
             "completed": true
         },
         "all-of-conditions": {
-            "completed": false
+            "completed": true
         }
     }
 }
