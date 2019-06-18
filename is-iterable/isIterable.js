@@ -1,7 +1,6 @@
 
 function isIterable(collection) {
-  const iterator = collection[Symbol.iterator] || null;
-  return typeof iterator === 'function';
+  return typeof collection[Symbol.iterator] === 'function';
 }
 
 export {
