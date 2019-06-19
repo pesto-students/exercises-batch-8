@@ -1,6 +1,10 @@
 
 function argsString(string, array) {
-  return array.reduce((stringToUpdate, valueToPlace) => stringToUpdate.replace('{}', valueToPlace), string);
+  return array
+    .reduce(
+      (stringAcc, valueToPlace) => stringAcc.replace('{}', valueToPlace),
+      string,
+    );
 }
 
 export {
