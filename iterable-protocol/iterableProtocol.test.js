@@ -43,7 +43,6 @@ describe('A simple iterable without items inside, implementing the right protoco
   describe('using the iterable', () => {
     it('it contains no values', () => {
       let values = '';
-      console.log(iterable)
       for (const value of iterable) {
         values += value;
       }
