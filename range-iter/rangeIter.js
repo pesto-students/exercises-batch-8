@@ -1,4 +1,4 @@
-
+//  wip
 function rangeIter(lb, ub) {
   if (ub < lb) {
     return [];
@@ -13,7 +13,23 @@ function rangeIter(lb, ub) {
   for (let i = lb; i <= ub; i += 1) {
     range.push(i);
   }
-  return range;
+  return {
+    [Symbol.iterator]() {
+      let index = -1;
+      return {
+        next() {
+          index += 1;
+          return {
+            value: range[index],
+            done: (range.length <= index),
+          };
+        },
+        [Symbol.iterator]() {
+          return range;
+        },
+      };
+    },
+  };
 }
 
 export {
