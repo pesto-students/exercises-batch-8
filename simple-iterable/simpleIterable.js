@@ -1,19 +1,17 @@
-function thisReturns(parentRefrence) {
-  if (parentRefrence.object.value <= 5) {
-    parentRefrence.object.value = parentRefrence.object.value + 1;
-    return parentRefrence.object;
-  }
-  return { value: undefined, done: true };
-}
-
 function simpleIterable() {
   return {
-    object: {
-      value: 0,
-      done: false,
-    },
-    [Symbol.iterator]:() {
-      return thisReturns(this);
+    [Symbol.iterator]() {
+      let step = 0;
+      const iterator = {
+        next() {
+          step++;
+          if (step <= 5) {
+            return { value: step, done: false };
+          }
+          return { value: undefined, done: true };
+        },
+      };
+      return iterator;
     },
   };
 }

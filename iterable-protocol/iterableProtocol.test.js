@@ -1,8 +1,10 @@
 describe('A simple iterable without items inside, implementing the right protocol', () => {
   function iteratorFunction() {
     return {
-      next() {
-        return { done: true };
+      [Symbol.iterator]() {
+        return {
+          next: () => ({ done: true, value: undefined }),
+        };
       },
     };
   }
@@ -12,34 +14,36 @@ describe('A simple iterable without items inside, implementing the right protoco
       expect(typeof iteratorFunction()).toBe('object');
     });
     it('the object must have a function assigned to a key `next`', () => {
-      expect(typeof iteratorFunction().next).toBe('function');
+      expect(typeof iteratorFunction()[Symbol.iterator]().next).toBe('function');
     });
     it('calling `next()` must return an object with `{done: true}`', () => {
-      expect(iteratorFunction().next()).toEqual({
+      expect(
+        iteratorFunction()
+          [Symbol.iterator]()
+          .next(),
+      ).toEqual({
         done: true,
       });
     });
   });
 
-  const iterable = {
-    [Symbol.iterator]() {},
-  };
-  //   beforeEach(() => {
-  //     iterable = 'iterable';
-  //   });
+  let iterable;
+  beforeEach(() => {
+    iterable = iteratorFunction();
+  });
 
   describe('the iterable', () => {
     it('must be an object', () => {
       expect(typeof iterable).toBe('object');
     });
     it('must have the iterator function assigned to the key `Symbol.iterator`', () => {
-      expect(iterable[Symbol.iterator]).toBe([Symbol.iterator]);
+      expect(typeof iteratorFunction()[Symbol.iterator]().next).toBe('function');
     });
   });
 
   describe('using the iterable', () => {
+    let values = '';
     it('it contains no values', () => {
-      let values;
       for (const value of iterable) {
         values += value;
       }
@@ -47,18 +51,18 @@ describe('A simple iterable without items inside, implementing the right protoco
     });
 
     it('has no `.length` property', () => {
-      const hasLengthProperty = iterable;
+      const hasLengthProperty = Object.prototype.hasOwnProperty(iterable, 'length');
       expect(hasLengthProperty).toBe(false);
     });
 
     describe('can be converted to an array', () => {
       it('using `Array.from()`', () => {
-        const arr = iterable;
+        const arr = Array.from(iterable);
         expect(Array.isArray(arr)).toBe(true);
       });
 
       it('where `.length` is still 0', () => {
-        const arr = iterable;
+        const arr = Array.from(iterable);
         const { length } = arr;
         expect(length).toBe(0);
       });
