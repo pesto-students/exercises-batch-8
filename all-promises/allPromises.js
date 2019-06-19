@@ -10,9 +10,7 @@ function allPromises(promises, results = []) {
   if (!(firstPromise instanceof Promise)) {
     firstPromise = new Promise(res => res(firstPromise));
   }
-  return firstPromise.then((res) => {
-    allPromises(promises, [...results, res]);
-  });
+  return firstPromise.then(res => allPromises(promises, [...results, res]));
 }
 
 export { allPromises };
