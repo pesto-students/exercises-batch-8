@@ -2,9 +2,11 @@
 const isNegativeZero = x => x === 0 && 1 / x < 0;
 const containsNegativeZero = array => array.some(num => isNegativeZero(num));
 const containsIsNaN = array => array.some(num => Number.isNaN(num));
-const areArraysEqual = (first, second) => {
-  first.sort().every((value, index) => value === second.sort()[index]);
-};
+
+const arraysAreEqual = (first, second) => (first.length === second.length
+    && first.every((value, index) => value === second[index]));
+
+const containsArray = (el, container) => container.some(array => arraysAreEqual(array, el));
 
 function without(excluder, main) {
   const excluded = main.filter((el) => {
@@ -18,8 +20,8 @@ function without(excluder, main) {
       return false;
     }
 
-    if (Array.isArray(el) && areArraysEqual(main, excluder)) {
-      return true;
+    if (Array.isArray(el) && containsArray(el, excluder)) {
+      return false;
     }
 
     return (excluder.indexOf(el) === -1);
