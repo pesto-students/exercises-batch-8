@@ -22,7 +22,8 @@ function negativeIndex(maybeArray) {
     },
   }
   const negativeIndexProxy = new Proxy(maybeArray, handler);
-  return negativeIndexProxy;
+  Object.setPrototypeOf(maybeArray, negativeIndexProxy);
+  return maybeArray;
 }
 
 
