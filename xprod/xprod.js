@@ -3,7 +3,7 @@ function xprod(array1, array2) {
     return [];
   }
   const combinationOfArrays = [];
-  // Implements cartesian product of two arrays
+  // Implements combination of two arrays
   array1.map((eleOfArr1) => {
     array2.map((eleOfArr2) => {
       combinationOfArrays.push([eleOfArr1, eleOfArr2]);
