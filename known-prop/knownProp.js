@@ -1,11 +1,11 @@
 
 function knownProp(object) {
   return new Proxy(object, {
-    get(obj, keyname) {
-      if (!obj.hasOwnProperty(keyname)) {
+    get(anObject, keyName) {
+      if (!anObject.hasOwnProperty(keyName)) {
         throw TypeError('Unknown property');
       }
-      return obj[keyname];
+      return anObject[keyName];
     },
   });
 }
