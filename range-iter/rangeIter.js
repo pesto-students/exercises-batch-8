@@ -9,7 +9,6 @@ function rangeIter(lb, ub) {
   return {
     next: () => {
       if (index >= ub) {
-        index = lb - 1;
         return {
           value: undefined,
           done: true,
@@ -22,6 +21,7 @@ function rangeIter(lb, ub) {
       };
     },
     [Symbol.iterator]() {
+      index = lb - 1;
       return this;
     },
   };
