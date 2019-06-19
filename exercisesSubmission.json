@@ -6,7 +6,7 @@
             "completed": true
         },
         "ackermann": {
-            "completed": false
+            "completed": true
         },
         "aperture": {
             "completed": false
@@ -15,7 +15,7 @@
             "completed": true
         },
         "args-string": {
-            "completed": false
+            "completed": true
         },
         "arithmetic-expression-evaluator": {
             "completed": false
@@ -24,7 +24,7 @@
             "completed": false
         },
         "array-cube-root-to-json": {
-            "completed": false
+            "completed": true
         },
         "object-assign": {
             "completed": false

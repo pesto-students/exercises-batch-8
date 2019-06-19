@@ -15,9 +15,8 @@ function numberOfLegsDifference(animalOne, animalTwo) {
 function animalSort(animals) {
   return animals.sort(
     // eslint-disable-next-line max-len
-    (animalOne, animalTwo) =>
-      numberOfLegsDifference(animalOne, animalTwo) -
-      sortAnimalByName(animalOne, animalTwo)
+    (animalOne, animalTwo) => numberOfLegsDifference(animalOne, animalTwo)
+      - sortAnimalByName(animalOne, animalTwo),
   );
 }
 
