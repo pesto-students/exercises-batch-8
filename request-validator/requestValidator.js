@@ -1,8 +1,5 @@
-
-function requestValidator(...args) {
-  return args;
+function requestValidator(request) {
+  return request;
 }
 
-export {
-  requestValidator,
-};
+export { requestValidator };
