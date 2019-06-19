@@ -1,8 +1,7 @@
+function arrayAddition([...arr1], [...arr2]) {
+  const result = [];
 
-function arrayAddition(...args) {
-  return args;
+  return result;
 }
 
-export {
-  arrayAddition,
-};
+export { arrayAddition };
