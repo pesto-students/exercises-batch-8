@@ -3,10 +3,16 @@ function rangeIter(lb, ub) {
   if (ub < lb) {
     return [];
   }
-  if (!lb || !ub || !Number(ub) || !Number(lb)) {
-    throw new TypeError('Missing or invalid values');
+  if (!lb || !ub) {
+    throw new TypeError('Missing values');
   }
-  const range = [...Array(Math.abs(ub - lb + 1)).keys()].map(x => x + lb);
+  if (!Number(lb) || !Number(ub)) {
+    throw new TypeError('Invalid values');
+  }
+  const range = [];
+  for (let i = lb; i <= ub; i += 1) {
+    range.push(i);
+  }
   return range;
 }
 
