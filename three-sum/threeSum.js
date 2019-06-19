@@ -1,33 +1,34 @@
 
-const isNumber = numberLike => !Number.isNaN(numberLike);
+const findNumber = (array, numToFind, numOne, numTwo) => array.find((number) => {
+  if (numToFind === number && numToFind !== numOne && numToFind !== numTwo) {
+    return true;
+  }
+  return false;
+});
 
 function threeSum(array, total) {
-  const arrayIsEmpty = array.length === 0;
-  const arrayHasNumbers = array.every(numberLike => isNumber(numberLike));
-  const totalIsNumber = isNumber(total);
-
-  if (arrayIsEmpty || !arrayHasNumbers || !totalIsNumber) {
-    throw new Error('Array elements and total should be numbers only.');
+  if (array.length < 3) {
+    throw new Error('Array must have at least three elements.');
   }
 
-  let left;
-  let right;
+  if (typeof total !== 'number') {
+    throw new Error('Second parameter should be a number.');
+  }
 
-  for (let index = 0; index < array.length - 2; index += 1) {
-    left = index + 1;
-    right = array.length - 1;
-    while (left < right) {
-      const sum = array[index] + array[left] + array[right];
-      // FIXME: issue in sorting order
-      if (sum === total) {
-        const arrayToReturn = [array[index], array[left], array[right]];
-        return arrayToReturn;
+  const arraySize = array.length;
+  for (let left = 0; left < arraySize - 1; left += 1) {
+    let right = left + 1;
+
+    while (right < arraySize) {
+      const sumOfTwo = array[left] + array[right];
+      const deficiency = total - sumOfTwo;
+
+      const thirdNumber = findNumber(array, deficiency, array[left], array[right]);
+      if (thirdNumber !== undefined) {
+        return [array[left], array[right], thirdNumber];
       }
-      if (sum > total) {
-        left += 1;
-      } else if (sum < total) {
-        right -= 1;
-      }
+
+      right += 1;
     }
   }
 
