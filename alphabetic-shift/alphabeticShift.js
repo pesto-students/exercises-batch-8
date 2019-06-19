@@ -1,22 +1,13 @@
 function isUpperCaseAlphabet(charCode) {
-  if (charCode <= 90 && charCode >= 65) {
-    return true;
-  }
-  return false;
+  return charCode <= 90 && charCode >= 65;
 }
 
 function isLowerCaseAlphabet(charCode) {
-  if (charCode <= 122 && charCode >= 97) {
-    return true;
-  }
-  return false;
+  return charCode <= 122 && charCode >= 97;
 }
 
 function isAlphabet(charCode) {
-  if (isLowerCaseAlphabet(charCode) || isUpperCaseAlphabet(charCode)) {
-    return true;
-  }
-  return false;
+  return isLowerCaseAlphabet(charCode) || isUpperCaseAlphabet(charCode);
 }
 
 function shift(character, shiftCount) {
