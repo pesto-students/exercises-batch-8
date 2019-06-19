@@ -53,7 +53,6 @@ describe('onChange', () => {
     const array = onChange(fixture, () => {
       callCount += 1;
     });
-
     array[0] = 'a';
     expect(array).toEqual(['a', 2, {
       a: false,
