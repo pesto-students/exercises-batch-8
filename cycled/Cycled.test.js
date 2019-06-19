@@ -39,7 +39,7 @@ describe('Cycled', () => {
 
   test('.reversed()', () => {
     const c = new Cycled(fixture);
-    expect(c.reversed().next().value).toBe(3);
+    expect(c.reversed().next()).toBe(2);
   });
 
   test('.indexOf()', () => {
