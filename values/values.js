@@ -1,6 +1,6 @@
 
-function values(...args) {
-  return args;
+function values(obj) {
+  return Object.keys(obj).map(key => obj[key]);
 }
 
 export {
