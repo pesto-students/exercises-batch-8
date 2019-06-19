@@ -2,15 +2,15 @@ function xprod(array1, array2) {
   if (array1.length === 0 || array2.length === 0) {
     return [];
   }
-  const combinationOfArray = [];
-  array1.map((ele) => {
-    array2.map((eleOfarr2) => {
-      combinationOfArray.push([ele, eleOfarr2]);
-      return eleOfarr2;
+  const combinationOfArrays = [];
+  array1.map((eleOfArr1) => {
+    array2.map((eleOfArr2) => {
+      combinationOfArrays.push([eleOfArr1, eleOfArr2]);
+      return eleOfArr2;
     });
-    return ele;
+    return eleOfArr1;
   });
-  return combinationOfArray;
+  return combinationOfArrays;
 }
 
 export { xprod };
