@@ -1,8 +1,5 @@
-
-function arithmeticExpressionEvaluator(...args) {
-  return args;
+function arithmeticExpressionEvaluator(args) {
+  const input = args.split('').filter(element => element !== ' ');
 }
 
-export {
-  arithmeticExpressionEvaluator,
-};
+export { arithmeticExpressionEvaluator };
