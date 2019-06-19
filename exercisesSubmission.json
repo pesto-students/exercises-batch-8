@@ -33,7 +33,7 @@
             "completed": true
         },
         "sleep-promise": {
-            "completed": false
+            "completed": true
         }
     }
 }
