@@ -24,13 +24,13 @@
             "completed": true
         },
         "without": {
-            "completed": false
+            "completed": true
         },
         "values-in": {
             "completed": false
         },
         "values": {
-            "completed": false
+            "completed": true
         }
     }
 }
