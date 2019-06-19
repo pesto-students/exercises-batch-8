@@ -21,13 +21,13 @@
             "completed": false
         },
         "xprod": {
-            "completed": false
+            "completed": true
         },
         "without": {
             "completed": false
         },
         "values-in": {
-            "completed": false
+            "completed": true
         },
         "values": {
             "completed": false
