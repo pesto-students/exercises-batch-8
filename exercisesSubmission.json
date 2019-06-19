@@ -12,10 +12,10 @@
             "completed": false
         },
         "generator-iterable": {
-            "completed": false
+            "completed": true
         },
         "iterable-protocol": {
-            "completed": false
+            "completed": true
         },
         "is-iterable": {
             "completed": true
