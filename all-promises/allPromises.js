@@ -1,29 +1,18 @@
-function resolvePromiseIfAllResolved(resolvedCount, promises, promiseMap, allPromiseResolve) {
-  if (resolvedCount === promises.length) {
-    allPromiseResolve(Object.values(promiseMap));
+function allPromises(promises, results = []) {
+  if (promises === undefined) {
+    return Promise.resolve([]);
   }
-}
-
-function allPromises(promises) {
-  const allPromise = new Promise((resolve) => {
-    let promiseMap = {};
-    let resolvedCount = 0;
-    for (const [index, promise] of promises.entries()) {
-      if (promise instanceof Promise) {
-        // eslint-disable-next-line
-        promise.then(res => {
-          promiseMap = { ...promiseMap, [index]: res };
-          resolvedCount += 1;
-          resolvePromiseIfAllResolved(resolvedCount, promises, promiseMap, resolve);
-        });
-      } else {
-        promiseMap = { ...promiseMap, [index]: promise };
-        resolvedCount += 1;
-        resolvePromiseIfAllResolved(resolvedCount, promises, promiseMap, resolve);
-      }
-    }
+  if (promises.length === 0) {
+    return Promise.resolve(results);
+  }
+  let firstPromise = promises[0];
+  promises.shift();
+  if (!(firstPromise instanceof Promise)) {
+    firstPromise = new Promise(res => res(firstPromise));
+  }
+  return firstPromise.then((res) => {
+    allPromises(promises, [...results, res]);
   });
-  return allPromise;
 }
 
 export { allPromises };
