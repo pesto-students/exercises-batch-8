@@ -42,7 +42,7 @@
             "completed": true
         },
         "strikeout": {
-            "completed": false
+            "completed": true
         },
         "tooltip": {
             "completed": false
