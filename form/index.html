@@ -7,12 +7,30 @@
 
 <!DOCTYPE html>
 <html>
+
+<head>
+
+  <script>
+    function validateQuantity(form) {
+      const quantity = Number(form.quantity.value);
+      console.log(quantity)
+      if (Number.isNaN(quantity) || quantity > 5 || quantity < 1) {
+        alert('Quantity must be a number between 1 and 5');
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</head>
+
 <body>
 
-<form>
-  Quantity (between 1 and 5):
-  <input type="submit">
-</form>
+  <form onsubmit="return validateQuantity(this);">
+    Quantity (between 1 and 5): <input type="text" name="quantity">
+    <input type="submit">
+  </form>
 
 </body>
+
 </html>
