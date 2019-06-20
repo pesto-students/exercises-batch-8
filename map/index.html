@@ -1,7 +1,3 @@
-<!-- CHoose your favourite image from the internet.
-Define different clickable areas on the image.
-Clicking on the areas should open different link in a new tab. -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +7,19 @@ Clicking on the areas should open different link in a new tab. -->
   <title>Document</title>
 </head>
 <body>
-  
+    <img src ="https://www.thoughtfulcode.com/wp-content/uploads/2019/01/rubber-duck-debugging-and-psychology-sunglassed-rubber-duck-1272x848.jpg"
+      width="700"
+      height="500"
+      alt="HTML Map" 
+      usemap = "#html"
+    />
+    <map name="html">
+      <area shape="circle" coords ="2,2,20" 
+        href="https://google.com" alt="CSS Link" target="_blank"
+      />
+      <area shape="circle" coords ="500,2,20" 
+        href="https://www.pesto.tech" alt="CSS Link" target="_blank"
+      />
+    </map>
 </body>
 </html>
