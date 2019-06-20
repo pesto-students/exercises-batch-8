@@ -1,8 +1,6 @@
-
-function valuesIn(...args) {
-  return args;
+function valuesIn(obj) {
+  const result = Object.entries(obj);
+  return result;
 }
 
-export {
-  valuesIn,
-};
+export { valuesIn };

@@ -1,8 +1,5 @@
-
-function values(...args) {
-  return args;
+function values(obj) {
+  return Object.values(obj);
 }
 
-export {
-  values,
-};
+export { values };
