@@ -1,8 +1,5 @@
-
-function tiles(...args) {
-  return args;
+function tiles(inputObject) {
+//   const { small, big, target } = inputObject;
 }
 
-export {
-  tiles,
-};
+export { tiles };
