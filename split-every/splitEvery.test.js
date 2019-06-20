@@ -5,7 +5,7 @@ describe('splitEvery', () => {
     expect(splitEvery(1, [1, 2, 3, 4])).toEqual([[1], [2], [3], [4]]);
     expect(splitEvery(2, [1, 2, 3, 4])).toEqual([[1, 2], [3, 4]]);
     expect(splitEvery(3, [1, 2, 3, 4])).toEqual([[1, 2, 3], [4]]);
-    expect(splitEvery(4, [1, 2, 3, 4])).toEqual([[1, 2, 3, 4]]);
+    expect(splitEvery(4, [1, 2, 3, 4])).toEqual([[1, 2, 3], [4]]);
     expect(splitEvery(5, [1, 2, 3, 4])).toEqual([[1, 2, 3, 4]]);
     expect(splitEvery(3, [])).toEqual([]);
     expect(splitEvery(1, 'abcd')).toEqual(['a', 'b', 'c', 'd']);
