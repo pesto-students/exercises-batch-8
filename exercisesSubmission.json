@@ -6,10 +6,10 @@
             "completed": true
         },
         "unnest": {
-            "completed": false
+            "completed": true
         },
         "uniq": {
-            "completed": false
+            "completed": true
         },
         "uncurry-n": {
             "completed": false
@@ -39,7 +39,7 @@
             "completed": false
         },
         "to-pairs": {
-            "completed": false
+            "completed": true
         },
         "types": {
             "completed": false
