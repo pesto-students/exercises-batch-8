@@ -15,8 +15,8 @@ describe('uniq', () => {
   });
 
   it('checking length', () => {
-    expect(uniq([-0, -0]).length).toBe(1);
-    expect(uniq([0, -0]).length).toBe(2);
+    expect(uniq([-1, -1]).length).toBe(1);
+    expect(uniq([1, -1]).length).toBe(2);
     expect(uniq([NaN, NaN]).length).toBe(1);
     expect(uniq([[1], [1]]).length).toBe(1);
   });

@@ -1,8 +1,5 @@
-
-function toPairs(...args) {
-  return args;
+function toPairs(args) {
+  return Object.entries(args);
 }
 
-export {
-  toPairs,
-};
+export { toPairs };

@@ -1,6 +1,6 @@
 
-function uncurryN(...args) {
-  return args;
+function uncurryN(3,inputFunction) {
+
 }
 
 export {
