@@ -2,25 +2,28 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Favorite fruit start</title>
-    <style>
-      input:invalid {
-        border: 2px dashed red;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Favorite fruit start</title>
+  <style>
+    input:invalid {
+      border: 2px dashed red;
+    }
 
-      input:valid {
-        border: 2px solid black;
-      }
-    </style>
+    input:valid {
+      border: 2px solid black;
+    }
+  </style>
 </head>
 
 <body>
-    <form>
-      <label for="choose">Would you prefer a banana or a cherry?</label>
-      <input id="choose" name="i_like">
-      <button>Submit</button>
-    </form>
+  <form>
+    <label for="choose">Would you prefer a banana or a cherry?</label>
+    <input name="choose" type="radio" value="banana" id="banana"> <label for="banana">Banana</label>
+    <input name="choose" type="radio" value="cherry?" id="cherry"> <label for="cherry">Cherry</label>
+    <button type="submit">Submit</button>
+  </form>
 </body>
 
 </html>

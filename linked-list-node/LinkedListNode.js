@@ -1,8 +1,8 @@
 
-function linkedListNode(...args) {
+function LinkedListNode(...args) {
   return args;
 }
 
 export {
-  linkedListNode,
+  LinkedListNode,
 };
