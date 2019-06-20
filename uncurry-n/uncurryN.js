@@ -1,6 +1,6 @@
 
-function uncurryN(...args) {
-  return args;
+function uncurryN(argLength, fn) {
+  return (...args) => args.reduce((acc, arg) => acc(arg), fn);
 }
 
 export {
