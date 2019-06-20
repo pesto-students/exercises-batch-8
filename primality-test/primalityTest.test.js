@@ -1,7 +1,7 @@
 import { primalityTest } from './primalityTest';
 
 describe('primalityTest', () => {
-  test('should be true for all primes', () => {
+  it('should be true for all primes', () => {
     expect(primalityTest(1)).toBeFalsy();
     expect(primalityTest(2)).toBeTruthy();
     expect(primalityTest(3)).toBeTruthy();
