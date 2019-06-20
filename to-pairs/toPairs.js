@@ -1,6 +1,6 @@
 
-function toPairs(...args) {
-  return args;
+function toPairs(obj) {
+  return Object.keys(obj).map(key => [key, obj[key]]);
 }
 
 export {
