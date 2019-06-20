@@ -3,12 +3,16 @@ Disable the input field. -->
 
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+      <meta charset="utf-8">
+  </head>
 
-<form>
-  First name: <input type="text" name="firstname" value="John">
-  <input type="submit">
-</form>
-
-</body>
+  <body>
+    <form>
+      <label>First name:
+        <input type="text" name="firstname" value="John" disabled>
+      </label>
+      <input type="submit">
+    </form>
+  </body>
 </html>
