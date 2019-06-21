@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Advanced Box Effects</title>
+    <style>
+      :reset {
+        --text-color: #000;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        height: 10em;
+        display: inline-block;
+      }
+
+      .container img,
+      .container div {
+        height: inherit;
+      }
+
+      .container h1 {
+        position: absolute;
+        top: 0.2em;
+        left: 0.69em;
+        font-family: "Passion One";
+        font-size: 3.7em;
+      }
+
+      .heart--wow {
+        height: 10em;
+        display: inline-block;
+      }
+
+      .heart--wow div {
+        position: absolute;
+        top: 0;
+      }
+      .heart--wow h1 {
+        position: absolute;
+        top: 0.2em;
+        left: 0.55em;
+        font-family: "Passion One";
+        font-size: 3.7em;
+        color: var(--text-color);
+        background: url(colorful-heart.png) left 23%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <img src="colorful-heart.png" />
+        <h1>WOW</h1>
+      </div>
+    </div>
+    <div class="heart heart--wow">
+      <div>
+        <h1>WOW</h1>
+      </div>
+    </div>
+  </body>
+</html>
