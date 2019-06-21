@@ -1,8 +1,5 @@
-
-function bizarreStringIncrementer(...args) {
+function bizarreStringIncrementer(args) {
   return args;
 }
 
-export {
-  bizarreStringIncrementer,
-};
+export { bizarreStringIncrementer };
