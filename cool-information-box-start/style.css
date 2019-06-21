@@ -2,4 +2,33 @@ html {
   font-family: sans-serif;
 }
 
+.cool-box{
+  text-align: center;
+  vertical-align: middle;
+  width: 500px;
+  height: 120px;
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 15px;
+  background: #c83731;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 20px;
+  box-shadow:
+    inset 6px 8px 8px rgba(255,255,255,.22), 
+    inset -8px -8px 10px rgba(0,0,0,.17), 
+    inset 12px 20px 10px rgba(255,255,255,.12), 
+    0 0 10px rgba(0,0,0,0), 
+    0 3px 10px rgba(0,0,3,.2);
+  text-decoration: none;
+  text-shadow: 0 3px black;
+  line-height: 8px;
+  border-color: #982723;
+  border-width: 2px;
+}
+
+.cool-box-text{
+  color: #e7413a;
+  font-size: 50px;
+}
+
 /* Your CSS below here */
