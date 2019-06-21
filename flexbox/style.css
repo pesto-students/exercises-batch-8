@@ -1,0 +1,20 @@
+header {
+  background-color: #84467f;
+  color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+header h1 {
+  text-align: center;
+}
+body {
+  margin: 0;
+}
+.flex-box {
+  display: flex;
+}
+.flex-item {
+  background-color: #73f6fb;
+  margin: 10px;
+  padding: 20px;
+}
