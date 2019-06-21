@@ -25,7 +25,7 @@ function rangeIter(lb, ub) {
           };
         },
         [Symbol.iterator]() {
-          return range;
+          return range[Symbol.iterator]();
         },
       };
     },
