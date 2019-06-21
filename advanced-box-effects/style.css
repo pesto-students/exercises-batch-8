@@ -1,0 +1,37 @@
+#heart {
+    background: url(colorful-heart.png);
+    background-repeat: no-repeat;
+    height: 250px;
+    width: 250px;
+    float: left;
+  
+}
+#heart h1{
+    text-align: center;
+  
+}
+ #heart-bg {
+     position: relative;
+    float: left;
+    height: 250px;
+    width: 250px;
+  
+    
+}
+#heart-bg h1 {
+    background: url(colorful-heart.png); 
+     left: 0;
+    line-height: 100%; 
+    position: absolute;  
+    text-align: center;
+    top: 0;
+    width: 100%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+h1{
+    padding-top: 20px;
+    font-size: 5.5em; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 1000
+ }
