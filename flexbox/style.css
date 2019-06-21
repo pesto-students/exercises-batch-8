@@ -1,0 +1,63 @@
+html, body {
+    max-height: 100vh;
+    margin: 0;
+}
+header {
+    background-color: #823a7f;
+    height: 10vh;
+    padding: 2vh;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: auto;
+    color: white;
+}
+
+.flexBox {
+    height: 40vh;
+    display: flex;
+}
+
+.flexBox--firstArticle {
+    margin: 8px;
+    padding: 10px;
+    background-color: #75f8fc;
+    flex: 2;
+}
+
+.flexBox p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.flexBox--secondArticle {
+    padding: 10px;
+    margin: 8px;
+    background-color: #75f8fc;
+    flex: 2;
+}
+
+.flexBox--thirdArticle {
+    padding: 10px;
+    margin: 8px;
+    background-color: #75f8fc;
+    flex: 3;
+}
+
+.flexBox--thirdArticle p {
+    padding-top: 12px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons button {
+    padding: 4px;
+    flex: 1;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 4px;
+}
