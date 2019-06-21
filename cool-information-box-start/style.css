@@ -2,4 +2,15 @@ html {
   font-family: sans-serif;
 }
 
-/* Your CSS below here */
+.cool-box {
+  display: inline-block;
+  color: red;
+  background-color: rgba(204, 0, 0);
+  padding: 28px 50px;
+  border-radius: 21px;
+  text-shadow: black 3px 2px 3px;
+  box-shadow: inset white 2px 1px 9px, inset black -2px -1px 8px,
+    black 3px 3px 8px;
+  border: 2px solid red;
+  font-size: 28px;
+}
