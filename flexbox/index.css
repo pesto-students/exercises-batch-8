@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+}
+header {
+  background-color: blueviolet;
+  padding: 8px;
+}
+header h1 {
+  text-align: center;
+  color: aliceblue;
+}
+h1,
+h2,
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  display: flex;
+  padding: 1%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.text {
+  background-color: aqua;
+  padding: 10px;
+}
+.div1 {
+  flex-basis: 28%;
+}
+.div2 {
+  flex-basis: 28%;
+}
+.div3 {
+  flex-basis: 38%;
+}
+.text_inner {
+  padding-top: 15px;
+}
+.text_inner button {
+  background-color: gainsboro;
+  color: black;
+  flex-basis: 18%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.text :nth-child(1) {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
