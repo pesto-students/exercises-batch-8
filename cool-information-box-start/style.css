@@ -1,5 +1,20 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-family: sans-serif;
 }
-
 /* Your CSS below here */
+p {
+  box-shadow: 0 2px 2px 2px grey;
+  border-radius: 4px;
+  color: rgba(202, 21, 21, 0.72);
+  background: rgba(202, 21, 21, 0.7);
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+}
