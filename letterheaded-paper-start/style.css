@@ -39,3 +39,34 @@ h1 {
 }
 
 /* Your CSS below here */
+article {
+  background-color: #fff;
+}
+
+header {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  background-color: #ccc;
+  background-image: url("top-image.png"), linear-gradient(#ccc, #fff);
+  background-repeat: no-repeat;
+  background-position: top;
+  border-top: 5px solid #dd0000;
+}
+
+h1 {
+  background-image: url("logo.png");
+}
+
+footer {
+  position: absolute;
+  bottom: 0mm;
+  right: 0mm;
+  width: 100%;
+  height: 200px;
+  background-color: #ccc;
+  background-image: url("bottom-image.png"), linear-gradient(#fff, #ccc);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  border-bottom: 5px solid red;
+}
