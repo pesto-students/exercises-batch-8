@@ -3,3 +3,24 @@ html {
 }
 
 /* Your CSS below here */
+.cool-box {
+  height: auto;
+  width: 20%;
+  padding: 1em;
+  background-color: rgb(214, 11, 11);
+  border: 0.1em solid rgb(202, 2, 2);
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 8px black, 3px 3px 8px black,
+  inset 4px 4px 5px white;
+
+}
+
+.cool-box__text--red {
+  padding: 0.2em;
+  margin: 0;
+  color: red;
+  text-shadow:2px 2px 2px black;
+  font-size: 2em;
+  text-align: center
+}
