@@ -1,16 +1,36 @@
+<!DOCTYPE html>
 <!-- Create a form (test-area) where a user enters a Message.
 Add a share via whatsapp button.
 It should open the whatsapp app on mobile and the message should appear in the app ready to send. -->
-
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-  
+  <form action="">
+    <label for="message">Message</label>
+    <textarea id="message" type="textarea" col="50" rows="10" name="message" maxlength="100"
+      aria-required="true"></textarea>
+    <input type="submit" name="share" value="Share Message" onclick="shareToWhatsapp()">
+  </form>
 </body>
+<script>
+  const shareToWhatsapp = () => {
+    const userMessage = document.getElementById('message').value;
+    try {
+      const encodedMessage = encodeURI(userMessage);
+      window.open(`https://wa.me/?text=${encodedMessage}`);
+    }
+    catch (error) {
+      alert('Please enter simpler URLs (only alphanumeric characters)');
+    }
+
+  }
+</script>
+
 </html>
