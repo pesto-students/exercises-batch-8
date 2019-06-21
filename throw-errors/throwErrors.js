@@ -1,8 +1,8 @@
 
-function throwErrors(...args) {
-  return args;
+function errorName() {
+  throw new ReferenceError('ReferenceError');
 }
 
 export {
-  throwErrors,
+  errorName,
 };
