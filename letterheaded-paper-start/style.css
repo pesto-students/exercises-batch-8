@@ -39,3 +39,19 @@ h1 {
 }
 
 /* Your CSS below here */
+article {
+  background-color: #fff;
+}
+
+header {
+  position: absolute;
+  height: 190px;
+  width: 100%;
+  background-color: #ccc;
+  background-image: url("top-image.png"), linear-gradient(#ccc, #fff);
+  background-repeat: no-repeat;
+}
+
+h1 {
+  background-image: url("logo.png");
+}
