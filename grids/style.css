@@ -1,0 +1,33 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    column-gap: 1em;
+    row-gap: 1em;
+    grid-auto-rows: auto;
+
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.wrapper div {
+    background-color: rgb(231, 166, 169)
+}
+
+.span6 {
+    grid-column: 2/8;
+}
+
+.span3 {
+    grid-column: 8/11;
+}
+
+.span2 {
+    grid-column: 11/13;
+}
+
