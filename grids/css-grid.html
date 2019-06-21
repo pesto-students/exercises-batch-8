@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>CSS grids example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Example for the CSS Grids</title>
     <style>
+      :root {
+        --column-color: #ef9495;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Times New Roman", sans-serif;
+        font-size: 20px;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 80px);
+        column-gap: 20px;
+        row-gap: 20px;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        padding-top: 20px;
+      }
 
+      .col {
+        background-color: var(--column-color);
+      }
+      .span6 {
+        grid-column-start: 2;
+        grid-column-end: 8;
+      }
+
+      .span2 {
+        grid-column-start: 11;
+        grid-column-end: 13;
+      }
+
+      .span3 {
+        grid-column-start: 8;
+        grid-column-end: 11;
+      }
     </style>
   </head>
 
@@ -22,10 +63,19 @@
       <div class="col">10</div>
       <div class="col">11</div>
       <div class="col">12</div>
-      <div class="col">13</div>
-      <div class="col span6">14</div>
-      <div class="col span3">15</div>
-      <div class="col span2">16</div>     
+      <div class="col">13some content</div>
+      <div class="col span6">
+        14this<br />
+        is<br />
+        more<br />
+        content
+      </div>
+      <div class="col span3">
+        15this<br />
+        is<br />
+        less
+      </div>
+      <div class="col span2">16</div>
     </div>
   </body>
 </html>
