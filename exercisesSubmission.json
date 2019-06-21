@@ -27,10 +27,10 @@
             "completed": false
         },
         "values-in": {
-            "completed": false
+            "completed": true
         },
         "values": {
-            "completed": false
+            "completed": true
         }
     }
 }
