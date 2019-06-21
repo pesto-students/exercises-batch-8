@@ -27,7 +27,7 @@
             "completed": true
         },
         "map": {
-            "completed": false
+            "completed": true
         },
         "svg": {
             "completed": true
@@ -39,7 +39,7 @@
             "completed": true
         },
         "whatsapp": {
-            "completed": false
+            "completed": true
         }
     }
 }
