@@ -1,0 +1,60 @@
+html,
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 4vh;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bolder;
+  letter-spacing: -0.1vw;
+}
+
+div {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  flex-basis: 15%;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  padding-top: 0.3vw;
+  padding-bottom: 0.3vw;
+  font-size: large;
+}
+
+h2 {
+  margin: 2vh;
+  margin-top: 3vh;
+}
+
+p {
+  margin: 2vh;
+  font-size: large;
+  font-weight: 550;
+  font-family: sans-serif;
+}
+
+header {
+  background-color: #823b80;
+}
+
+article {
+  margin-top: 1.5vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+section {
+  background-color: #75f8fc;
+  max-width: 32%;
+}
+
+section .largeSection {
+  flex: 2;
+}
