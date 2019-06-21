@@ -3,3 +3,14 @@ html {
 }
 
 /* Your CSS below here */
+.cool-box {
+  display: inline-block;
+  padding: 30px;
+  font-size: 35px;
+  background: #bc3128;
+  color: #e04136;
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  border: 2px solid #b10000;
+  box-shadow: inset 2px 2px 6px white, 2px 2px 6px black, inset -1px -1px 4px black;
+}
