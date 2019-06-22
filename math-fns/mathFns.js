@@ -1,8 +1,7 @@
-
-function mathFns(...args) {
-  return args;
-}
+const { sqrt, round, pow: power } = Math; //eslint-disable-line 
 
 export {
-  mathFns,
+  sqrt,
+  power,
+  round,
 };
