@@ -18,13 +18,13 @@
             "completed": false
         },
         "rot13": {
-            "completed": false
+            "completed": true
         },
         "get-index-to-ins": {
             "completed": false
         },
         "repeat-string-num-times": {
-            "completed": false
+            "completed": true
         },
         "binary-agent": {
             "completed": false
@@ -45,7 +45,7 @@
             "completed": true
         },
         "steamroll-array": {
-            "completed": false
+            "completed": true
         },
         "rotated-string": {
             "completed": false
