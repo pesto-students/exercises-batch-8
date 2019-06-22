@@ -1,18 +1,17 @@
 function getName(name) {
-  if (typeof name === 'string') return `You entered: ${name}`;
-  throw new Error('name should be of type string');
+  if (typeof name === "string") return `You entered: ${name}`;
+  throw new Error("Name should be of String Type");
 }
 
-
-describe('throwError test', () => {
-  test('should return string with given name', () => {
-    const actual = getName('Martin Garrix');
-    const expected = /Ramu/;
+describe("throwError test", () => {
+  test("should return string with given name", () => {
+    const actual = getName("Martin Garrix");
+    const expected = /Martin Garrix/;
     expect(actual).toMatch(expected);
   });
 
-  test('should throw error if argument is not a string', () => {
-    const expected = 'there was an error';
+  test("should throw error if argument is not a string", () => {
+    const expected = "Name should be of String Type";
     expect(() => getName(123)).toThrow(expected);
   });
 });
