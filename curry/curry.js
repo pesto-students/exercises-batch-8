@@ -1,13 +1,12 @@
-/* eslint-disable */
-
-function curry(fn, count = 0, args = []) {
-  const argsLength = fn.length;
-  if (count === argsLength) {
-    return fn.apply(null, args);
-  }
-  return function() {
-    return curry(fn, count + arguments.length, [...args, ...arguments]);
+function curry(fn) {
+  const fnArgsCount = fn.length;
+  const curryFnRecursive = (collectedArguments) => {
+    if (collectedArguments.length === fnArgsCount) {
+      return fn(...collectedArguments);
+    }
+    return (...fnArgs) => curryFnRecursive([...collectedArguments, ...fnArgs]);
   };
+  return curryFnRecursive([]);
 }
 
 export { curry };
