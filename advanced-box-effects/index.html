@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .withBackgroundImage {
+        background-image: url(colorful-heart.png);
+        background-repeat: no-repeat;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+      }
+      .withoutBackgroundImage {
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+      }
+      h1 {
+        font-size: 6em;
+        font-family: monospace;
+      }
+      .headerWithImageBackground {
+        background: url(colorful-heart.png) -60px -40px no-repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display:flex;">
+      <span class="withBackgroundImage">
+        <h1>WOW</h1>
+      </span>
+      <span class="withoutBackgroundImage">
+        <h1 class="headerWithImageBackground">WOW</h1>
+      </span>
+    </div>
+  </body>
+</html>
