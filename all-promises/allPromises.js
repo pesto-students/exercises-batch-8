@@ -1,16 +1,22 @@
-function allPromises(promises, results = []) {
-  if (promises === undefined) {
-    return Promise.resolve([]);
-  }
-  if (promises.length === 0) {
-    return Promise.resolve(results);
-  }
-  let firstPromise = promises[0];
-  promises.shift();
-  if (!(firstPromise instanceof Promise)) {
-    firstPromise = new Promise(res => res(firstPromise));
-  }
-  return firstPromise.then(res => allPromises(promises, [...results, res]));
+function allPromises(prmomises) {
+  const allPromiseRecursive = (pendingPromises, results) => {
+    if (pendingPromises === undefined || pendingPromises.length === 0) {
+      return new Promise((res) => {
+        res(results);
+      });
+    }
+    if (!(pendingPromises[0] instanceof Promise)) {
+      results.push(pendingPromises[0]);
+      pendingPromises.shift();
+      return allPromiseRecursive(pendingPromises, results);
+    }
+    return pendingPromises[0].then((result) => {
+      results.push(result);
+      pendingPromises.shift();
+      return allPromiseRecursive(pendingPromises, results);
+    });
+  };
+  return allPromiseRecursive(prmomises, []);
 }
 
 export { allPromises };
