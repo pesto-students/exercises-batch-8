@@ -10,7 +10,8 @@ const roundFunctions = {
 };
 
 function roundTo(num, precision) {
-  if ((num * (10 ** (precision + 1))) % 10 > 4.5) {
+  const leastSignificantDigit = ((num * (10 ** (precision + 1))) % 10);
+  if (leastSignificantDigit > 4.5) {
     return roundFunctions.up(num, precision);
   }
   return roundFunctions.down(num, precision);
