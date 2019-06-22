@@ -1,4 +1,4 @@
-function rotatedString(originalString, rotatedString) {
+function rotatedStringProblem(originalString, rotatedString) {
   if (originalString === rotatedString) {
     return false;
   }
@@ -13,9 +13,10 @@ function rotatedString(originalString, rotatedString) {
     if (character !== rotatedStringArray[indexInRotatedString]) {
       isRotated = false;
     }
-    indexInRotatedStr = (indexInRotatedStr + 1) % orgCharArr.length;
+    indexInRotatedString =
+      (indexInRotatedString + 1) % originalStringArray.length;
   });
-  return rotated;
+  return isRotated;
 }
 
-export { rotatedString };
+export { rotatedStringProblem as rotatedString };
