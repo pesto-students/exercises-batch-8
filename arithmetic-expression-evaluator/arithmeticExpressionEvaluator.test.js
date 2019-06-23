@@ -19,7 +19,7 @@ describe('arithmeticExpressionEvaluator', () => {
     expect(arithmeticExpressionEvaluator('6 -\n3')).toEqual(3);
     expect(arithmeticExpressionEvaluator('2 *    2')).toEqual(4);
     expect(arithmeticExpressionEvaluator('10\n\n\n   \n\n/\n\n\t    2')).toEqual(5);
-  })
+  });
 
   it('throws error when expression contains invalid characters', () => {
     // For simplicity's sake, we don't want to support parens
