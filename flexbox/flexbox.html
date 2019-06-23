@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Complex flexbox example</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      header.page-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        background: #822e80;
+      }
+
+      h1 {
+        font-weight: 900;
+      }
+
+      header.page-header h1 {
+        font-size: 40px;
+        color: white;
+      }
+
+      .wrapper {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      section.flex-items {
+        padding: 10px;
+        background: #76f9fb;
+        width: 100px;
+        height: 400px;
+        flex-grow: 1;
+        border: 1px solid black;
+        margin: 10px;
+      }
+
+      section.flex-items.double {
+        flex-grow: 2;
+      }
+
+      .button-list {
+        display: flex;
+        margin: 30px 0px;
+        padding: 0;
+      }
+
+      .button-list li {
+        display: block;
+        padding: 5px 10px;
+        background: linear-gradient(rgb(230, 230, 230), white);
+        text-align: center;
+        border: 1px solid black;
+        flex-grow: 1;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Complex flexbox example</h1>
+    </header>
+
+    <div class="wrapper">
+      <section class="flex-items">
+        <article>
+          <header>
+            <h1>
+              First article
+            </h1>
+          </header>
+          <p>
+            Tacos actually microdosing, pour-over semiotics banjo chicharrones
+            retro fanny pack portland everyday carry vinyl typewriter. Tacos
+            PBR&B pork belly, everyday carry ennui pickled sriracha normcore
+            hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed
+            trust fund twee, leggings salvia iPhone photo booth health goth
+            gastropub hammock.
+          </p>
+        </article>
+      </section>
+      <section class="flex-items">
+        <article>
+          <header>
+            <h1>
+              Second article
+            </h1>
+          </header>
+          <p>
+            Tacos actually microdosing, pour-over semiotics banjo chicharrones
+            retro fanny pack portland everyday carry vinyl typewriter. Tacos
+            PBR&B pork belly, everyday carry ennui pickled sriracha normcore
+            hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed
+            trust fund twee, leggings salvia iPhone photo booth health goth
+            gastropub hammock.
+          </p>
+        </article>
+      </section>
+      <section class="flex-items double">
+        <article>
+          <ul class="button-list">
+            <li>
+              Smile
+            </li>
+            <li>
+              Laugh
+            </li>
+            <li>
+              Wink
+            </li>
+            <li>
+              Shrug
+            </li>
+            <li>
+              Blush
+            </li>
+          </ul>
+          <p>
+            Tacos actually microdosing, pour-over semiotics banjo chicharrones
+            retro fanny pack portland everyday carry vinyl typewriter. Tacos
+            PBR&B pork belly, everyday carry ennui pickled sriracha normcore
+            hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed
+            trust fund twee, leggings salvia iPhone photo booth health goth
+            gastropub hammock.
+          </p>
+          <p>
+            Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat
+            ennui. Organic small batch paleo 8-bit. Intelligentsia umami
+            wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings
+            cold-pressed squid chartreuse put a bird on it. Listicle pickled man
+            bun cornhole heirloom art party.
+          </p>
+        </article>
+      </section>
+    </div>
+  </body>
+</html>
