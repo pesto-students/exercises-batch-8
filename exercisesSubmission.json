@@ -24,7 +24,7 @@
             "completed": false
         },
         "time-was": {
-            "completed": false
+            "completed": true
         },
         "abbreviate-string": {
             "completed": true

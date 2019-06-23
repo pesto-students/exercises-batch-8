@@ -19,6 +19,7 @@ describe('timeWas', () => {
   });
 
   it('should be "just now"', () => {
+    console.log('WEEKs', WEEKS);
     expect(timeWas(NOW)).toBe('just now');
     expect(timeWas(NOW - 1)).toBe('just now');
   });
