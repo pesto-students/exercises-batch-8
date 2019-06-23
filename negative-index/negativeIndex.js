@@ -1,32 +1,39 @@
+function shouldHandleProperty(string) {
+  return !Number.isNaN(Number(string));
+}
 
 function negativeIndex(maybeArray) {
   if (!(maybeArray instanceof Array)) {
-    throw new TypeError('Only arrays are supported')
+    throw new TypeError('Only arrays are supported');
   }
-  var handler = {
+  const handler = {
     get: (array, prop) => {
-      const numberProp = Number(prop);
-      if (numberProp < 0) {
-        return array[array.length + numberProp];
+      if (typeof prop === 'symbol') {
+        return Reflect.get(array, prop);
       }
-      return array[numberProp];
+      if (shouldHandleProperty(prop)) {
+        const index = Number(prop);
+        if (index < 0) {
+          return Reflect.get(array, array.length + index);
+        }
+      }
+      return Reflect.get(array, prop);
     },
     set: (array, prop, value) => {
-      const numberProp = Number(prop);
-      if (numberProp < 0) {
-        array[array.length + numberProp] = numberProp;
-      } else {
-        array[numberProp] = value;
+      if (typeof prop === 'symbol') {
+        return Reflect.set(array, prop, value);
       }
-      return true;
+      if (shouldHandleProperty(prop)) {
+        const index = Number(prop);
+        if (index < 0) {
+          return Reflect.set(array, array.length + index, value);
+        }
+      }
+      return Reflect.set(array, prop, value);
     },
-  }
-  const negativeIndexProxy = new Proxy(maybeArray, handler);
-  Object.setPrototypeOf(maybeArray, negativeIndexProxy);
-  return maybeArray;
+  };
+
+  return new Proxy(maybeArray, handler);
 }
 
-
-export {
-  negativeIndex,
-};
+export { negativeIndex };

@@ -1,4 +1,3 @@
-
 function knownProp(object) {
   const handler = {
     get: (obj, prop) => {
@@ -12,6 +11,4 @@ function knownProp(object) {
   return knowPropertyProxy;
 }
 
-export {
-  knownProp,
-};
+export { knownProp };
