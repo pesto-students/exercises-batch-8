@@ -12,16 +12,16 @@
             "completed": true
         },
         "is-triangle": {
-            "completed": false
+            "completed": true
         },
         "counter": {
             "completed": true
         },
         "counter-factory": {
-            "completed": false
+            "completed": true
         },
         "limit-function-call-count": {
-            "completed": false
+            "completed": true
         },
         "cache-function": {
             "completed": true
@@ -36,7 +36,7 @@
             "completed": true
         },
         "sum-primes": {
-            "completed": false
+            "completed": true
         },
         "rectangle-diagonal": {
             "completed": true
