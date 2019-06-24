@@ -1,4 +1,3 @@
-
 // function rangeIter(...args) {
 //   if (args.length !== 2 || !args.every(Number)) {
 //     throw new TypeError(`${args[1]} is not a number`);
@@ -22,26 +21,22 @@ function rangeIter(...args) {
   if (args.length !== 2 || !args.every(Number)) {
     throw new TypeError(`${args[1]} is not a number`);
   }
+  const [lb, ub] = args;
+  let num = lb;
   return {
     [Symbol.iterator]() {
-      const [lb, ub] = args;
-      let num = lb;
-      const iterator = {
-        next() {
-          if (num <= ub) {
-            const valueObj = { value: num, done: false };
-            num += 1;
-            return valueObj;
-          }
-          return { done: true };
-        },
-      };
-      return iterator;
+      return this;
+    },
+    next() {
+      if (num <= ub) {
+        const valueObj = { value: num, done: false };
+        num += 1;
+        return valueObj;
+      }
+      num = lb;
+      return { done: true };
     },
   };
 }
 
-
-export {
-  rangeIter,
-};
+export { rangeIter };
