@@ -7,9 +7,10 @@
     <title>Return first and last name from a form</title>
     <script>
       function getFormvalue() {
-        const firstName = document.getElementsByName("fname")[0];
-        const lastName = document.getElementsByName("lname")[0];
-        return { firstName, lastName };
+        const firstName = document.getElementsByName("fname")[0].value;
+        const lastName = document.getElementsByName("lname")[0].value;
+        const fullName = `${firstName} ${lastName}`;
+        alert(fullName);
       }
     </script>
   </head>

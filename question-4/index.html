@@ -8,12 +8,12 @@
     <script>
       function insert_Row() {
         const table = document.getElementById("sampleTable");
-        const currentRow = table.rows.length + 1;
+        const currentRowNumber = table.rows.length + 1;
         const row = table.insertRow(table.rows.length);
         const cell1 = row.insertCell(0);
         const cell2 = row.insertCell(1);
-        cell1.innerHTML = `Row${currentRow} cell1`;
-        cell2.innerHTML = `Row${currentRow} cell2`;
+        cell1.innerHTML = `Row${currentRowNumber} cell1`;
+        cell2.innerHTML = `Row${currentRowNumber} cell2`;
       }
     </script>
   </head>
