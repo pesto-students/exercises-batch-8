@@ -5,5 +5,5 @@ describe('rejectPromise', () => {
     expect(rejectPromise() instanceof Promise).toBe(true);
   });
 
-  test('Promise resolve value', () => expect(rejectPromise()).resolves.toBe('REJECTED!'));
+  test('Promise resolve value', () => expect(rejectPromise()).rejects.toBe('REJECTED!'));
 });

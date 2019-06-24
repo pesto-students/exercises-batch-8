@@ -1,6 +1,8 @@
 
-function greet(...args) {
-  return args;
+function greet() {
+  return new Promise((res) => {
+    res('Hey Pesto');
+  });
 }
 
 export {

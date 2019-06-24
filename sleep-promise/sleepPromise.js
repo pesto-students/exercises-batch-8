@@ -1,8 +1,7 @@
 
-function sleepPromise(...args) {
+async function sleep(...args) {
   return args;
 }
-
 export {
-  sleepPromise,
+  sleep,
 };
