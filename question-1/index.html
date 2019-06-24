@@ -9,8 +9,13 @@
 <body>
   <p id='text'>JavaScript Exercises</p>
   <div>
-    <button id="jsstyle" onclick="js_style()">Style</button>
+    <button id="jsstyle" onclick="changeStyle()">Style</button>
   </div>
-</body>
 
+  <script>
+    function changeStyle() {
+      document.getElementById('text').style.color = 'red';
+    } 
+  </script>
+</body>
 </html>
