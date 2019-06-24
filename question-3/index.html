@@ -1,18 +1,20 @@
+<!DOCTYPE html>
 <!-- Here is a sample html file with a submit button. Write a JavaScript function to
 get the value of the href, hreflang, rel, target, and type attributes of the specified link -->
-
-<!DOCTYPE html>
 <html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <head>
-  <meta charset=utf-8 />
+  <script src="./question3.js"></script>
 </head>
 
 <body>
   <p>
     <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://pesto.tech/">Pesto</a>
   </p>
-  <button onclick="getAttributes()">Click here to get attributes value</button>
+  <button onclick="getAttributes(event)">Click here to get attributes value</button>
 </body>
 
 </html>
