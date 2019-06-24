@@ -1,6 +1,7 @@
+import { isBoolean } from 'util';
 
-function booWho(...args) {
-  return args;
+function booWho(value) {
+  return isBoolean(value);
 }
 
 export {

@@ -3,13 +3,13 @@
     "segmentName": "segment-1",
     "exercises": {
         "factorial": {
-            "completed": false
+            "completed": true
         },
         "is-odd": {
-            "completed": false
+            "completed": true
         },
         "is-even": {
-            "completed": false
+            "completed": true
         },
         "is-triangle": {
             "completed": false
@@ -30,7 +30,7 @@
             "completed": true
         },
         "boo-who": {
-            "completed": false
+            "completed": true
         },
         "sum-fibs": {
             "completed": false
