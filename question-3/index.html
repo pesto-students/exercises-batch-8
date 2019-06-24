@@ -13,6 +13,31 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
     <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://pesto.tech/">Pesto</a>
   </p>
   <button onclick="getAttributes()">Click here to get attributes value</button>
+
+  <div id="output" style="display: none">
+    <h3>Output: </h3>
+    <pre id="output-body"></pre>
+  </div>
+
+
+  <script>
+    function getAttributes() {
+      const link = document.getElementById('w3r');
+
+      const attributes = {
+        href: link.getAttribute('href'),
+        hreflang: link.getAttribute('hreflang'),
+        rel: link.getAttribute('rel'),
+        target: link.getAttribute('target'),
+        type: link.getAttribute('type')
+      };
+      document.getElementById('output').style.display = 'block';
+      // JSON.stringify(data, undefined, 2) is done to prettify object
+      document.getElementById('output-body').innerHTML = JSON.stringify(attributes, undefined, 2);
+
+      return attributes;
+    }
+  </script>
 </body>
 
 </html>
