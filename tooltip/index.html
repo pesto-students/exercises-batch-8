@@ -1,9 +1,25 @@
 <!-- Add a tooltip to the paragraph below with the text "About Pesto". -->
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      [tooltip]:before {
+        position: absolute;
+        margin: 20px;
+        content: attr(tooltip);
+        opacity: 0;
+      }
 
-<p>Pesto is awesome</p>
-
-</body>
+      [tooltip]:hover:before {
+        opacity: 1;
+      }
+    </style>
+    <title>Pesto Awesome</title>
+  </head>
+  <body>
+    <p tooltip="About Pesto">Pesto is awesome</p>
+  </body>
 </html>
