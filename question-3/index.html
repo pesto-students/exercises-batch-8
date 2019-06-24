@@ -6,6 +6,7 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
 
 <head>
   <meta charset=utf-8 />
+  <title>Question 3</title>
 </head>
 
 <body>
@@ -19,7 +20,6 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
 <script>
   const getAttributes = () => {
     attributesInString = '';
-    console.log();
     for (const attribute of document.getElementById('w3r').attributes) {
       attributesInString += `${attribute.name} = ${attribute.value}<br/>`;   
     }
