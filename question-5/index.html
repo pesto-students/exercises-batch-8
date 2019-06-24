@@ -24,9 +24,35 @@
       <td>Row3 cell2</td>
     </tr>
   </table>
+  <br />
+
   <form>
+    <label> Row Value:
+        <input type="text" name="rowVal">
+    </label>
+    <br />
+    <label> Col Value:
+        <input type="text" name="colVal">
+    </label>
+    <br />
+    <label> Content to insert:
+        <input type="text" name="content">
+    </label>
+    <br />
     <input type="button" onclick="changeContent()" value="Change content">
   </form>
+
+  <script>
+    function changeContent() {
+      const rowVal = document.querySelector('[name="rowVal"]').value;
+      const colVal = document.querySelector('[name="colVal"]').value;
+      const row = document.getElementsByTagName('tr')[rowVal - 1];
+      const cell = row.getElementsByTagName('td')[colVal - 1];
+      const newtext = document.querySelector('[name="content"]').value;
+      cell.textContent = newtext;
+    } 
+  </script>
+
 </body>
 
 </html>
