@@ -18,17 +18,11 @@
     <input type="submit" onclick="getName()" value="Submit">
   </form>
 
-  <div>
-    <p>firstName: </p><info id="firstName"></info>
-    <p>lastName: </p><info id="lastName"></info>
-  </div>
-
   <script>
     function getName() {
       const firstName = document.getElementById('inputFirstName').value;
       const lastName = document.getElementById('inputLastName').value;
-      document.getElementById('firstName').innerHTML = firstName;
-      document.getElementById('lastName').innerHTML = lastName;
+      alert(firstName, lastName);
     }
   </script>
 </body>
