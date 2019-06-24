@@ -1,8 +1,5 @@
-
-function question1(...args) {
+function question2(...args) {
   return args;
 }
 
-export {
-  question1,
-};
+export { question2 };
