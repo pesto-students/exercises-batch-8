@@ -9,14 +9,21 @@
 </head>
 
 <body>
-  <form id="form1" onsubmit="getFormvalue()">
+  <form id="form1" action="javascript:void(0)">
     First name:
-    <input type="text" name="fname" value="David">
+    <input type="text" id="inputFirstName" name="fname" value="David">
     <br> Last name:
-    <input type="text" name="lname" value="Beckham">
+    <input type="text" id="inputLastName" name="lname" value="Beckham">
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" onclick="getName()" value="Submit">
   </form>
-</body>
 
+  <script>
+    function getName() {
+      const firstName = document.getElementById('inputFirstName').value;
+      const lastName = document.getElementById('inputLastName').value;
+      alert(firstName, lastName);
+    }
+  </script>
+</body>
 </html>
