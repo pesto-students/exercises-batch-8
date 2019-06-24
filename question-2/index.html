@@ -6,16 +6,26 @@
 <head>
   <meta charset=utf-8 />
   <title>Return first and last name from a form</title>
+  <script>
+      function getFormvalue(event) {
+        const fname = document.querySelector('input[name=fname]').value;
+        const lname = document.querySelector('input[name=lname]').value;
+        const fullName = `${fname} ${lname}`;
+        document.getElementById('output').innerHTML = `Full name is ${fullName}`;
+        return false;
+      }
+  </script>
 </head>
 
 <body>
-  <form id="form1" onsubmit="getFormvalue()">
+  <form id="form1" onsubmit="return getFormvalue()">
     First name:
     <input type="text" name="fname" value="David">
     <br> Last name:
     <input type="text" name="lname" value="Beckham">
     <br>
     <input type="submit" value="Submit">
+    <output id="output"></output>
   </form>
 </body>
 
