@@ -4,13 +4,34 @@ Clicking on the areas should open different link in a new tab. -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      usemap="#click-map"
+    />
+    <map name="click-map">
+      <area
+        alt="Clickable Square"
+        shape="rect"
+        title="Square"
+        coords="0,0,100,100"
+        href="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        target="_blank"
+      />
+      <area
+        alt="Clickable Rectangle"
+        shape="rect"
+        title="Rectangle"
+        coords="220,220,300,320"
+        href="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
+        target="_blank"
+      />
+    </map>
+  </body>
 </html>
