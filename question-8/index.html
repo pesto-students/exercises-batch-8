@@ -2,28 +2,52 @@
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      body {
+        margin: 30px;
+      }
+    </style>
+    <title>Count and display items of a dropdown list - w3resource</title>
+  </head>
+  <body>
+    <form>
+      Select your favorite Color :
+      <select id="mySelect">
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>White</option>
+      </select>
+      <input
+        type="button"
+        onclick="getOptions()"
+        value="Count and Output all items"
+      />
+    </form>
+    <script>
+      const body = document.querySelector("body");
+      function getOptions() {
+        const dropdownList = document.querySelector("#mySelect");
+        const itemsList = document.createElement("ul");
+        const dropdownListLength = document.getElementById("mySelect").length;
+        for (const option in dropdownList.children) {
+          if (dropdownList.children[option].innerHTML === undefined) {
+            continue;
+          }
+          const item = document.createElement("li");
+          console.log("item", item);
+          item.innerHTML = dropdownList.children[option].innerHTML;
+          console.log(item);
+          itemsList.appendChild(item);
+        }
+        body.appendChild(itemsList);
 
-<head>
-  <meta charset=utf-8 />
-  <style type="text/css">
-    body {
-      margin: 30px;
-    }
-  </style>
-  <title>Count and display items of a dropdown list - w3resource</title>
-</head>
-
-<body>
-  <form>
-    Select your favorite Color :
-    <select id="mySelect">
-      <option>Red</option>
-      <option>Green</option>
-      <option>Blue</option>
-      <option>White</option>
-    </select>
-    <input type="button" onclick="getOptions()" value="Count and Output all items">
-  </form>
-</body>
-
+        const countString = document.createElement("h1");
+        countString.innerHTML = `The count of the items in the list are ${dropdownListLength}`;
+        body.appendChild(countString);
+      }
+    </script>
+  </body>
 </html>
