@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  width: 80em;
+  width: 105em;
   margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3.2em;
+  font-size: 2.5em;
 }
 
 pli {
@@ -29,13 +29,21 @@ pli {
 /* header and footer */
 
 header, footer {
-  background-colour: teal;
-  height: 10em;
-  padding: 2em;
+  background-color: teal;
+}
+header {
+  padding:0.7em;
+}
+header h1{
+  font-size: 5em;
+}
+footer {
+  padding: 3em;
 }
 
-h1, footer p {
-  margin: -70px;
+footer p {
+  margin: 0px;
+  font-size:18px;
 }
 
 h1 {
@@ -47,6 +55,7 @@ h1 {
 
 main {
   padding: 2em;
+  font-size:20px;
 }
 
 main p, main li {
@@ -54,6 +63,6 @@ main p, main li {
 }
 
 img {
-  float: right
+  float: right;
   margin: 1.2em 2em;
 }
