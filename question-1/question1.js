@@ -1,8 +1,12 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-var
+var window;
 
-function question1(...args) {
-  return args;
+function question1(cssTextStyle) {
+  window.document.getElementById('text').setAttribute('style', cssTextStyle);
 }
 
-export {
-  question1,
-};
+function jsStyle() {
+  const cssTextStyle = 'color:red;';
+  question1(cssTextStyle);
+}
