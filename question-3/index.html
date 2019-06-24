@@ -6,25 +6,27 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
   <head>
     <meta charset="utf-8" />
     <script>
+      function getParagraph(content) {
+        const paragraphNode = document.createElement("p");
+        const textNode = document.createTextNode(content);
+        paragraphNode.appendChild(textNode);
+        return paragraphNode;
+      }
+
       function getAttributes() {
-        console.log("In Get attributes");
         const linkElement = document.getElementById("w3r");
         const href = linkElement.getAttribute("href");
         const hreflang = linkElement.getAttribute("hreflang");
         const rel = linkElement.getAttribute("rel");
         const target = linkElement.getAttribute("target");
         const type = linkElement.getAttribute("type");
-        const paragraphNode = document.createElement("p");
-        const textNode = document.createTextNode(
-          `linkElement: ${linkElement} 
-          href: ${href} 
-          hreflang: ${hreflang} 
-          rel: ${rel} 
-          target: ${target} 
-          type: ${type}`
-        );
-        paragraphNode.appendChild(textNode);
-        document.getElementsByTagName("body")[0].appendChild(paragraphNode);
+        const bodyElement = document.getElementsByTagName("body")[0];
+        bodyElement.appendChild(getParagraph(`linkElement: ${linkElement}`));
+        bodyElement.appendChild(getParagraph(`href: ${href}`));
+        bodyElement.appendChild(getParagraph(`hreflang: ${hreflang}`));
+        bodyElement.appendChild(getParagraph(`rel: ${rel}`));
+        bodyElement.appendChild(getParagraph(`target: ${target}`));
+        bodyElement.appendChild(getParagraph(`type: ${type}`));
       }
     </script>
   </head>
