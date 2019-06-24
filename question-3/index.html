@@ -3,16 +3,46 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      function getAttributes() {
+        console.log("In Get attributes");
+        const linkElement = document.getElementById("w3r");
+        const href = linkElement.getAttribute("href");
+        const hreflang = linkElement.getAttribute("hreflang");
+        const rel = linkElement.getAttribute("rel");
+        const target = linkElement.getAttribute("target");
+        const type = linkElement.getAttribute("type");
+        const paragraphNode = document.createElement("p");
+        const textNode = document.createTextNode(
+          `linkElement: ${linkElement} 
+          href: ${href} 
+          hreflang: ${hreflang} 
+          rel: ${rel} 
+          target: ${target} 
+          type: ${type}`
+        );
+        paragraphNode.appendChild(textNode);
+        document.getElementsByTagName("body")[0].appendChild(paragraphNode);
+      }
+    </script>
+  </head>
 
-<head>
-  <meta charset=utf-8 />
-</head>
-
-<body>
-  <p>
-    <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://pesto.tech/">Pesto</a>
-  </p>
-  <button onclick="getAttributes()">Click here to get attributes value</button>
-</body>
-
+  <body>
+    <p>
+      <a
+        id="w3r"
+        type="text/html"
+        hreflang="en-us"
+        rel="nofollow"
+        target="_self"
+        href="https://pesto.tech/"
+        >Pesto</a
+      >
+    </p>
+    <button onclick="getAttributes()">
+      Click here to get attributes value
+    </button>
+  </body>
 </html>
