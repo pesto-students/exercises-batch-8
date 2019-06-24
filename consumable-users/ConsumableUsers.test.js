@@ -14,7 +14,9 @@ describe('Iterator usages', () => {
       };
     }
 
-    usersIterable = {};
+    usersIterable = {
+      [Symbol.iterator]: iteratorFunction,
+    };
   });
 
   describe('create an iterator/iterable', () => {

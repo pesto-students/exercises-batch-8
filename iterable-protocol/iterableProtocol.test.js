@@ -1,15 +1,25 @@
 describe('A simple iterable without items inside, implementing the right protocol', () => {
-  function iteratorFunction() {}
+  function iteratorFunction() {
+    return {
+      [Symbol.iterator]() {
+        return {
+          next() {
+            return { done: true };
+          },
+        };
+      },
+    };
+  }
 
   describe('the `iteratorFunction` needs to comply to the iterator protocol', () => {
     it('must return an object', () => {
       expect(typeof iteratorFunction()).toBe('object');
     });
     it('the object must have a function assigned to a key `next`', () => {
-      expect(typeof iteratorFunction().next).toBe('function');
+      expect(typeof iteratorFunction()[Symbol.iterator]().next).toBe('function');
     });
     it('calling `next()` must return an object with `{done: true}`', () => {
-      expect(iteratorFunction().next()).toEqual({
+      expect(iteratorFunction()[Symbol.iterator]().next()).toEqual({
         done: true,
       });
     });
@@ -17,7 +27,7 @@ describe('A simple iterable without items inside, implementing the right protoco
 
   let iterable;
   beforeEach(() => {
-    iterable = 'iterable';
+    iterable = iteratorFunction();
   });
 
   describe('the iterable', () => {
@@ -25,7 +35,7 @@ describe('A simple iterable without items inside, implementing the right protoco
       expect(typeof iterable).toBe('object');
     });
     it('must have the iterator function assigned to the key `Symbol.iterator`', () => {
-      expect(iterable[Symbol.iterator]).toBe(iteratorFunction);
+      expect(iterable[Symbol.iterator]).toBe(iteratorFunction());
     });
   });
 

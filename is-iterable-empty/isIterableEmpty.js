@@ -1,6 +1,6 @@
 
-function isIterableEmpty(...args) {
-  return args;
+function isIterableEmpty(iterable) {
+  return [...iterable].length === 0;
 }
 
 export {
