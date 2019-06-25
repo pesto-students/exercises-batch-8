@@ -5,6 +5,22 @@
 
 <head>
   <meta charset=utf-8 />
+  <script>
+  function getFormvalue() {
+// TODO 
+/*
+   document.getElementById('form1').addEventListener('submit', function (e) {
+    //prevent the normal submission of the form
+    e.preventDefault();
+   });
+*/
+    const firstName = document.getElementsByName("fname")[0].value;
+    const lastName = document.getElementsByName("lname")[0].value;
+    alert(firstName + " " + lastName);
+    return {firstName, lastName};
+  }
+
+ </script>
   <title>Return first and last name from a form</title>
 </head>
 
