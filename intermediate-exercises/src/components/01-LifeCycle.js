@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from "react";
 
 /*
   Tasks for this exercise are in comments inside the component class code.
@@ -11,7 +11,7 @@ import React from 'react';
 class LifeCycle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: 'Pesto' };
+    this.state = { name: "Pesto" };
   }
 
   // This code will be called when the component finishes mounting
@@ -20,6 +20,7 @@ class LifeCycle extends React.Component {
     // Task 1: Display a message "I'm mounted!" in developer's console when the
     //         component finishes mounting.
     //         Use `console.log` function for it.
+    console.log("I'm mounted!");
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -29,16 +30,26 @@ class LifeCycle extends React.Component {
     //         Notice that in this lifecycle method you have an access
     //         to previous values of properties and state.
     console.log({ prevProps, prevState });
+    if (prevState.name !== this.state.name) {
+      console.log("Updated");
+    }
   }
 
   componentWillUnmount() {
     // Task 3: Display a message "Good night, Pesto!" in developer's
     //         console when the component unmounts.
+    console.log("Good night, Pesto!");
   }
+  updateName = () => this.setState({ name: "Any other random guy" });
 
   // Task 4: Create a button which triggers ComponentDidUpdate lifecycle method on click.
   render() {
-    return (<p>Good morning, {this.state.name}!</p>);
+    return (
+      <Fragment>
+        <p>Good morning, {this.state.name}!</p>
+        <button onClick={this.updateName}>Update name</button>
+      </Fragment>
+    );
   }
 }
 
