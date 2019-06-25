@@ -34,6 +34,7 @@ class FavoriteMovie extends Component {
     this.state = { movie: '' };
 
     // Warning! If we don't bind this method - we would not be able to update state.
+    this.onMovieChange = this.onMovieChange.bind(this);
   }
 
   /*
@@ -46,16 +47,21 @@ class FavoriteMovie extends Component {
     Hint: use `console.log` to check `event.target`. You will find text entered to the input there.
   */
 
-  /* eslint-disable no-unused-vars, react/no-unused-state */
   onMovieChange(event) {
-    // Huh... There's something wrong here...
-    this.setState({ badAttribute: 'ChangeME!' });
+    this.setState({ movie: event.target.value });
   }
 
   render() {
+    let message;
+    if (!this.state.movie.length) {
+      message = <p>Hey there. Enter your favorite movie.</p>;
+    } else {
+      message = <p>My favorite movie is <span style={{ color: 'blue' }}>{this.state.movie}</span></p>;
+    }
+
     return (
       <div>
-        <p>My favorite movie is <span style={{ color: 'blue' }}>{this.state.movie}</span></p>
+        {message}
         <input type="text" name="name" onChange={this.onMovieChange} />
       </div>
     );
