@@ -38,6 +38,14 @@
     }
   },
   "lint-staged": {
-    "!(*.test).js": ["eslint"]
+    "!(*.test).js": [
+      "eslint"
+    ]
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true,
+      "document": true
+    }
   }
 }
