@@ -33,6 +33,7 @@
       const createTable = () => {
         const numberOfRows = document.getElementById('numberOfRows').value;
         const numberOfCols = document.getElementById('numberOfCols').value;
+        document.getElementById('myTable').innerHTML = '';
         for (let i = 0; i < numberOfRows; i++) {
           const row = document.getElementById('myTable').insertRow(i);
           for (let j = 0; j < numberOfCols; j++) {
