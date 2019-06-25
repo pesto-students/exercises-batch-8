@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /*
   In this exercises, you'll will make a reactive grocery list.
@@ -25,47 +26,43 @@ class GroceryList extends React.Component {
     this.state = {
       groceries: [{ name: 'Apples' }, { name: 'KitKat' }, { name: 'Red Bull' }],
     };
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(event) {
+    
   }
 
   render() {
     const { groceries } = this.state;
-    /*
-      Properties are a way to pass parameters to your React components.
-      We mentioned this in the third exercise. Properties are to React
-      components what attributes are to HTML elements.
 
-      Below you can see how to pass properties to child components.
-      We have defined a `grocery` property for each `GroceryListItem`.
-    */
     const groceriesComponents = groceries.map(item => ( // eslint-disable-line no-unused-vars
       <GroceryListItem grocery={item} />
+
     ));
-    // Hint: Don't forget about putting items into `ul`
     return (
       <div>
-        Put your code here
+        <ul>{groceriesComponents}</ul>
+        <form id="formAddGrocery" onSubmit={this.onSubmit}>
+          <label htmlFor="txtAddGrocery">
+            Grocery item name <br />
+            <input type="text" name="txtAddGrocery" id="txtAddGrocery" />
+          </label>
+          <input type="submit" value="Add Item" />
+        </form>
       </div>
     );
   }
 }
 
-// Render grocery name from component's properties.
-// If you have a problem, check `this.props` in the console.
-/* eslint-disable react/no-multi-comp, no-useless-constructor */
-class GroceryListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const GroceryListItem = props => <li> {props.grocery.name} </li>;
 
-  render() {
-    return (
-      <li>
-        Put your code here.
-      </li>
-    );
-  }
-}
+GroceryListItem.propTypes = {
+  grocery: PropTypes.string,
+};
 
-// Do prop validation here using the package `prop-types`
+GroceryListItem.defaultProps = {
+  grocery: '',
+};
 
 export default GroceryList;
