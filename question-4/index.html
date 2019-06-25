@@ -1,5 +1,3 @@
-<!-- Write a JavaScript function to add rows to a table -->
-
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +18,23 @@
     </tr>
   </table>
   <br>
-  <input type="button" onclick="insert_Row()" value="Insert row">
+  <input type="button" onclick="insertRow()" value="Insert row">
+
+
+  <script>
+    /* Javascript function to add rows to a table */
+    function insertRow() {
+      const table = document.getElementById('sampleTable');
+
+      const rowsCount = table.rows.length;
+      const columnCount = table.rows[0].cells.length;
+      const newRow = table.insertRow(rowsCount);
+
+      for (var i = 0; i < columnCount; i++) {
+        newRow.insertCell().innerText = `Row${rowsCount + 1} cell${i + 1}`;
+      }
+    }
+  </script>
 </body>
 
 </html>
