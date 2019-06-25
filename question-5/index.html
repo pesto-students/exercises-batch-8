@@ -2,31 +2,55 @@
   and a string to update the content of that cell. -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change the content of a cell</title>
+    <style>
+      /* Replacement for border="1" which is deprecated */
+      #myTable {
+        border: 1px outset grey;
+        padding: 1px;
+      }
+      td {
+        border: thin inset grey;
+        margin: 1px;
+      }
 
-<head>
-  <meta charset=utf-8 />
-  <title>Change the content of a cell</title>
-</head>
+      #frmChangeContent {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
 
-<body>
-  <table id="myTable" border="1">
-    <tr>
-      <td>Row1 cell1</td>
-      <td>Row1 cell2</td>
-    </tr>
-    <tr>
-      <td>Row2 cell1</td>
-      <td>Row2 cell2</td>
-    </tr>
-    <tr>
-      <td>Row3 cell1</td>
-      <td>Row3 cell2</td>
-    </tr>
-  </table>
-  <form>
-    <input type="button" onclick="changeContent()" value="Change content">
-  </form>
-</body>
+  <body>
+    <table id="myTable">
+      <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+      </tr>
+      <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+      </tr>
+      <tr>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+      </tr>
+    </table>
 
+    <form id="frmChangeContent">
+      <label for="txtRowNumber">Row Number</label>
+      <input type="number" min="1" id="txtRowNumber" placeholder="2" />
+      <br />
+
+      <label for="txtColNumber">Column Number</label>
+      <input type="number" min="1" id="txtColNumber" placeholder="1" />
+      <br />
+      <br />
+
+      <input id="btnChangeContent" type="submit" value="Change content" />
+    </form>
+    <script src="functions.js"></script>
+  </body>
 </html>
