@@ -24,6 +24,17 @@
     </select>
     <input type="button" onclick="getOptions()" value="Count and Output all items">
   </form>
+  <script>
+    const getOptions = () => {
+      const selectValues= [];
+      for(const node of document.getElementById('mySelect').childNodes) {
+        if(node.value){
+          selectValues.push(node.value);
+        }
+      }
+      window.alert(`Number of values : ${selectValues.length},\n Values                    : ${selectValues.join(', ')}`)
+    }
+  </script>
 </body>
 
 </html>

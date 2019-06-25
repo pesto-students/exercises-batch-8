@@ -21,6 +21,15 @@
   </table>
   <br>
   <input type="button" onclick="insert_Row()" value="Insert row">
+  <script>
+    const insert_Row = () => {
+      const row = document.getElementById('sampleTable').insertRow(0);
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      cell1.innerHTML = 'InsertedRow';
+      cell2.innerHTML = 'InsertedRow';
+    }
+  </script>
 </body>
 
 </html>
