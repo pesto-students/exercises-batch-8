@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /*
   In this exercises, you'll will make a reactive grocery list.
@@ -26,71 +29,98 @@ class GroceryList extends React.Component {
       newItem: '',
       groceries: [{ name: 'Apples' }, { name: 'KitKat' }, { name: 'Red Bull' }],
     };
+
+    this.addNewItem = this.addNewItem.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.clearAll = this.clearAll(this);
   }
 
-  addNewItem = (e) => {
+  addNewItem(e) {
     e.preventDefault();
-    const { newItem , groceries } = this.state;
+    const { newItem, groceries } = this.state;
     if (newItem.length) {
       this.setState({
-        groceries: [...groceries, { name: newItem}],
+        groceries: [...groceries, { name: newItem }],
         newItem: '',
       });
     }
   }
 
-  handleOnChange = (e) => {
+  handleOnChange(e) {
     this.setState({ newItem: e.target.value });
   }
 
-  clearAll = () => {
+  clearAll() {
     this.setState({ groceries: [] });
   }
 
   render() {
     const { groceries, newItem } = this.state;
-    /*
-      Properties are a way to pass parameters to your React components.
-      We mentioned this in the third exercise. Properties are to React
-      components what attributes are to HTML elements.
-
-      Below you can see how to pass properties to child components.
-      We have defined a `grocery` property for each `GroceryListItem`.
-    */
     const groceriesComponents = groceries.map(item => ( // eslint-disable-line no-unused-vars
-      <GroceryListItem grocery={item} />
+      <GroceryListItem key={item.name} grocery={item} />
     ));
-    // Hint: Don't forget about putting items into `ul`
 
     return (
       <div>
         <form onSubmit={this.addNewItem}>
           <label htmlFor="newItem">
             New Item:
+            <input
+              type="text"
+              id="newItem"
+              name="newItem"
+              value={newItem}
+              onChange={this.handleOnChange}
+            />
           </label>
+          <button onClick={this.addNewItem}>Add</button>
+          <button onClick={this.clearAll}>Clear All</button>
+          <ul>
+            {groceriesComponents}
+          </ul>
         </form>
       </div>
     );
   }
 }
 
-// Render grocery name from component's properties.
-// If you have a problem, check `this.props` in the console.
 /* eslint-disable react/no-multi-comp, no-useless-constructor */
 class GroceryListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isPurchased: false,
+    };
+
+    this.handleOnPurchase = this.handleOnPurchase(this);
+  }
+
+  handleOnPurchase() {
+    const { isPurchased } = this.state;
+    this.setState({ isPurchased: !isPurchased });
   }
 
   render() {
+    const { isPurchased } = this.state;
+    const { grocery } = this.props;
+    const { name } = grocery;
+    const listStyle = {
+      color: isPurchased ? 'red' : 'black',
+    };
     return (
-      <li>
-        Put your code here.
+      <li key={name} style={listStyle} onClick={this.handleOnPurchase}>
+        {name}
       </li>
     );
   }
 }
 
-// Do prop validation here using the package `prop-types`
+GroceryListItem.propTypes = {
+  grocery: PropTypes.objectOf(PropTypes.string),
+};
+
+GroceryListItem.defaultProps = {
+  grocery: [],
+};
 
 export default GroceryList;
