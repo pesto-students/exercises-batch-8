@@ -1,39 +1,11 @@
-/**
-  Exercise:
-
-  - Refactor App by creating a new component named `<GeoPosition>`
-  - <GeoPosition> should use a child render callback that passes
-    to <App> the latitude and longitude state
-  - When you're done, <App> should no longer have anything but
-    a render method
-
-  Part 2:
-  - Now create a <GeoAddress> component that also uses a render
-    callback with the current address. You will use
-    `getAddressFromCoords(latitude, longitude)` to get the
-    address, it returns a promise.
-  - You should be able to compose <GeoPosition> and <GeoAddress>
-    beneath it to naturally compose both the UI and the state
-    needed to render it
-  - Make sure <GeoAddress> supports the user moving positions
-
-  There is an image of the end result of this exercise in the root of this directory
-  by the name - `render_props.png`. Good luck!
-
-  NOTE: It is important to do this exercise using render props.
-  https://reactjs.org/docs/render-props.html
- */
-
 /* eslint-disable react/no-multi-comp */
-
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import getAddressFromCoords from './utils/getAddressFromCoords';
 
-// import getAddressFromCoords from './utils/getAddressFromCoords';
-
-class App extends React.Component {
-  constructor() {
-    super();
+class GeoPosition extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
       coords: {
         latitude: null,
@@ -44,6 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line no-undef
     this.geoId = navigator.geolocation.watchPosition(
       (position) => {
         this.setState({
@@ -60,26 +33,126 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
+    // eslint-disable-next-line no-undef
     navigator.geolocation.clearWatch(this.geoId);
   }
 
   render() {
-    return (
-      <div>
-        <h1>Geolocation</h1>
-        {this.state.error ? (
-          <div>Error: {this.state.error.message}</div>
-        ) : (
-          <dl>
-            <dt>Latitude</dt>
-            <dd>{this.state.coords.latitude || <p>create a loader and show here...</p>}</dd>
-            <dt>Longitude</dt>
-            <dd>{this.state.coords.longitude || <p>create a loader and show here...</p>}</dd>
-          </dl>
-        )}
-      </div>
-    );
+    const { children } = this.props;
+    const { coords: { latitude, longitude }, error } = this.state;
+
+    if (error) {
+      return (
+        <p>
+          Error:
+          {` ${error.message}`}
+        </p>
+      );
+    }
+
+    if (latitude === null || longitude === null) {
+      return (
+        <p>
+          Loading Geo Positions...
+        </p>
+      );
+    }
+    return children(latitude, longitude);
   }
+}
+
+GeoPosition.propTypes = {
+  children: PropTypes.func.isRequired,
+};
+
+class GeoAddress extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: '',
+      lat: null,
+      lng: null,
+      error: '',
+    };
+  }
+
+  componentDidUpdate() {
+    const { latitude, longitude } = this.props;
+    const { lat, lng } = this.state;
+    if (latitude !== lat || longitude !== lng) {
+      getAddressFromCoords(latitude, longitude)
+        .then((address) => {
+          this.setState({
+            address,
+            lat: latitude,
+            lng: longitude,
+          });
+        })
+        .catch((error) => {
+          this.setState({
+            error: error.message,
+            lat: latitude,
+            lng: longitude,
+          });
+        });
+    }
+  }
+
+  render() {
+    const { address, error } = this.state;
+    const { children } = this.props;
+
+    if (error) {
+      return (
+        <p>
+          Error:
+          {` ${error.message}`}
+        </p>
+      );
+    }
+
+    if (address === '') {
+      return (
+        <p>
+          Loading Geo Address...
+        </p>
+      );
+    }
+    return children(address);
+  }
+}
+
+GeoAddress.propTypes = {
+  children: PropTypes.func.isRequired,
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired,
+};
+
+function App() {
+  return (
+    <div>
+      <h1>Geolocation</h1>
+      <h3>Geo Position</h3>
+      <GeoPosition>
+        {(latitude, longitude) => (
+          <React.Fragment>
+            <p>Latitude</p>
+            <p>{latitude}</p>
+            <p>Longitude</p>
+            <p>{longitude}</p>
+            <h3>GeoAddress Composition</h3>
+            <GeoAddress latitude={latitude} longitude={longitude}>
+              {address => (
+                <p>
+                  {address}
+                </p>
+              )}
+            </GeoAddress>
+          </React.Fragment>
+        )}
+      </GeoPosition>
+    </div>
+  );
 }
 
 export default App;

@@ -24,3 +24,11 @@ ul {
   list-style: none;
   color: black;
 }
+
+
+ol.repo-list {
+  display: block;
+  width: 400px;
+  margin: 10px auto;
+  text-align: left;
+}
