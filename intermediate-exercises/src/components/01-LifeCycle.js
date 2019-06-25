@@ -31,7 +31,7 @@ changeTime() {
     return (
       <div>
         <p>{name}</p>
-        <button type="button" onClick={() => this.changeTime()}>
+        <button type="button" onClick={this.changeTime()}>
           Update Component
         </button>
       </div>
