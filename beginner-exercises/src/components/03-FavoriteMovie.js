@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 class FavoriteMovie extends Component {
 
+
   constructor(props) {
     super(props);
     this.state = { movie: '' };
@@ -40,8 +41,6 @@ class FavoriteMovie extends Component {
     );
   }
 }
-
-
 
 
 export default FavoriteMovie;
