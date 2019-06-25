@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 // import PropTypes from 'prop-types';
 // import axios from 'axios';
 
@@ -20,10 +21,11 @@ import React, { Component } from 'react';
  *  https://api.github.com/users/{username}/repos
  */
 /* eslint-disable react/no-unused-state */
+
 const GithubRepos = ({ repos }) => {
   return (
     <ul>
-      {/* Task: The list of repos here */}
+      {repos.map(repo => <li key={repo.name}>{repo.name}</li>)}
     </ul>
   );
 }
@@ -43,6 +45,17 @@ class UsernameForm extends Component {
       username: '',
       repos: [],
     };
+    this.fetchRepos = this.fetchRepos.bind(this);
+    this.changeUsername = this.changeUsername.bind(this);
+  }
+  fetchRepos() {
+    axios.get(`https://api.github.com/users/${this.state.username}/repos`).then((res)=>{
+      this.setState({...this.state, repos: res.data});
+    })
+  }
+  changeUsername(e) {
+    console.log('changing username');
+    this.setState({...this.state, username: e.target.value});
   }
   render() {
     return (
@@ -50,12 +63,15 @@ class UsernameForm extends Component {
         <input
           type="text"
           name="username"
+          onChange={this.changeUsername}
+          value={this.state.username}
         />
         <button
-          onClick={() => {}}
+          onClick={this.fetchRepos}
         >
           Get Repos
         </button>
+        <GithubRepos repos={this.state.repos}/>
         {/* Task: Display the results here. Use GithubRepos Component.
           It should be a list of repos of the user entered */}
       </div>

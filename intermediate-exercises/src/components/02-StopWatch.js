@@ -18,9 +18,38 @@ import React, { Component } from 'react';
 */
 
 class StopWatch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: 0,
+      isPaused: true,
+    };
+    this.toggleTimer = this.toggleTimer.bind(this);
+    setInterval(() => {
+      if (!this.state.isPaused) {
+        this.state.time += 20;
+        this.setState({ ...this.state });
+      }
+    }, 20);
+  }
+  toggleTimer() {
+    this.setState({ ...this.state, isPaused: !this.state.isPaused });
+  }
   render() {
     return (
-      <div>Stop Watch</div>
+      <div>
+        <h1>Stop Watch:</h1>
+        <div>{this.state.time}</div>
+        <button onClick={this.toggleTimer}>{(() => {
+          if (this.state.time === 0) {
+            return 'Start'
+          }
+          if (this.state.isPaused) {
+            return 'Resume'
+          }
+          return 'Stop'
+        })()}</button>
+      </div>
     );
   }
 }

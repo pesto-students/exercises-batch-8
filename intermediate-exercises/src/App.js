@@ -34,7 +34,8 @@ const App = () => (
       </ul>
       <hr />
       {routes.map(route => (
-        <Route
+        <Route  
+          key={route.path}
           path={route.path}
           render={props => (
             <route.component {...props} routes={route.routes} />

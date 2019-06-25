@@ -29,9 +29,15 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-// import getAddressFromCoords from './utils/getAddressFromCoords';
-
+import getAddressFromCoords from './utils/getAddressFromCoords';
 class App extends React.Component {
+  render() {
+    return (
+      <GeoPosition></GeoPosition>
+    );
+  }
+}
+class GeoPosition extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -70,16 +76,29 @@ class App extends React.Component {
         {this.state.error ? (
           <div>Error: {this.state.error.message}</div>
         ) : (
-          <dl>
-            <dt>Latitude</dt>
-            <dd>{this.state.coords.latitude || <p>create a loader and show here...</p>}</dd>
-            <dt>Longitude</dt>
-            <dd>{this.state.coords.longitude || <p>create a loader and show here...</p>}</dd>
-          </dl>
-        )}
+            <dl>
+              <dt>Latitude</dt>
+              <dd>{this.state.coords.latitude || <p>create a loader and show here...</p>}</dd>
+              <dt>Longitude</dt>
+              <dd>{this.state.coords.longitude || <p>create a loader and show here...</p>}</dd>
+            </dl>
+          )}
+        <GeoAddress long={this.state.coords.longitude} lat={this.state.coords.latitude} />
       </div>
-    );
+    )
   }
 }
-
+class GeoAddress extends React.Component {
+  constructor() {
+    super();
+    this.state = { address: '' }
+  }
+  componentDidUpdate() {
+    // console.log(this.props.lat, this.props.long)
+    // getAddressFromCoords(this.props.lat, this.props.long).then(res => console.log(res));
+  }
+  render() {
+    return <div/>
+  }
+}
 export default App;

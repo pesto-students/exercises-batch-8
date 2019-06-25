@@ -24,3 +24,6 @@ ul {
   list-style: none;
   color: black;
 }
+dd{
+  margin-left:0px;
+}
