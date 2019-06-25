@@ -3,23 +3,44 @@
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Change the content of a cell</title>
+    <style type="text/css">
+      body {
+        margin: 30px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset=utf-8 />
-  <title>Change the content of a cell</title>
-  <style type="text/css">
-    body {
-      margin: 30px;
-    }
-  </style>
-</head>
+  <body>
+    <table id="myTable" border="1"></table>
+    <form>
+      <table>
+        <tr>
+          <td><label for="row">Row:</label></td>
+          <td><input name="row" id="numberOfRows" /></td>
+        </tr>
+        <tr>
+          <td><label for="col">Column:</label></td>
+          <td><input name="col" id="numberOfCols" /></td>
+        </tr>
+      </table>
 
-<body>
-  <table id="myTable" border="1">
-  </table>
-  <form>
-    <input type="button" onclick="createTable()" value="Create the table">
-  </form>
-</body>
-
+      <input type="button" onclick="createTable()" value="Add data to table" />
+    </form>
+    <script>
+      const createTable = () => {
+        const numberOfRows = document.getElementById('numberOfRows').value;
+        const numberOfCols = document.getElementById('numberOfCols').value;
+        for (let i = 0; i < numberOfRows; i++) {
+          const row = document.getElementById('myTable').insertRow(i);
+          for (let j = 0; j < numberOfCols; j++) {
+            const cell = row.insertCell(j);
+            cell.innerText = `Row: ${i+1}, Col:${j+1}`;
+          }
+        }
+      };
+    </script>
+  </body>
 </html>
