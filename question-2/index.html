@@ -17,6 +17,14 @@
     <br>
     <input type="submit" value="Submit">
   </form>
+  <script>
+    
+    function getFormvalue() {
+      const firstName = document.querySelector('[name = "fname"]').value;
+      const lastName = document.querySelector('[name = "lname"]').value;
+      alert(`Name is: ${firstName} ${lastName}`);
+    }
+  </script>
 </body>
 
 </html>

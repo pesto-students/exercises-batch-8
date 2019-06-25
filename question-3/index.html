@@ -6,6 +6,7 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
 
 <head>
   <meta charset=utf-8 />
+  <title>Get anchor data</title>
 </head>
 
 <body>
@@ -13,6 +14,22 @@ get the value of the href, hreflang, rel, target, and type attributes of the spe
     <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://pesto.tech/">Pesto</a>
   </p>
   <button onclick="getAttributes()">Click here to get attributes value</button>
+
+  <script>
+    function getAttributes() {
+      const anchor = document.querySelector('a');
+      const href = anchor.getAttribute('href');
+      const hreflang = anchor.getAttribute('hreflang');
+      const rel= anchor.getAttribute('rel');
+      const target = anchor.getAttribute('target');
+      const type = anchor.getAttribute('type');
+      console.log('href', href);
+      console.log('hreflang', hreflang);
+      console.log('rel', rel);
+      console.log('target', target);
+      console.log('type', type);
+    }
+  </script>
 </body>
 
 </html>
