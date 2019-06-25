@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class GroceryList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       groceries: [
-        { id: "1", name: "Apples", isPurchased: false },
-        { id: "2", name: "KitKat", isPurchased: false },
-        { id: "3", name: "Red Bull", isPurchased: false }
+        { id: '1', name: 'Apples', isPurchased: false },
+        { id: '2', name: 'KitKat', isPurchased: false },
+        { id: '3', name: 'Red Bull', isPurchased: false },
       ],
-      inputField: ""
+      inputField: '',
     };
     this.addGrocery = this.addGrocery.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -18,9 +18,35 @@ class GroceryList extends React.Component {
     this.clear = this.clear.bind(this);
   }
 
+  addGrocery() {
+    if (this.state.inputField !== '') {
+      const id = String(Math.random());
+      this.setState({
+        groceries: [
+          ...this.state.groceries,
+          {
+            id,
+            name: this.state.inputField,
+            isPurchased: false,
+          },
+        ],
+      });
+    }
+  }
+
+  clear() {
+    this.setState({
+      groceries: [],
+    });
+  }
+
+  onInputChange(event) {
+    this.setState({ inputField: event.target.value });
+  }
+
   toggleStatus(event) {
-    const id = event.target.id;
-    const updatedGroceries = this.state.groceries.map(grocery => {
+    const { id } = event.target;
+    const updatedGroceries = this.state.groceries.map((grocery) => {
       if (grocery.id === id) {
         return { ...grocery, isPurchased: !grocery.isPurchased };
       }
@@ -29,44 +55,10 @@ class GroceryList extends React.Component {
     this.setState({ groceries: updatedGroceries });
   }
 
-  addGrocery() {
-    if (this.state.inputField !== "") {
-      const id = String(Math.random());
-      this.setState({
-        groceries: [
-          ...this.state.groceries,
-          {
-            id: id,
-            name: this.state.inputField,
-            isPurchased: false
-          }
-        ]
-      });
-    }
-  }
-
-  clear() {
-    this.setState({
-      groceries: []
-    });
-  }
-
-  onInputChange(event) {
-    console.log("Changed Input");
-    this.setState({ inputField: event.target.value });
-  }
-
   render() {
     const { groceries } = this.state;
-
-    const groceriesComponents = groceries.map((
-      item // eslint-disable-line no-unused-vars
-    ) => (
-      <GroceryListItem
-        key={item.id}
-        grocery={item}
-        toggleStatus={this.toggleStatus}
-      />
+    const groceriesComponents = groceries.map(item => (
+      <GroceryListItem key={item.id} grocery={item} toggleStatus={this.toggleStatus} />
     ));
     return (
       <div>
@@ -86,10 +78,7 @@ class GroceryListItem extends React.Component {
   }
 
   render() {
-    const style =
-      this.props.grocery.isPurchased === true
-        ? { color: "red" }
-        : { color: "black" };
+    const style = this.props.grocery.isPurchased === true ? { color: 'red' } : { color: 'black' };
 
     return (
       <li
@@ -106,8 +95,7 @@ class GroceryListItem extends React.Component {
 
 GroceryListItem.propTypes = {
   grocery: PropTypes.object,
-  toggleStatus: PropTypes.func
+  toggleStatus: PropTypes.func,
 };
-// Do prop validation here using the package `prop-types`
 
 export default GroceryList;
