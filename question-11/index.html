@@ -6,22 +6,48 @@ Retrieve the value of a node attribute.
 Change the value of a node attribute -->
 
 <html>
+  <head>
+    <title>JavaScript and the Document Object Model</title>
+  </head>
 
-<head>
-  <title>JavaScript and the Document Object Model</title>
-</head>
-
-<body>
-  <div id="page">
-    <div id="header">
-      <h1 id="title">Page title</h1>
+  <body>
+    <div id="page">
+      <div id="header">
+        <h1 id="title">Page title</h1>
+      </div>
+      <div id="content">
+        <h2>Content title</h2>
+        <p>Some copy goes here</p>
+        <p>More copy goes here</p>
+      </div>
     </div>
-    <div id="content">
-      <h2>Content title</h2>
-      <p>Some copy goes here</p>
-      <p>More copy goes here</p>
-    </div>
-  </div>
-</body>
 
+    <script>
+      window.addEventListener("DOMContentLoaded", init);
+
+      function init() {
+        retrieveAndChangeNodeValues();
+      }
+
+      function retrieveAndChangeNodeValues() {
+        const paras = document.getElementsByTagName("p");
+        const firstPara = paras[0];
+        // console.log("paras :", paras);
+        // Access the value of a node using nodeValue
+        const firstParaText = firstPara.childNodes[0].nodeValue;
+        console.log("firstPara :", firstParaText);
+        // Change the value of the node using thr nodeValue
+        firstPara.childNodes[0].nodeValue = "Hey I just got changed";
+
+        // Retrieve the value of a node attribute
+        const contentAttribute = document
+          .querySelector("#content")
+          .getAttribute("id");
+        console.log("contentAttribute :", contentAttribute);
+
+        //Change the value of a node attribute
+        document.querySelector("#content").setAttribute("id", "changed");
+      }
+    </script>
+  </body>
 </html>
