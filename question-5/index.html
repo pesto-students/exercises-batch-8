@@ -27,6 +27,54 @@
   <form>
     <input type="button" onclick="changeContent()" value="Change content">
   </form>
+
+  <script>
+    function changeContent() {
+      let row, column, content;
+      while(true) {
+        const input = prompt('Input row value');
+        if (input === null) {
+          return;
+        }
+        if (input === '' || isNaN(input)) {
+          alert('Input valid number');
+        } else {
+          row = Number(input);
+          break;
+        }
+      }
+
+      while(true) {
+        const input = prompt('Input column value');
+        if (input === null) {
+          return;
+        }
+        if (input === '' || isNaN(input)) {
+          alert('Input valid number');
+        } else {
+          column = Number(input);
+          break;
+        }
+      }
+      content = prompt('Input content');
+      if (content === null) {
+        return;
+      }
+      updateContent(row, column, content);
+    }
+
+    function updateContent(row, column, content) {
+      const table = document.getElementById('myTable');
+      const rowCount = table.rows.length;
+      const columnCount = table.rows[0].cells.length;
+
+      if (rowCount < row || columnCount < column) {
+        alert('Cell does not exist in table');
+      }
+
+      table.rows[row - 1].cells[column - 1].innerText = content;
+    }
+  </script>
 </body>
 
 </html>
