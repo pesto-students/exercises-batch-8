@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 // import PropTypes from 'prop-types';
 // import axios from 'axios';
 
@@ -21,6 +22,7 @@ import React, { Component } from 'react';
  */
 /* eslint-disable react/no-unused-state */
 const GithubRepos = ({ repos }) => {
+
   return (
     <ul>
       {/* Task: The list of repos here */}
@@ -43,21 +45,34 @@ class UsernameForm extends Component {
       username: '',
       repos: [],
     };
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  async fetchRepos() {
+    console.log(this.state.username);
+    const reposData = await Axios.get(`https://api.github.com/users/${this.state.username}/repos`);
+    this.setState({ ...this.state, repos: reposData.data });
+  }
+
+  handleChange(e) {
+    this.setState({ ...this.state, username: e.target.value }) 
+  }
+
   render() {
     return (
       <div>
         <input
           type="text"
           name="username"
+          value = {this.state.username}
+          onChange = {this.handleChange}
         />
         <button
-          onClick={() => {}}
+          onClick={() => this.fetchRepos()}
         >
           Get Repos
         </button>
-        {/* Task: Display the results here. Use GithubRepos Component.
-          It should be a list of repos of the user entered */}
+        <GithubRepos repos={this.state.repos} />
       </div>
     );
   }
