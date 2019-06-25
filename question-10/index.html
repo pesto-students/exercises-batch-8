@@ -9,29 +9,58 @@ Use the parentNode property to access an element.
 Use the childNodes property to access a group of child elements -->
 
 <html>
+  <head>
+    <title>JavaScript and the Document Object Model</title>
+  </head>
 
-<head>
+  <body>
+    <div id="page">
+      <div id="header">
+        <h1 id="title">Page title</h1>
+      </div>
 
-  <title>JavaScript and the Document Object Model</title>
-</head>
+      <div id="content">
+        <h2>Content title</h2>
 
-<body>
+        <p>Some copy goes here</p>
 
-  <div id="page">
-  
-    <div id="header">
-      <h1 id="title">Page title</h1>
-    </div>
-  
-    <div id="content">
-    
-      <h2>Content title</h2>
-    
-      <p>Some copy goes here</p>
-    
-      <p>More copy goes here</p>
+        <p>More copy goes here</p>
       </div>
     </div>
-</body>
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", init);
 
+    function init() {
+      accessElements();
+    }
+    function accessElements() {
+      const firstChildOfContentDiv = document.getElementById("content")
+        .firstChild;
+      console.log("First child of the content div :", firstChildOfContentDiv);
+      const lastChildOfContentDiv = document.getElementById("content")
+        .lastChild;
+      console.log("last child of the content div :", lastChildOfContentDiv);
+      const nextSiblingOfFirstChildOfContentDiv =
+        firstChildOfContentDiv.nextSibling;
+      console.log(
+        "next sibling of the first child of the content div :",
+        nextSiblingOfFirstChildOfContentDiv
+      );
+      const previousSiblingOfLastChildOfContentDiv =
+        lastChildOfContentDiv.previousSibling;
+      console.log(
+        "previous sibling of the last child of the content div :",
+        previousSiblingOfLastChildOfContentDiv
+      );
+      console.log(
+        "parent node of the first child of the content div:",
+        firstChildOfContentDiv.parentNode
+      );
+      console.log(
+        "child nodes of the content div",
+        document.getElementById("content").childNodes
+      );
+    }
+  </script>
 </html>

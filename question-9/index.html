@@ -2,16 +2,32 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+  <body>
+    <a href="#" onMouseOver="highlight()"
+      >Hover <strong>over</strong> me to <strong>highlight</strong> the
+      <strong>BOLD</strong> words</a
+    >
+    <script>
+      function highlight() {
+        getBoldItems();
+      }
 
-<body>
-
-</body>
-
+      // Collect all <strong> tags
+      function getBoldItems() {
+        const boldItems = document.querySelectorAll("strong");
+        highlightBoldItems(boldItems);
+      }
+      // iterate all bold tags and change color
+      function highlightBoldItems(boldItems) {
+        boldItems.forEach(item => (item.style.color = "red"));
+      }
+    </script>
+  </body>
 </html>
