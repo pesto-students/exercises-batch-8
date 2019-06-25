@@ -18,6 +18,15 @@ import React, { Component } from 'react';
 */
 
 class StopWatch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isRunning: false,
+      lapsedTime: 0,
+      offset: 0
+    }
+  }
+  
   render() {
     return (
       <div>Stop Watch</div>
