@@ -11,7 +11,16 @@
 </head>
 
 <body>
+  <p>I am a <strong>Bold</strong> word. And so am <strong>I...</strong></p>
 
+  <script>
+    const boldElements = document.querySelectorAll('strong');
+    console.log(boldElements);
+    for (const boldElement of boldElements) {
+      boldElement.onmouseover = () => boldElement.style['background-color'] = 'yellow';
+      boldElement.onmouseout = () => boldElement.style['background-color'] = 'white';
+    }
+  </script>
 </body>
 
 </html>
