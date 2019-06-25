@@ -23,12 +23,32 @@ class GroceryList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      newItem: '',
       groceries: [{ name: 'Apples' }, { name: 'KitKat' }, { name: 'Red Bull' }],
     };
   }
 
+  addNewItem = (e) => {
+    e.preventDefault();
+    const { newItem , groceries } = this.state;
+    if (newItem.length) {
+      this.setState({
+        groceries: [...groceries, { name: newItem}],
+        newItem: '',
+      });
+    }
+  }
+
+  handleOnChange = (e) => {
+    this.setState({ newItem: e.target.value });
+  }
+
+  clearAll = () => {
+    this.setState({ groceries: [] });
+  }
+
   render() {
-    const { groceries } = this.state;
+    const { groceries, newItem } = this.state;
     /*
       Properties are a way to pass parameters to your React components.
       We mentioned this in the third exercise. Properties are to React
@@ -41,9 +61,14 @@ class GroceryList extends React.Component {
       <GroceryListItem grocery={item} />
     ));
     // Hint: Don't forget about putting items into `ul`
+
     return (
       <div>
-        Put your code here
+        <form onSubmit={this.addNewItem}>
+          <label htmlFor="newItem">
+            New Item:
+          </label>
+        </form>
       </div>
     );
   }
