@@ -24,3 +24,12 @@ ul {
   list-style: none;
   color: black;
 }
+
+.grocery-item-name {
+  box-shadow:none;
+  border:none;
+  background-color: #6FC159;
+  color:#fff;
+  padding: 6px 12px;
+  display:block;
+}
