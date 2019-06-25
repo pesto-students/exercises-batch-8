@@ -13,9 +13,15 @@ class FavoriteMovie extends Component {
   }
 
   render() {
+    const { movie } = this.state;
     return (
       <div>
-        <p>My favorite movie is <span style={{ color: 'blue' }}>{this.state.movie}</span></p>
+        <p>
+          My favorite movie is
+          <span style={{ color: 'blue' }}>
+            {movie}
+          </span>
+        </p>
         <input type="text" name="name" onChange={this.onMovieChange} />
       </div>
     );
