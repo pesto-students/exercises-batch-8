@@ -1,8 +1,5 @@
-
-function floats(...args) {
-  return args;
-}
-
-export {
-  floats,
-};
+describe('floats', () => {
+  it('floats', () => {
+    expect(true).toBe(true);
+  });
+});
