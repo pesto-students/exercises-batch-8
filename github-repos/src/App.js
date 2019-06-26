@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from "react";
+import GithubUserForm from "./components/GithubUserForm";
+import ReposList from "./components/ReposList";
 
-import './App.css';
-
-const App = () => (
-  <div>App</div>
-);
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <GithubUserForm />
+        <ReposList />
+      </div>
+    );
+  }
+}
 
 export default App;
