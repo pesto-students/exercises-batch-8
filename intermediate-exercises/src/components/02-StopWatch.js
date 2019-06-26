@@ -18,9 +18,54 @@ import React, { Component } from 'react';
 */
 
 class StopWatch extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isRunning: false,
+      runningTime: 0,
+    };
+
+    this.toggleStopWatch = this.toggleStopWatch.bind(this);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  resetStopWatch() {
+    this.setState({
+      ...this.state,
+      isRunning: false,
+      runningTime: 0,
+    });
+  }
+
+  toggleStopWatch() {
+    const { isRunning } = this.state;
+    if (isRunning) {
+      clearInterval(this.timer);
+    }
+
+    this.setState((state) => {
+      return { isRunning: !state.isRunning };
+    });
+
+
+    this.timer = setInterval(() => {
+      const startTime = Date.now() - this.state.runningTime;
+      this.setState({ runningTime: Date.now() - startTime });
+    });
+  }
+
   render() {
+    const { isRunning, runningTime } = this.state;
     return (
-      <div>Stop Watch</div>
+      <div>
+        <div>Stop Watch</div>
+        <h1>{runningTime}</h1>
+        <button onClick={this.toggleStopWatch()}>{isRunning ? 'Stop' : 'Start'}</button>
+      </div>
     );
   }
 }
