@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-filename-extension */
+// eslint-disable-next-line import/no-unresolved
 import React, { Component } from 'react';
 
 /*
@@ -18,9 +21,57 @@ import React, { Component } from 'react';
 */
 
 class StopWatch extends Component {
+  constructor() {
+    super();
+    this.state = {
+      occupiedSeconds: 0,
+      intervalID: null,
+    };
+    this.startStopWatch = this.startStopWatch.bind(this);
+    this.stopStopWatch = this.stopStopWatch.bind(this);
+    this.clearStopWatch = this.clearStopWatch.bind(this);
+  }
+
+  startStopWatch() {
+    const { intervalID } = this.state;
+    if (intervalID === null) {
+      const newIntervalID = window.setInterval(() => {
+        const { occupiedSeconds } = this.state;
+        this.setState({ occupiedSeconds: occupiedSeconds + 1 });
+      }, 1);
+      this.setState({ intervalID: newIntervalID });
+    }
+  }
+
+  stopStopWatch() {
+    const { intervalID } = this.state;
+    if (intervalID !== null) {
+      window.clearInterval(intervalID);
+      this.setState({ intervalID: null });
+    }
+  }
+
+  clearStopWatch() {
+    const { intervalID } = this.state;
+    if (intervalID !== null) {
+      window.clearInterval(intervalID);
+      this.setState({ occupiedSeconds: 0, intervalID: null });
+    }
+  }
+
   render() {
+    const { occupiedSeconds } = this.state;
     return (
-      <div>Stop Watch</div>
+      <div>
+        <p>
+          milliseconds :
+          {' '}
+          {occupiedSeconds}
+        </p>
+        <button name="start" type="button" onClick={this.startStopWatch}>Start</button>
+        <button name="stop" type="button" onClick={this.stopStopWatch}>Stop</button>
+        <button name="clear" type="button" onClick={this.clearStopWatch}>Clear</button>
+      </div>
     );
   }
 }
