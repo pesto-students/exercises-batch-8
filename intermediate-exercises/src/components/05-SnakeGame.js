@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prefer-stateless-function */
 /*
   Create a snake game using React.
   - You should be able to control the snake using the arrow keys.

@@ -19,6 +19,7 @@ function getAddressFromCoords(latitude, longitude) {
 
   return fetch(url)
     .then(res => res.json())
+    // eslint-disable-next-line arrow-body-style
     .then((json) => {
       return json.status === 'OVER_QUERY_LIMIT' ?
         // Wait for the query limit to reset.
