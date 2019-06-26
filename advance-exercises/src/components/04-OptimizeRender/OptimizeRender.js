@@ -23,11 +23,18 @@ class ListView extends React.Component {
     rowHeight: PropTypes.number.isRequired,
     renderRowAtIndex: PropTypes.func.isRequired,
   };
-
+  componentDidMount() {
+    document.getElementById('content').addEventListener('scroll', this.handleScroll);
+    this.setState({ ...this.state, numRows: Math.floor(document.getElementById('content').clientHeight / this.props.rowHeight) })
+  }
+  handleScroll = () => {
+    const topPosition= document.getElementById('content').scrollTop/30;
+    this.setState({start: topPosition, end: topPosition + this.state.numRows})
+  }
   render() {
+
     const { numRows, rowHeight, renderRowAtIndex } = this.props;
     const totalHeight = numRows * rowHeight;
-
     const items = [];
 
     let index = 0;
@@ -37,7 +44,7 @@ class ListView extends React.Component {
     }
 
     return (
-      <div style={{ height: '100vh', overflowY: 'scroll' }}>
+      <div id="content" style={{ height: '100vh', overflowY: 'scroll' }}>
         <div style={{ height: totalHeight }}>
           <ol>{items}</ol>
         </div>

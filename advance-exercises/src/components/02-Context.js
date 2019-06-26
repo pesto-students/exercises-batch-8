@@ -18,6 +18,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const FormContext = React.createContext();
 class Form extends React.Component {
   static propTypes = {
     children: PropTypes.shape().isRequired,
@@ -32,18 +33,27 @@ class SubmitButton extends React.Component {
     children: PropTypes.shape().isRequired,
   }
   render() {
-    return <button>{this.props.children}</button>;
+    return <FormContext.Consumer>
+      {({ handleSubmit }) => <button onClick={handleSubmit}>{this.props.children}</button>}
+    </FormContext.Consumer>;
   }
 }
 
 class TextInput extends React.Component {
   render() {
     return (
-      <input
-        type="text"
-        name={this.props.name}
-        placeholder={this.props.placeholder}
-      />
+      <FormContext.Consumer>
+        {({ handleSubmit }) => <input
+          type="text"
+          onKeyDown={event => {
+            if (event.key === 'Enter') {
+              handleSubmit();
+            }
+          }}
+          name={this.props.name}
+          placeholder={this.props.placeholder}
+        />}
+      </FormContext.Consumer>
     );
   }
 }
@@ -64,17 +74,18 @@ class Context extends React.Component {
         <h1>
           This isn&#39;t even my final <code>&lt;Form/&gt;</code>!
         </h1>
-
-        <Form onSubmit={this.handleSubmit}>
-          <p>
-            <TextInput name="firstName" placeholder="First Name" />{' '}
-            <TextInput name="lastName" placeholder="Last Name" />
-          </p>
-          <p>
-            <SubmitButton>Submit</SubmitButton>
-          </p>
-        </Form>
-      </div>
+        <FormContext.Provider value={{ handleSubmit: this.handleSubmit }}>
+          <Form >
+            <p>
+              <TextInput name="firstName" placeholder="First Name" />{' '}
+              <TextInput name="lastName" placeholder="Last Name" />
+            </p>
+            <p>
+              <SubmitButton >Submit</SubmitButton>
+            </p>
+          </Form>
+        </FormContext.Provider>
+      </div >
     );
   }
 }
