@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/jsx-filename-extension */
+import React, { PureComponent } from 'react';
 
 // We will create dynamic list of movies. Let's see how to render
 // a list of items.
@@ -6,14 +7,17 @@ import React, { Component } from 'react';
 // Task #1: Add another movie (or movies) to the list.
 // Task #2: Change `ul` HTML attribute `class` to 'movies-list'.
 
-class MovieList extends Component {
+class MovieList extends PureComponent {
   // We can put DOM elements delivered by React just like HTML elements.
   // Doesn't this code look familiar to you?
   // Refer to App.css for a list a classes or add one yourself
   render() {
     return (
-      <ul className="FILL ME">
+      <ul className="movies-list">
         <li>The Godfather</li>
+        <li>Goodfellas</li>
+        <li>Taxi Driver</li>
+        <li>Heat</li>
       </ul>
     );
   }
