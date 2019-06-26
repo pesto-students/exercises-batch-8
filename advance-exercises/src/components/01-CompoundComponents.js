@@ -28,14 +28,18 @@ class RadioGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.onClildClicked = this.onClildClicked.bind(this);
+  }
+
+  onClildClicked(value) {
+    this.setState({ value: value });
+    this.props.onChange(value);
   }
 
   render() {
     const children = React.Children.map(this.props.children, child => {
       const childClone = React.cloneElement(child, {
-        onClick: value => {
-          this.setState({ value: value });
-        },
+        onClick: this.onClildClicked,
         isSelected: child.props.value === this.state.value,
       });
       return childClone;
@@ -96,7 +100,12 @@ class CompoundComponents extends React.Component {
       <div>
         <h1>♬ It is about time that we all turned off the radio ♫</h1>
 
-        <RadioGroup defaultValue="fm">
+        <RadioGroup
+          defaultValue="fm"
+          onChange={value => {
+            console.log(`Radio Group Value is ${value}`);
+          }}
+        >
           <RadioOption value="am">AM</RadioOption>
           <RadioOption value="fm">FM</RadioOption>
           <RadioOption value="tape">Tape</RadioOption>
