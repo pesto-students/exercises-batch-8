@@ -1,4 +1,7 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
+import axios from 'axios';
 // import PropTypes from 'prop-types';
 // import axios from 'axios';
 
@@ -20,20 +23,18 @@ import React, { Component } from 'react';
  *  https://api.github.com/users/{username}/repos
  */
 /* eslint-disable react/no-unused-state */
-const GithubRepos = ({ repos }) => {
-  return (
-    <ul>
-      {/* Task: The list of repos here */}
-    </ul>
-  );
-}
+// const GithubRepos = ({ repos }) => (
+//   <ul>
+//     {/* Task: The list of repos here */}
+//   </ul>
+// );
 
 // Task: Open the console in the browser. There will be a warning
 // about incorrect prop type for user.
 // Define the correct prop type for the prop `repos`
-GithubRepos.propTypes = {
+// GithubRepos.propTypes = {
 
-};
+// };
 
 /* eslint-disable react/no-multi-comp */
 class UsernameForm extends Component {
@@ -43,21 +44,52 @@ class UsernameForm extends Component {
       username: '',
       repos: [],
     };
+    this.changeUserName = this.changeUserName.bind(this);
+    this.getRepos = this.getRepos.bind(this);
   }
+
+  async getRepos() {
+    const { username } = this.state;
+    try {
+      const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+      console.log(response);
+      this.setState({ repos: response.data });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  changeUserName(event) {
+    this.setState({ username: event.target.value });
+  }
+
   render() {
+    const { username } = this.state;
+    const { repos } = this.state;
     return (
       <div>
         <input
           type="text"
           name="username"
+          value={username}
+          onChange={this.changeUserName}
         />
         <button
-          onClick={() => {}}
+          type="button"
+          onClick={this.getRepos}
         >
           Get Repos
         </button>
         {/* Task: Display the results here. Use GithubRepos Component.
           It should be a list of repos of the user entered */}
+        {
+          repos.map(repo => (
+            <div>
+              <img src={repo.owner.avatar_url} alt={repo.name} width="150vw" />
+              <p>{repo.name}</p>
+            </div>
+          ))
+        }
       </div>
     );
   }
