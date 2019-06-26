@@ -1,21 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
-
-/*
-* Exercise 2:
-*
-*  Create a `StopWatch` component that has a Start/Stop button and a Clear
-*  button.
-*
-*  Pressing Start will start a timer and the lapsed time in
-*  milliseconds should be displayed above the buttons.
-*
-*  Once started the Start button should change to Stop. Clicking Stop
-*  will stop the timer but lapsed time will be preserved.
-*
-*  Clicking Start again will resume the timer from where it left off.
-*
-*  Clicking Clear will stop the timer if it's running and reset the lapsed time to 0.
-*/
 
 class StopWatch extends Component {
   constructor(props) {
@@ -25,16 +9,15 @@ class StopWatch extends Component {
     this.handleStart = this.handleStart.bind(this);
     this.handleStop = this.handleStop.bind(this);
     this.handleClear = this.handleClear.bind(this);
-
   }
 
   handleStart() {
-    if (this.interval ){
+    if (this.interval) {
       clearInterval(this.interval);
     }
     // time delay fix?
     this.interval = setInterval(() => {
-      this.setState( prevState => ({ timer: prevState.timer + 1}));
+      this.setState(prevState => ({ timer: prevState.timer + 1 }));
     }, 1);
   }
 
@@ -49,11 +32,11 @@ class StopWatch extends Component {
   render() {
     return (
       <div>Stop Watch
-        <br/>
+        <br />
         <span>{this.state.timer}</span>
-        <br/>
+        <br />
         <button onClick={this.handleStart}> Start </button>
-        <button onClick={this.handleStop}> Stop </button><br/>
+        <button onClick={this.handleStop}> Stop </button><br />
         <button onClick={this.handleClear}>Clear</button>
       </div>
     );
