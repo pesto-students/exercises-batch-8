@@ -20,28 +20,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class RadioGroup extends React.Component {
+  constructor(props) {
+    super(props);
+    const { defaultValue } = this.props;
+    this.state = {
+      selected: defaultValue,
+    }
+
+    this.onChange = this.onChange.bind(this);
+  }
+
   static propTypes = {
-    // defaultValue: PropTypes.string,                UN-COMMENT THIS LINE
-    children: PropTypes.shape().isRequired,
+    defaultValue: PropTypes.string,
+    children: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   };
+
+  onChange(value) {
+    this.setState({
+      selected: value,
+    })
+  }
+
   render() {
-    return (
-      <div>{this.props.children}</div>
-    );
+    const { selected } = this.state;
+    const { children } = this.props;
+    return React.Children.map(children, (child) => React.cloneElement(child, { selected, onChange: this.onChange }));
   }
 }
 
 class RadioOption extends React.Component {
   static propTypes = {
-    // value: PropTypes.string,                       UN-COMMENT THIS LINE
-    children: PropTypes.shape().isRequired,
+    value: PropTypes.string,
+    selected: PropTypes.string,
+    children: PropTypes.string.isRequired,
   };
 
   render() {
+    const { value, children, selected, onChange } = this.props;
     return (
-      <div>
-        <RadioIcon isSelected={false} /> {this.props.children}
-      </div>
+      <span onClick={() => onChange(value)}>
+        <RadioIcon isSelected={selected === value} /> {children} &nbsp;
+      </span>
+      
     );
   }
 }
@@ -55,7 +75,7 @@ class RadioIcon extends React.Component {
     return (
       <div
         style={{
-          borderColor: '#ccc',
+          borderColor: this.props.isSelected ? 'red' : '#ccc',
           borderWidth: 3,
           borderStyle: this.props.isSelected ? 'inset' : 'outset',
           height: 16,
