@@ -1,17 +1,30 @@
-<!-- Write a JavaScript program to highlight the bold words of the following paragraph, on mouse over a certain link. Go to the editor -->
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+  <body>
+    <a href="#" onMouseOver="highlight()"
+      >Hover <strong>over</strong> me to <strong>highlight</strong> the
+      <strong>BOLD</strong> words</a
+    >
+    <script>
+      function highlight() {
+        boldElements();
+      }
 
-<body>
+      function boldElements() {
+        const boldItems = document.querySelectorAll("strong");
+        highlightBoldElements(boldItems);
+      }
 
-</body>
-
+      function highlightBoldElements(boldItems) {
+        boldItems.forEach(item => (item.style.color = "blue"));
+      }
+    </script>
+  </body>
 </html>
