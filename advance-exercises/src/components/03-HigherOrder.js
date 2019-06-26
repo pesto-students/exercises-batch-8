@@ -1,15 +1,37 @@
-/*
-  Exercise:
+/* eslint-disable react/no-unused-state */
 
-  Make `withMouse` a "higher-order component" that sends the mouse position
-  to the component as props (hint: use `event.clientX` and `event.clientY`).
-
-*/
 import React from 'react';
 import PropTypes from 'prop-types';
 
 function withMouse(Component) {
-  return Component;
+  class WithMouse extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        x: 0,
+        y: 0,
+      };
+      this.handleMouseMovement = this.handleMouseMovement.bind(this);
+    }
+
+    handleMouseMovement(event) {
+      const { clientX, clientY } = event;
+      this.setState({
+        x: clientX,
+        y: clientY,
+      });
+    }
+
+    render() {
+      return (
+        <div style={{ height: '100%' }} onMouseMove={this.handleMouseMovement}>
+          <Component mouse={this.state} {...this.props} />
+        </div>
+      );
+    }
+  }
+  WithMouse.displayName = `withMouse(${Component.displayName || Component.name})`;
+  return WithMouse;
 }
 
 class App extends React.Component {
@@ -20,7 +42,9 @@ class App extends React.Component {
       <div className="container">
         {mouse ? (
           <h1>
-            The mouse position is ({mouse.x}, {mouse.y})
+            The mouse position is (
+              {mouse.x}, {mouse.y}
+            )
           </h1>
         ) : (
           <h1>We don&#39;t know the mouse position yet :(</h1>
