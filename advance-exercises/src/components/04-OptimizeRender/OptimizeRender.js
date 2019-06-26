@@ -18,6 +18,10 @@ import PropTypes from 'prop-types';
 import * as RainbowListDelegate from './RainbowListDelegate';
 
 class ListView extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
   static propTypes = {
     numRows: PropTypes.number.isRequired,
     rowHeight: PropTypes.number.isRequired,
@@ -28,7 +32,7 @@ class ListView extends React.Component {
     this.setState({ ...this.state, numRows: Math.floor(document.getElementById('content').clientHeight / this.props.rowHeight) })
   }
   handleScroll = () => {
-    const topPosition= document.getElementById('content').scrollTop/30;
+    const topPosition= Math.floor(document.getElementById('content').scrollTop/30);
     this.setState({start: topPosition, end: topPosition + this.state.numRows})
   }
   render() {
@@ -37,8 +41,8 @@ class ListView extends React.Component {
     const totalHeight = numRows * rowHeight;
     const items = [];
 
-    let index = 0;
-    while (index < numRows) {
+    let index = this.state.start? this.state.start: 0;
+    while (index < this.state.end) {
       items.push(<li key={index}>{renderRowAtIndex(index)}</li>);
       index += 1;
     }
