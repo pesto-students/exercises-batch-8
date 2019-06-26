@@ -5,19 +5,39 @@
   to the component as props (hint: use `event.clientX` and `event.clientY`).
 
 */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function withMouse(Component) {
-  return Component;
+  return class extends React.Component {
+    state = {
+      x: 0,
+      y: 0
+    };
+    handleMouseMove = event => {
+      this.setState({
+        x: event.clientX,
+        y: event.clientY
+      });
+    };
+    render() {
+      return (
+        <Component
+          {...this.props}
+          mouse={this.state}
+          handleMouseMove={this.handleMouseMove}
+        />
+      );
+    }
+  };
 }
 
 class App extends React.Component {
   render() {
-    const { mouse } = this.props;
+    const { mouse, handleMouseMove } = this.props;
 
     return (
-      <div className="container">
+      <div className="container" onMouseMove={handleMouseMove}>
         {mouse ? (
           <h1>
             The mouse position is ({mouse.x}, {mouse.y})
@@ -33,8 +53,8 @@ class App extends React.Component {
 App.propTypes = {
   mouse: PropTypes.shape({
     x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
-  }).isRequired,
+    y: PropTypes.number.isRequired
+  }).isRequired
 };
 
 const AppWithMouse = withMouse(App);
