@@ -1,26 +1,17 @@
-body {
-  font-size: 1.5em;
-  text-align: center;
+.snake-box-filled {
+  min-width: 10px;
+  min-height: 10px;
+  background-color: "#fbf6db";
 }
 
-a {
-  color: black;
-  text-decoration: none;
+.snake-box-unfilled {
+  min-width: 10px;
+  min-height: 10px;
+  background-color: black;
 }
 
-ul {
-  list-style: none;
-}
-
-.nav li a {
-  font-size: 1.4em;
-}
-
-.link--active {
-  color: red;
-}
-
-.movie-list {
-  list-style: none;
-  color: black;
+.snake-box-food {
+  min-width: 10px;
+  min-height: 10px;
+  background-color: pink;
 }
