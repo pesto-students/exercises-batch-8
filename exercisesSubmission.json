@@ -6,7 +6,7 @@
             "completed": false
         },
         "duplicate-letters": {
-            "completed": false
+            "completed": true
         },
         "does-end-with": {
             "completed": false
