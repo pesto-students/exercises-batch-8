@@ -1,0 +1,2 @@
+export const ADD_GROCERY_ITEM = 'ADD_GROCERY_ITEM';
+export const CLEAR_LIST = 'CLEAR_LIST';
