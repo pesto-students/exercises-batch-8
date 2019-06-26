@@ -41,14 +41,15 @@ class StopWatch extends Component {
         <h1>Stop Watch:</h1>
         <div>{this.state.time}</div>
         <button onClick={this.toggleTimer}>{(() => {
-          if (this.state.time === 0) {
-            return 'Start'
-          }
-          if (this.state.isPaused) {
-            return 'Resume'
-          }
-          return 'Stop'
-        })()}</button>
+            if (this.state.time === 0) {
+              return 'Start';
+            }
+            if (this.state.isPaused) {
+              return 'Resume';
+            }
+            return 'Stop';
+          })()}
+        </button>
       </div>
     );
   }

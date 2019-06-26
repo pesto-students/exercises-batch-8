@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 /*
@@ -40,16 +41,16 @@ class LifeCycle extends React.Component {
     console.log('Good night, Pesto!');
   }
   updateState() {
-    this.setState({name: 'Pesto'});
+    this.setState({ name: 'Pesto' });
   }
   // Task 4: Create a button which triggers ComponentDidUpdate lifecycle method on click.
   render() {
     return (
       <p>
-        Good morning, {this.state.name}! 
+        Good morning, {this.state.name}!
         <button onClick={this.updateState}>Trigger componentDidMount</button>
       </p>
-      );
+    );
   }
 }
 

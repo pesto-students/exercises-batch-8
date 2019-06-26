@@ -27,16 +27,12 @@
 /* eslint-disable react/no-multi-comp */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 // import PropTypes from 'prop-types';
 
 import getAddressFromCoords from './utils/getAddressFromCoords';
-class App extends React.Component {
-  render() {
-    return (
-      <GeoPosition></GeoPosition>
-    );
-  }
-}
+
+const App = () => <GeoPosition />;
 class GeoPosition extends React.Component {
   constructor() {
     super();
@@ -50,6 +46,7 @@ class GeoPosition extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line no-undef
     this.geoId = navigator.geolocation.watchPosition(
       (position) => {
         this.setState({
@@ -66,6 +63,7 @@ class GeoPosition extends React.Component {
   }
 
   componentWillUnmount() {
+    // eslint-disable-next-line no-undef
     navigator.geolocation.clearWatch(this.geoId);
   }
 
@@ -76,29 +74,44 @@ class GeoPosition extends React.Component {
         {this.state.error ? (
           <div>Error: {this.state.error.message}</div>
         ) : (
-            <dl>
-              <dt>Latitude</dt>
-              <dd>{this.state.coords.latitude || <p>create a loader and show here...</p>}</dd>
-              <dt>Longitude</dt>
-              <dd>{this.state.coords.longitude || <p>create a loader and show here...</p>}</dd>
-            </dl>
-          )}
-        <GeoAddress long={this.state.coords.longitude} lat={this.state.coords.latitude} />
+          <dl>
+            <dt>Latitude</dt>
+            <dd>
+              {this.state.coords.latitude || (
+                <p>create a loader and show here...</p>
+              )}
+            </dd>
+            <dt>Longitude</dt>
+            <dd>
+              {this.state.coords.longitude || (
+                <p>create a loader and show here...</p>
+              )}
+            </dd>
+          </dl>
+        )}
+        <GeoAddress
+          long={this.state.coords.longitude}
+          lat={this.state.coords.latitude}
+        />
       </div>
-    )
+    );
   }
 }
 class GeoAddress extends React.Component {
   constructor() {
     super();
-    this.state = { address: '' }
+    this.state = { address: '' };
   }
   componentDidUpdate() {
-    // console.log(this.props.lat, this.props.long)
-    // getAddressFromCoords(this.props.lat, this.props.long).then(res => console.log(res));
+    getAddressFromCoords(this.props.lat, this.props.long)
+      .then(() => this.setState({ address: 'Some Random Address' }));
   }
   render() {
-    return <div/>
+    return <div>{this.state.address}</div>;
   }
 }
 export default App;
+GeoAddress.propTypes = {
+  long: PropTypes.number.isRequired,
+  lat: PropTypes.number.isRequired,
+};

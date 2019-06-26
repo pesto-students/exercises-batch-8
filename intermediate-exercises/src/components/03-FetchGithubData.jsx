@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 // import PropTypes from 'prop-types';
 // import axios from 'axios';
 
@@ -22,19 +24,21 @@ import axios from 'axios';
  */
 /* eslint-disable react/no-unused-state */
 
-const GithubRepos = ({ repos }) => {
-  return (
-    <ul>
-      {repos.map(repo => <li key={repo.name}>{repo.name}</li>)}
-    </ul>
-  );
-}
+const GithubRepos = ({ repos }) => (
+  <ul>
+    {repos.map(repo => (
+      <li key={repo.name}>{repo.name}</li>
+    ))}
+  </ul>
+);
 
 // Task: Open the console in the browser. There will be a warning
 // about incorrect prop type for user.
 // Define the correct prop type for the prop `repos`
 GithubRepos.propTypes = {
-
+  repos: PropTypes.shape({
+    name: PropTypes.string,
+  }).isRequired,
 };
 
 /* eslint-disable react/no-multi-comp */
@@ -49,13 +53,14 @@ class UsernameForm extends Component {
     this.changeUsername = this.changeUsername.bind(this);
   }
   fetchRepos() {
-    axios.get(`https://api.github.com/users/${this.state.username}/repos`).then((res)=>{
-      this.setState({...this.state, repos: res.data});
-    })
+    axios
+      .get(`https://api.github.com/users/${this.state.username}/repos`)
+      .then((res) => {
+        this.setState({ ...this.state, repos: res.data });
+      });
   }
   changeUsername(e) {
-    console.log('changing username');
-    this.setState({...this.state, username: e.target.value});
+    this.setState({ ...this.state, username: e.target.value });
   }
   render() {
     return (
@@ -66,12 +71,8 @@ class UsernameForm extends Component {
           onChange={this.changeUsername}
           value={this.state.username}
         />
-        <button
-          onClick={this.fetchRepos}
-        >
-          Get Repos
-        </button>
-        <GithubRepos repos={this.state.repos}/>
+        <button onClick={this.fetchRepos}>Get Repos</button>
+        <GithubRepos repos={this.state.repos} />
         {/* Task: Display the results here. Use GithubRepos Component.
           It should be a list of repos of the user entered */}
       </div>
