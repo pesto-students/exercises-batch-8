@@ -21,26 +21,38 @@ import PropTypes from 'prop-types';
 
 class RadioGroup extends React.Component {
   static propTypes = {
-    // defaultValue: PropTypes.string,                UN-COMMENT THIS LINE
+    defaultValue: PropTypes.string,           
     children: PropTypes.shape().isRequired,
   };
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedValue : null,
+    }
+  }
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div>{React.Children.map(this.props.children, (radioOption) => {
+        return React.cloneElement(radioOption, {
+          isSelected : false,
+        })
+      })}</div>
     );
   }
 }
 
 class RadioOption extends React.Component {
   static propTypes = {
-    // value: PropTypes.string,                       UN-COMMENT THIS LINE
+    value: PropTypes.string, 
+    isSelected : PropTypes.bool.isRequired,                       
     children: PropTypes.shape().isRequired,
   };
 
   render() {
     return (
       <div>
-        <RadioIcon isSelected={false} /> {this.props.children}
+        <RadioIcon isSelected={this.props.isSelected} /> 
+        {this.props.children}
       </div>
     );
   }
@@ -50,10 +62,13 @@ class RadioIcon extends React.Component {
   static propTypes = {
     isSelected: PropTypes.bool.isRequired,
   };
-
+   
   render() {
     return (
       <div
+      onClick={()=>{
+         
+      }}
         style={{
           borderColor: '#ccc',
           borderWidth: 3,
@@ -75,7 +90,7 @@ class CompoundComponents extends React.Component {
       <div>
         <h1>♬ It is about time that we all turned off the radio ♫</h1>
 
-        <RadioGroup defaultValue="fm">
+        <RadioGroup defaultValue="fm" tabIndex="0">
           <RadioOption value="am">AM</RadioOption>
           <RadioOption value="fm">FM</RadioOption>
           <RadioOption value="tape">Tape</RadioOption>
