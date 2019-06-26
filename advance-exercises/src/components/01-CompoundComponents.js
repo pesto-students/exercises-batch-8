@@ -17,6 +17,7 @@ class RadioGroup extends React.Component {
     defaultValue: PropTypes.string,
     children: PropTypes.shape().isRequired
   };
+  
   render() {
     return <div>{this.props.children}</div>;
   }
