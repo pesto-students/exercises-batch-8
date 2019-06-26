@@ -1,61 +1,100 @@
+import React from "react";
+import PropTypes from "prop-types";
 
-/*
-  Q2:
+// Create a new form context
+const FormContext = React.createContext();
+/**
+ * Provider State of the form goes here
+ */
+class FormContextProvider extends React.Component {
+  state = {
+    firstName: "",
+    lastName: ""
+  };
 
-  Using context, implement the <Form>, <SubmitButton>, and <TextInput>
-  components such that:
-
-  - Clicking the <SubmitButton> calls <Form onSubmit>
-  - Hitting "Enter" while in a <TextInput> submits the form
-  - Don't use a <form> element, we're intentionally recreating the
-    browser's built-in behavior
-
-  - Send the values of all the <TextInput>s to the <Form onSubmit> handler
-    without using DOM traversal APIs
-  - Implement a <ResetButton> that resets the <TextInput>s in the form
-*/
-
-import React from 'react';
-import PropTypes from 'prop-types';
+  handleChange = (input, value) =>
+    this.setState({ ...this.state, [input]: value });
+  handleSubmit = event => {
+    event.preventDefault();
+    const { firstName, lastName } = this.state;
+    console.log(`The user details are ${firstName} ${lastName}`);
+  };
+  render() {
+    return (
+      <FormContext.Provider
+        value={{
+          state: this.state,
+          handleChange: this.handleChange,
+          handleSubmit: this.handleSubmit
+        }}
+      >
+        {this.props.children}
+      </FormContext.Provider>
+    );
+  }
+}
 
 class Form extends React.Component {
   static propTypes = {
-    children: PropTypes.shape().isRequired,
-  }
+    children: PropTypes.shape().isRequired
+  };
   render() {
     return <div>{this.props.children}</div>;
   }
 }
 
+/**
+ * Consumers code goes here
+ */
+
 class SubmitButton extends React.Component {
   static propTypes = {
-    children: PropTypes.shape().isRequired,
-  }
+    children: PropTypes.shape().isRequired
+  };
   render() {
-    return <button>{this.props.children}</button>;
+    return (
+      <FormContext.Consumer>
+        {context => {
+          const { handleSubmit } = context;
+          return <button onClick={handleSubmit}>{this.props.children}</button>;
+        }}
+      </FormContext.Consumer>
+    );
   }
 }
 
 class TextInput extends React.Component {
   render() {
     return (
-      <input
-        type="text"
-        name={this.props.name}
-        placeholder={this.props.placeholder}
-      />
+      <FormContext.Consumer>
+        {context => {
+          const { state } = context;
+          const { name, placeholder } = this.props;
+          return (
+            <input
+              type="text"
+              name={name}
+              placeholder={placeholder}
+              value={state[name]}
+              onChange={(event, input = name) =>
+                context.handleChange(input, event.target.value)
+              }
+            />
+          );
+        }}
+      </FormContext.Consumer>
     );
   }
 }
 
 TextInput.propTypes = {
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired
 };
 
 class Context extends React.Component {
   handleSubmit = () => {
-    alert('YOU WIN!');
+    alert("YOU WIN!");
   };
 
   render() {
@@ -65,15 +104,17 @@ class Context extends React.Component {
           This isn&#39;t even my final <code>&lt;Form/&gt;</code>!
         </h1>
 
-        <Form onSubmit={this.handleSubmit}>
-          <p>
-            <TextInput name="firstName" placeholder="First Name" />{' '}
-            <TextInput name="lastName" placeholder="Last Name" />
-          </p>
-          <p>
-            <SubmitButton>Submit</SubmitButton>
-          </p>
-        </Form>
+        <FormContextProvider>
+          <Form onSubmit={this.handleSubmit}>
+            <p>
+              <TextInput name="firstName" placeholder="First Name" />{" "}
+              <TextInput name="lastName" placeholder="Last Name" />
+            </p>
+            <p>
+              <SubmitButton>Submit</SubmitButton>
+            </p>
+          </Form>
+        </FormContextProvider>
       </div>
     );
   }
