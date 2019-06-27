@@ -21,26 +21,51 @@ import PropTypes from 'prop-types';
 
 class RadioGroup extends React.Component {
   static propTypes = {
-    // defaultValue: PropTypes.string,                UN-COMMENT THIS LINE
+    defaultValue: PropTypes.string,
     children: PropTypes.shape().isRequired,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.onClildClicked = this.onClildClicked.bind(this);
+  }
+
+  onClildClicked(value) {
+    this.setState({ value: value });
+    this.props.onChange(value);
+  }
+
   render() {
-    return (
-      <div>{this.props.children}</div>
-    );
+    const children = React.Children.map(this.props.children, child => {
+      const childClone = React.cloneElement(child, {
+        onClick: this.onClildClicked,
+        isSelected: child.props.value === this.state.value,
+      });
+      return childClone;
+    });
+    return <div>{children}</div>;
   }
 }
 
 class RadioOption extends React.Component {
   static propTypes = {
-    // value: PropTypes.string,                       UN-COMMENT THIS LINE
+    value: PropTypes.string,
     children: PropTypes.shape().isRequired,
   };
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div>
-        <RadioIcon isSelected={false} /> {this.props.children}
+      <div
+        onClick={() => {
+          this.props.onClick(this.props.value);
+        }}
+      >
+        <RadioIcon isSelected={this.props.isSelected} /> {this.props.children}
       </div>
     );
   }
@@ -75,7 +100,12 @@ class CompoundComponents extends React.Component {
       <div>
         <h1>♬ It is about time that we all turned off the radio ♫</h1>
 
-        <RadioGroup defaultValue="fm">
+        <RadioGroup
+          defaultValue="fm"
+          onChange={value => {
+            console.log(`Radio Group Value is ${value}`);
+          }}
+        >
           <RadioOption value="am">AM</RadioOption>
           <RadioOption value="fm">FM</RadioOption>
           <RadioOption value="tape">Tape</RadioOption>
