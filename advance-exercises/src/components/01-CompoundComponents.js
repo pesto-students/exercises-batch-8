@@ -20,27 +20,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class RadioGroup extends React.Component {
+  constructor() {
+    super();
+    this.select = this.select.bind(this);
+  }
   static propTypes = {
     // defaultValue: PropTypes.string,                UN-COMMENT THIS LINE
-    children: PropTypes.shape().isRequired,
+    children: PropTypes.shape().isRequired
   };
+  select(target) {
+    console.log('selecting', target);
+  }
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div>
+        {React.Children.map(this.props.children, child =>
+          React.cloneElement(child, { select: this.select })
+        )}
+        {/* {this.props.children} */}
+      </div>
     );
   }
 }
 
 class RadioOption extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: false
+    };
+    this.toggleSelected = this.toggleSelected.bind(this);
+  }
   static propTypes = {
     // value: PropTypes.string,                       UN-COMMENT THIS LINE
-    children: PropTypes.shape().isRequired,
+    children: PropTypes.shape().isRequired
   };
-
+  toggleSelected() {
+    this.setState({ selected: !this.state.selected });
+  }
   render() {
     return (
-      <div>
-        <RadioIcon isSelected={false} /> {this.props.children}
+      <div onClick={this.toggleSelected}>
+        <RadioIcon isSelected={this.state.selected} /> {this.props.children}
       </div>
     );
   }
@@ -48,7 +69,7 @@ class RadioOption extends React.Component {
 
 class RadioIcon extends React.Component {
   static propTypes = {
-    isSelected: PropTypes.bool.isRequired,
+    isSelected: PropTypes.bool.isRequired
   };
 
   render() {
@@ -62,7 +83,7 @@ class RadioIcon extends React.Component {
           width: 16,
           display: 'inline-block',
           cursor: 'pointer',
-          background: this.props.isSelected ? 'rgba(0, 0, 0, 0.05)' : '',
+          background: this.props.isSelected ? 'rgba(0, 0, 0, 0.05)' : ''
         }}
       />
     );
@@ -70,6 +91,13 @@ class RadioIcon extends React.Component {
 }
 
 class CompoundComponents extends React.Component {
+  constructor() {
+    super();
+    this.selectItem = this.selectItem.bind(this);
+  }
+  selectItem() {
+    console.log('selecting item');
+  }
   render() {
     return (
       <div>
