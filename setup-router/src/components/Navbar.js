@@ -12,9 +12,9 @@ export default class Navbar extends Component {
     return (
       <ul className="nav">
         {/* FIXME: 'active' class name should be on li and not on 'a' */}
-        <li><NavLink to="/" component={Home}> Home</NavLink></li>
-        <li><NavLink to="/about" component={About}> About Us</NavLink></li>
-        <li><NavLink to="/contact" component={Contact}> Contact</NavLink></li>
+        <li><NavLink to="/home" activeClassName="active" component={Home}> Home</NavLink></li>
+        <li><NavLink to="/about" activeClassName="active" component={About}> About Us</NavLink></li>
+        <li><NavLink to="/contact" activeClassName="active" component={Contact}> Contact</NavLink></li>
       </ul>
     );
   }
