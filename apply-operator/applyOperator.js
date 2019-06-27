@@ -36,7 +36,7 @@ function applyOperator(operator, ...numbers) {
       break;
 
     case operators.MODULUS:
-      result = numbers.reduce((acc, num) => acc % num, 0);
+      result = numbers.reduce((acc, num) => acc % num);
       break;
 
     default:
