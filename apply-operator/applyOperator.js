@@ -12,10 +12,6 @@ function applyOperator(operator, ...numbers) {
     throw new Error('Invalid parameters.');
   }
 
-  // if (numbers.length === 1) {
-  //   return numbers[0];
-  // }
-
   let result;
   switch (operator) {
     case operators.ADDITION:
