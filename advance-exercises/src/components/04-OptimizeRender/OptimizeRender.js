@@ -9,37 +9,58 @@
     for the window's "resize" event).
 */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 // This is a function that takes a number and return a div
 // with that number in english. The text in div has a color
 // based on the number.
-import * as RainbowListDelegate from './RainbowListDelegate';
+import * as RainbowListDelegate from "./RainbowListDelegate";
 
 class ListView extends React.Component {
   static propTypes = {
     numRows: PropTypes.number.isRequired,
     rowHeight: PropTypes.number.isRequired,
-    renderRowAtIndex: PropTypes.func.isRequired,
+    renderRowAtIndex: PropTypes.func.isRequired
   };
 
-  render() {
-    const { numRows, rowHeight, renderRowAtIndex } = this.props;
-    const totalHeight = numRows * rowHeight;
+  constructor() {
+    super();
+    this.state = { rows: 0, items: [], totalHeight: 0 };
+  }
 
-    const items = [];
+  resize = () => console.log("Resized");
 
-    let index = 0;
-    while (index < numRows) {
+  updateRows = () => {
+    console.log("Update Rows called");
+    const { rowHeight, renderRowAtIndex } = this.props;
+    let { items, rows } = this.state;
+    let index = rows;
+    while (index < rows + 10) {
       items.push(<li key={index}>{renderRowAtIndex(index)}</li>);
       index += 1;
     }
+    this.setState({ items, rows: index, rowHeight: index * rowHeight });
+  };
 
+  componentDidMount() {
+    this.updateRows();
+    window.addEventListener("resize", this.resize);
+    this.refs.scrollView.addEventListener("scroll", () => {
+      if (
+        this.refs.scrollView.scrollTop + this.refs.scrollView.clientHeight >=
+        this.refs.scrollView.scrollHeight
+      ) {
+        this.updateRows();
+      }
+    });
+  }
+
+  render() {
     return (
-      <div style={{ height: '100vh', overflowY: 'scroll' }}>
-        <div style={{ height: totalHeight }}>
-          <ol>{items}</ol>
+      <div ref="scrollView" style={{ height: "100vh", overflowY: "scroll" }}>
+        <div style={{ height: this.state.totalHeight }}>
+          <ol>{this.state.items}</ol>
         </div>
       </div>
     );
