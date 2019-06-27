@@ -1,7 +1,13 @@
+const isNegative = num => num < 0;
+const makeIndexPositive = (index, length) => index + length;
 
-function nthArg(...args) {
-  return args;
-}
+const nthArg = index => (...args) => {
+  if (isNegative(index)) {
+    const positiveIndex = makeIndexPositive(index, args.length);
+    return args[positiveIndex];
+  }
+  return args[index];
+};
 
 export {
   nthArg,

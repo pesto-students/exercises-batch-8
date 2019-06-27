@@ -1,6 +1,9 @@
 
-function mergeAll(...args) {
-  return args;
+function mergeAll(listOfObjects) {
+  return listOfObjects.reduce((acc, object) => ({
+    ...acc,
+    ...object,
+  }), {});
 }
 
 export {
