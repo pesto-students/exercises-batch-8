@@ -16,6 +16,7 @@ function threeSum(array, total) {
   }
 
   const arraySize = array.length;
+
   for (let left = 0; left < arraySize - 1; left += 1) {
     let right = left + 1;
 
