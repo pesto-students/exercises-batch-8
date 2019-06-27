@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -10,12 +10,14 @@ import './styles/App.css';
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Navbar />
-        <Home />
-        <About />
-        <Contact />
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
+        </Fragment>
+      </Router>
     );
   }
 }
