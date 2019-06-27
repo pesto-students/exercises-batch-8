@@ -29,11 +29,11 @@ class ListView extends React.Component {
   };
   componentDidMount() {
     document.getElementById('content').addEventListener('scroll', this.handleScroll);
-    this.setState({ ...this.state, numRows: Math.floor(document.getElementById('content').clientHeight / this.props.rowHeight) })
+    this.setState({ ...this.state, numRows: Math.floor(document.getElementById('content').clientHeight / this.props.rowHeight) }, () => console.log(this.state))
   }
   handleScroll = () => {
-    const topPosition = Math.floor(document.getElementById('content').scrollTop / 30);
-    this.setState({ start: topPosition, end: topPosition + this.state.numRows }, () => console.log(this.state))
+    const topPosition = Math.floor(document.getElementById('content').scrollTop / 22);
+    this.setState({ start: topPosition, end: topPosition + this.state.numRows })
   }
   render() {
 
