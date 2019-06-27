@@ -1,9 +1,11 @@
 import React from 'react';
-
+import Groceries from './Groceries';
 import './App.css';
 
 const App = () => (
-  <div>App</div>
+  <div>
+    <Groceries />
+  </div>
 );
 
 export default App;
