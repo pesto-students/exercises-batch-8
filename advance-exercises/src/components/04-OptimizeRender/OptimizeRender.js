@@ -18,26 +18,43 @@ import PropTypes from 'prop-types';
 import * as RainbowListDelegate from './RainbowListDelegate';
 
 class ListView extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
   static propTypes = {
     numRows: PropTypes.number.isRequired,
     rowHeight: PropTypes.number.isRequired,
     renderRowAtIndex: PropTypes.func.isRequired,
   };
-
+  componentDidMount() {
+    document.getElementById('content').addEventListener('scroll', this.handleScroll);
+    this.setState({ ...this.state, numRows: Math.floor(document.getElementById('content').clientHeight / this.props.rowHeight) }, () => console.log(this.state))
+  }
+  handleScroll = () => {
+    const topPosition = Math.floor(document.getElementById('content').scrollTop / 22);
+    this.setState({ start: topPosition, end: topPosition + this.state.numRows })
+  }
   render() {
+
     const { numRows, rowHeight, renderRowAtIndex } = this.props;
     const totalHeight = numRows * rowHeight;
-
     const items = [];
 
     let index = 0;
-    while (index < numRows) {
-      items.push(<li key={index}>{renderRowAtIndex(index)}</li>);
+    while (index < this.state.end) {
+      if (index < this.state.start) {
+        items.push(<li></li>);
+      }
+      else{
+        items.push(<li key={index}>{renderRowAtIndex(index)}</li>);
+      }
+        
       index += 1;
     }
 
     return (
-      <div style={{ height: '100vh', overflowY: 'scroll' }}>
+      <div id="content" style={{ height: '91vh', overflowY: 'scroll' }}>
         <div style={{ height: totalHeight }}>
           <ol>{items}</ol>
         </div>
