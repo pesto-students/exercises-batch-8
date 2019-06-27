@@ -3,7 +3,7 @@
   "segmentName": "segment-2",
   "exercises": {
     "github-repos": {
-      "completed": false
+      "completed": true
     },
     "grocery-list": {
       "completed": false
