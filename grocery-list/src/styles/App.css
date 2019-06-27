@@ -1,0 +1,15 @@
+.listItem {
+    margin: 1em 1em;
+}
+
+.listItem button {
+    margin-left: 1em;
+}
+
+.purchased {
+    color: red;
+}
+
+.not-purchases {
+    color: black;
+}
