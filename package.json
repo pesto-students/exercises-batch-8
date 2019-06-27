@@ -12,10 +12,12 @@
     "node": ">=10.15"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.2",
     "chalk": "*",
     "dotenv": "*",
     "graphql-request": "*",
     "node-fetch": "*",
+    "react-router-dom": "^5.0.1",
     "rollbar": "*"
   },
   "devDependencies": {
@@ -38,6 +40,8 @@
     }
   },
   "lint-staged": {
-    "!(*.test).js": ["eslint"]
+    "!(*.test).js": [
+      "eslint"
+    ]
   }
 }
