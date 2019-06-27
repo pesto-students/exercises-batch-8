@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import './styles/App.css';
+import NotFound from './components/NotFound';
 
 class App extends Component {
   render() {
@@ -13,9 +14,12 @@ class App extends Component {
       <Fragment>
         <BrowserRouter>
           <Navbar />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/" exact component={Home} />
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route exact path="/" component={Home} />
+            <Route component={NotFound} />
+          </Switch>
         </BrowserRouter>
       </Fragment>
     );
