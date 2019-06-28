@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import '../styles/NewColor.css';
 
 class NewColor extends Component {
@@ -22,6 +21,7 @@ class NewColor extends Component {
     e.preventDefault();
     this.props.addColor({ ...this.state });
     this.props.history.push('/colors');
+    this.setState({ name: '', hex: '' });
   }
 
   render() {
