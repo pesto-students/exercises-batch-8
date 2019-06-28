@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import '../styles/NewColor.css';
 
@@ -9,6 +10,7 @@ class NewColor extends Component {
     this.state = {
       name: '',
       hex: '#ffffff',
+      redirect: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,12 +21,19 @@ class NewColor extends Component {
   }
 
   handleSubmit(e) {
+    const { addColor } = this.props;
     e.preventDefault();
-    this.props.addColor({ ...this.state });
-    this.props.history.push('/colors');
+    addColor({ ...this.state });
+    this.setState({
+      redirect: true,
+    });
   }
 
   render() {
+    const { redirect, name, hex } = this.state;
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="new-color">
         <form onSubmit={this.handleSubmit}>
@@ -36,7 +45,7 @@ class NewColor extends Component {
               id="name"
               placeholder="Enter a name for the color"
               onChange={this.handleChange}
-              value={this.state.name}
+              value={name}
             />
           </div>
           <div>
@@ -46,7 +55,7 @@ class NewColor extends Component {
               name="hex"
               id="hex"
               onChange={this.handleChange}
-              value={this.state.hex}
+              value={hex}
             />
           </div>
           <input type="Submit" value="Add this color" readOnly />
@@ -58,7 +67,6 @@ class NewColor extends Component {
 
 NewColor.propTypes = {
   addColor: PropTypes.func.isRequired,
-  history: PropTypes.shape().isRequired,
 };
 
 export default NewColor;
