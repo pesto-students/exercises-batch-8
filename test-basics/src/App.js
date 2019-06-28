@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import './styles/App.css';
 
 /* eslint-disable react/no-multi-comp, react/no-unused-state */
@@ -14,24 +14,33 @@ class App extends Component {
     this.onButtonClick = this.onButtonClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
+
   onButtonClick() {
-    this.setState({ ...this.state, pIsYes: !this.state.pIsYes });
+    const { on } = this.state;
+    this.setState({ on: !on });
   }
+
   onInputChange(e) {
-    this.setState({ ...this.state, input: e.currentTarget.value });
+    const { value: input } = e.currentTarget;
+    this.setState({ input });
   }
+
   // eslint-disable-next-line class-methods-use-this
   handleStrings(string) {
     return Boolean(string);
   }
+
   render() {
+    const { mainColor, on, input } = this.state;
     return (
       <div className="App">
-        <h1 className={this.state.mainColor}>Welcome to React</h1>
-        <p className="button-state">{this.state.pIsYes ? 'Yes!' : 'No!'}</p>
-        <button onClick={this.onButtonClick}>Click me</button>
-        <h2 className="">{this.state.input}</h2>
-        <input onChange={this.onInputChange} value={this.state.input} />
+        <h1 className={mainColor}>Welcome to React</h1>
+
+        <p className="button-state">{on ? 'Yes!' : 'No!'}</p>
+        <button type="button" onClick={this.onButtonClick}>Click me</button>
+
+        <h2 className="">{input}</h2>
+        <input onChange={this.onInputChange} value={input} />
       </div>
     );
   }
@@ -39,8 +48,16 @@ class App extends Component {
 
 export class Link extends Component {
   render() {
-    return this.props.hide ? null : <a href={this.props.address}>Link</a>;
+    const { hide, address } = this.props;
+    return hide ? null : <a href={address}>Link</a>;
   }
 }
-
+Link.defaultProps = {
+  hide: false,
+  address: '',
+};
+Link.propTypes = {
+  address: PropTypes.string,
+  hide: PropTypes.bool,
+};
 export default App;
