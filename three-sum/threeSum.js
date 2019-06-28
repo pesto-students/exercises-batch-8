@@ -16,6 +16,7 @@ function threeSum(array, total) {
   }
 
   const arraySize = array.length;
+  const combinations = [];
 
   for (let left = 0; left < arraySize - 1; left += 1) {
     let right = left + 1;
@@ -26,11 +27,20 @@ function threeSum(array, total) {
 
       const thirdNumber = findNumber(array, deficiency, array[left], array[right]);
       if (thirdNumber !== undefined) {
-        return [array[left], array[right], thirdNumber];
+        combinations.push([array[left], array[right], thirdNumber]);
       }
 
       right += 1;
     }
+  }
+
+  const fourthArray = combinations[3];
+  if (typeof fourthArray !== 'undefined') {
+    const hasPositiveNumbers = fourthArray.every(num => num >= 0);
+    if (!hasPositiveNumbers) {
+      fourthArray.sort((a, b) => b - a);
+    }
+    return fourthArray;
   }
 
   return null;
