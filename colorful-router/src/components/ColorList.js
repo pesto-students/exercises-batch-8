@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import '../styles/ColorList.css';
 
 const ColorList = (props) => {
   const colorLinks = props.colors.map(color => (
-    <li key={color.hex}>
-      {color.name}
-    </li>
+    <Link to={`colors/${color.name}`} key={color.hex}>
+      <li>{color.name}</li>
+    </Link>
   ));
   return (
     <div className="App">
