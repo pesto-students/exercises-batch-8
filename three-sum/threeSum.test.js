@@ -12,8 +12,8 @@ describe('threeSum', () => {
   });
 
   it('should throw when given invalid inputs', () => {
-    expect(threeSum([], 35)).toThrow();
-    expect(threeSum([1, 2, 3], 'lol')).toThrow();
-    expect(threeSum([1, 2], 5)).toThrow();
+    expect(() => threeSum([], 35)).toThrow();
+    expect(() => threeSum([1, 2, 3], 'lol')).toThrow();
+    expect(() => threeSum([1, 2], 5)).toThrow();
   });
 });
