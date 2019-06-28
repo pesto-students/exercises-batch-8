@@ -1,47 +1,49 @@
-function threeSum(nums, sum) {
-  // eslint-disable-next-line no-restricted-globals
-  if (nums.length < 3 || isNaN(sum)) {
-    throw new Error('Invalid Input');
+/**
+ * Approach used and required in test cases is as below:
+ * take mid num, right most element, and left most element
+ * now if there sum is equal to given sum then return
+ * Otherwise bring right most and left most closer according to sum
+ */
+
+const threeSum = (nums, sum) => {
+  if (!Array.isArray(nums)) {
+    throw new Error(`Expected: 'nums' should be an Array. Actual: 'nums' is '${typeof nums}'.`);
+  }
+  if (nums.length < 3) {
+    throw new Error(`Expected: 'nums' should have three elements. Actual: 'nums' have ${nums.length} elements.`);
   }
 
-  nums.sort((a, b) => a - b);
+  if (typeof sum !== 'number') {
+    throw new Error(`Expected: 'sum' should be a number. Actual: 'sum' is '${typeof sum}'.`);
+  }
 
-  const result = [];
-  for (let indexA = 0; indexA < nums.length - 2; indexA += 1) {
-    const a = nums[indexA];
+  const sortedNums = nums.sort((a, b) => a - b);
+  let midIndex = Number.parseInt(sortedNums.length / 2, 10);
 
-    if (a > 0) return result;
-    // eslint-disable-next-line no-continue
-    if (a === nums[indexA - 1]) continue;
-
-    let indexB = indexA + 1;
-    let indexC = nums.length - 1;
-
-    // Now check if sum is zero, and if NOT, then run the next set of 2 if loop to update indexB and indexC
-    while (indexB < indexC) {
-      const b = nums[indexB];
-      const c = nums[indexC];
-
-      if ((a + b + c) === sum) {
-        result.push([a, b, c]);
-      }
-
-      // Now with the below 2 if functions, I am just implementing how the indexB and indexC will be incremented and decremented with each iteration and gets feeded back to the above while function ( while (indexB < indexC ))
-
-      if ((a + b + c) >= 0) {
-        while (nums[indexC - 1] === c) { indexC--; } // This is equivalent to continue in my previous implementation
-        indexC--;
-      }
-
-      if ((a + b + c) <= 0) {
-        while (nums[indexB + 1] === b) { indexB++; } // This is equivalent to continue in my previous implementation
-        indexB++;
+  while (midIndex < sortedNums.length) {
+    const target = sortedNums[midIndex] * -1 + sum;
+    let rightIndex = sortedNums.length - 1;
+    let leftIndex = 0;
+    while (rightIndex > midIndex && leftIndex < midIndex) {
+      if (sortedNums[rightIndex] + sortedNums[leftIndex] < target) {
+        if (leftIndex < midIndex) {
+          leftIndex += 1;
+        }
+      } else if (sortedNums[rightIndex] + sortedNums[leftIndex] > target) {
+        if (rightIndex > midIndex) {
+          rightIndex -= 1;
+        }
+      } else {
+        const result = [sortedNums[leftIndex], sortedNums[midIndex], sortedNums[rightIndex]];
+        if (result[0] < 0) {
+          return result.reverse();
+        }
+        return result;
       }
     }
+    midIndex += 1;
   }
-  return result;
-}
-
-export {
-  threeSum,
+  return null;
 };
+
+export { threeSum };
