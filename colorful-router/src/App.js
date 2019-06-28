@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// import { Switch, Route, Redirect, Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 import ColorList from './components/ColorList';
-// import Color from './components/Color';
-// import NewColor from './components/NewColor';
+import Color from './components/Color';
+import NewColor from './components/NewColor';
 
 class App extends Component {
   constructor(props) {
@@ -33,8 +32,30 @@ class App extends Component {
   }
 
   render() {
+    const { colors } = this.state;
     const colorListComponent = () => (
-      <ColorList colors={this.state.colors} />
+      <Router>
+        <Switch>
+          <Redirect exact from="/" to="/colors" />
+          <Route exact path="/colors">
+            <ColorList colors={colors} />
+          </Route>
+          <Route path="/colors/new" render={(props) => <NewColor addColor={this.handleAdd} { ...props }></NewColor>} />
+          <Route
+            path="/colors/:name"
+            render={({ match, ...rest }) => {
+              {
+                let id = match.params.name;
+                id = Number(id);
+                if (Number.isNaN(id) || id > colors.length) {
+                  return (<div>Not found</div>);
+                }
+              }
+              return <Color color={colors[match.params.name]} {...rest} />; }
+            }
+          />
+        </Switch>
+      </Router>
     );
 
     return (
