@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../styles/Color.css';
 
 const Color = (props) => {
-  const { color } = props;
+  const { color } = props.location.state;
   return (
     <div className="Color" style={{ backgroundColor: color.hex }}>
       <p>this is {color.name}.</p>
@@ -16,9 +16,13 @@ const Color = (props) => {
 };
 
 Color.propTypes = {
-  color: PropTypes.shape({
-    hex: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      color: PropTypes.shape({
+        hex: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
