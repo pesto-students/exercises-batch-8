@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-// import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+} from 'react-router-dom';
 
 import './styles/App.css';
 import ColorList from './components/ColorList';
-// import Color from './components/Color';
-// import NewColor from './components/NewColor';
+import Color from './components/Color';
+import NewColor from './components/NewColor';
 
 class App extends Component {
   constructor(props) {
@@ -29,16 +34,39 @@ class App extends Component {
   }
 
   handleAdd(newColor) {
-    this.setState({ colors: [newColor, ...this.state.colors] });
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        colors: [newColor, ...prevState],
+      };
+    });
   }
 
   render() {
+    const { colors } = this.state;
     const colorListComponent = () => (
-      <ColorList colors={this.state.colors} />
+      <ColorList colors={colors} />
     );
 
     return (
-      colorListComponent()
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/colors" />} />
+            <Route exact path="/colors" component={colorListComponent} />
+            <Route exact path="/colors/new" component={NewColor} />
+            <Route
+              path="/colors/:color"
+              exact
+              render={(props) => {
+                const { match: { params: { color } } } = props;
+                const selectedColor = colors.find(c => c.name === color);
+                return <Color color={selectedColor} {...this.state} />;
+              }}
+            />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
