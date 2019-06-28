@@ -1,6 +1,12 @@
 
-function objectDefaults(...args) {
-  return args;
+function objectDefaults(object, defaultObject) {
+  return Object.keys(defaultObject).reduce((acc, key) => {
+    if (object[key]) {
+      return acc;
+    }
+    acc[key] = defaultObject[key];
+    return acc;
+  }, object);
 }
 
 export {
