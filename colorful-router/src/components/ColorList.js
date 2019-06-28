@@ -13,7 +13,7 @@ const ColorList = (props) => {
     <div className="App">
       <header className="App-header">
         <h1 className="App-title">Welcome to the Colorful Router.</h1>
-        <h1>Add a color</h1>
+        <Link to="/colors/new">Add a color</Link>
       </header>
       <div className="App-intro">
         <p>Please select a color.</p>

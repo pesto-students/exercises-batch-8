@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import "./styles/App.css";
-import ColorList from "./components/ColorList";
-import NewColor from "./components/NewColor";
-import Color from "./components/Color";
+import './styles/App.css';
+import ColorList from './components/ColorList';
+import NewColor from './components/NewColor';
+import Color from './components/Color';
 
 class App extends Component {
   constructor(props) {
@@ -12,18 +12,18 @@ class App extends Component {
     this.state = {
       colors: [
         {
-          name: "red",
-          hex: "#FF0000"
+          name: 'red',
+          hex: '#FF0000',
         },
         {
-          name: "green",
-          hex: "#00FF00"
+          name: 'green',
+          hex: '#00FF00',
         },
         {
-          name: "blue",
-          hex: "#0000FF"
-        }
-      ]
+          name: 'blue',
+          hex: '#0000FF',
+        },
+      ],
     };
     this.handleAdd = this.handleAdd.bind(this);
   }
@@ -45,11 +45,9 @@ class App extends Component {
         <Route
           exact
           path="/colors/:color"
-          render={props => {
+          render={(props) => {
             const { color: colorName } = props.match.params;
-            const currentColorIndex = this.state.colors.findIndex(
-              color => color.name === colorName
-            );
+            const currentColorIndex = this.state.colors.findIndex(color => color.name === colorName);
             return <Color color={this.state.colors[currentColorIndex]} />;
           }}
         />
