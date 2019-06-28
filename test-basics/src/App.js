@@ -11,7 +11,7 @@ class App extends Component {
     message: 'No!',
   };
 
-  handleClick = () => this.setState({ message: 'Yes!' });
+  handleClick = () => this.setState({ message: 'Yes!', on: true });
 
   handleInputChange = event => this.setState({ input: event.currentTarget.value });
 
@@ -25,7 +25,7 @@ class App extends Component {
         <p className="button-state">{message}</p>
         <input type="text" name="test" onChange={this.handleInputChange} />
         <h2>{input}</h2>
-        <Link address="www.google.com" />
+        <Link hide={true} address="www.google.com" />
       </div>
     );
   }
