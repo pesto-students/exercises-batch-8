@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> shallow rendering matches the snapshot 1`] = `
+<div
+  className="App"
+>
+  <h1
+    className="blue"
+  >
+    Welcome to React
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Click Me
+  </button>
+  <p
+    className="button-state"
+  >
+    No!
+  </p>
+  <input
+    name="test"
+    onChange={[Function]}
+    type="text"
+  />
+  <h2 />
+  <Link
+    address="www.google.com"
+  />
+</div>
+`;
