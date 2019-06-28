@@ -12,8 +12,11 @@
     "node": ">=10.15"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.2",
     "chalk": "*",
     "dotenv": "*",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "graphql-request": "*",
     "node-fetch": "*",
     "rollbar": "*"
@@ -38,6 +41,8 @@
     }
   },
   "lint-staged": {
-    "!(*.test).js": ["eslint"]
+    "!(*.test).js": [
+      "eslint"
+    ]
   }
 }
