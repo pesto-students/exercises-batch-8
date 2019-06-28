@@ -8,11 +8,24 @@ class App extends Component {
     on: false,
     input: '',
     mainColor: 'blue',
-  }
+    message: 'No!',
+  };
+
+  handleClick = () => this.setState({ message: 'Yes!', on: true });
+
+  handleInputChange = event => this.setState({ input: event.currentTarget.value });
+
+  handleStrings = str => str.length > 0;
   render() {
+    const { input, mainColor, message } = this.state;
     return (
       <div className="App">
-        Welcome to React
+        <h1 className={mainColor}>Welcome to React</h1>
+        <button type="button" onClick={this.handleClick}>Click Me</button>
+        <p className="button-state">{message}</p>
+        <input type="text" name="test" onChange={this.handleInputChange} />
+        <h2>{input}</h2>
+        <Link hide={true} address="www.google.com" />
       </div>
     );
   }
@@ -20,7 +33,9 @@ class App extends Component {
 
 export class Link extends Component {
   render() {
-    return null;
+    // eslint-disable-next-line react/prop-types
+    const { address, hide } = this.props;
+    return hide ? null : <a href={address}>Link</a>;
   }
 }
 

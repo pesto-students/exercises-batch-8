@@ -1,4 +1,3 @@
-
 function reject(...args) {
   return args;
 }
