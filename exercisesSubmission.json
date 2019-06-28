@@ -9,31 +9,31 @@
             "completed": true
         },
         "json-parse": {
-            "completed": false
+            "completed": true
         },
         "lowercase-keys": {
-            "completed": false
+            "completed": true
         },
         "math-fns": {
             "completed": true
         },
         "parse-ms": {
-            "completed": false
+            "completed": true
         },
         "round-to": {
-            "completed": false
+            "completed": true
         },
         "time-was": {
-            "completed": false
+            "completed": true
         },
         "abbreviate-string": {
-            "completed": false
+            "completed": true
         },
         "add-big-integers": {
-            "completed": false
+            "completed": true
         },
         "alien-alphabet": {
-            "completed": false
+            "completed": true
         },
         "permutate-with-repetitions": {
             "completed": false
