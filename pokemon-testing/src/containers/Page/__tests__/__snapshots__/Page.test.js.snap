@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Page /> should match the snapshot 1`] = `
+<div
+  className="pokemons__wrapper"
+>
+  <Search
+    onChange={[Function]}
+  />
+  <ul
+    className="pokemons"
+  >
+    <Pokemon
+      key="0"
+      pokemon="pokemon-1"
+    />
+    <Pokemon
+      key="1"
+      pokemon="pokemon-2"
+    />
+  </ul>
+</div>
+`;
