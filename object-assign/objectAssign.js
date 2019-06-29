@@ -3,6 +3,7 @@ function objectAssign(...args) {
   args.forEach(arg => {
     Object.assign(resultantObject, arg);
   });
+
   return resultantObject;
 }
 
