@@ -2,12 +2,12 @@ import { permutateWithRepetitions } from './permutateWithRepetitions';
 
 describe('permutateWithRepetitions', () => {
   it('should permutate string with repetition', () => {
-    const permutations1 = permutateWithRepetitions(['A']);
+    const permutations1 = permutateWithRepetitions(['A'], ['A'].length);
     expect(permutations1).toEqual([
       ['A'],
     ]);
 
-    const permutations2 = permutateWithRepetitions(['A', 'B']);
+    const permutations2 = permutateWithRepetitions(['A', 'B'], ['A', 'B'].length);
     expect(permutations2).toEqual([
       ['A', 'A'],
       ['A', 'B'],
@@ -15,7 +15,7 @@ describe('permutateWithRepetitions', () => {
       ['B', 'B'],
     ]);
 
-    const permutations3 = permutateWithRepetitions(['A', 'B', 'C']);
+    const permutations3 = permutateWithRepetitions(['A', 'B', 'C'], ['A', 'B', 'C'].length);
     expect(permutations3).toEqual([
       ['A', 'A', 'A'],
       ['A', 'A', 'B'],
@@ -46,7 +46,7 @@ describe('permutateWithRepetitions', () => {
       ['C', 'C', 'C'],
     ]);
 
-    const permutations4 = permutateWithRepetitions(['A', 'B', 'C', 'D']);
+    const permutations4 = permutateWithRepetitions(['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D'].length);
     expect(permutations4.length).toBe(4 * 4 * 4 * 4);
   });
 });

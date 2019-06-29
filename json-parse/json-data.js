@@ -1,14 +1,17 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable dot-notation */
 
 const clubMember = {
   firstname: 'John',
   lastname: 'Doe',
   memberStatus: 'Full',
+  city: 'Delhi',
 };
 
 const Sara = '{ "height":1.9, "age":36, "eyeColor":"brown"}';
 
 // use JSON.parse() to create an object 'objectSara':
-const objectSara = `${Sara} add code here`;
+const objectSara = JSON.parse(Sara);
 
 
 // var myArray = [];
@@ -32,7 +35,7 @@ const conference = {
 // in an associative array: `conference['startDay']`
 // Add a line of code to store the name of the conference's end day in variable endDayIs.
 const endDay = conference;
-
+const endDayIs = conference['endDay'];
 
 const Mike = {};
 Mike.height = 1.9;
@@ -40,11 +43,11 @@ Mike.age = 36;
 Mike.eyecolor = 'brown';
 
 // serialize the object using JSON.stringify():
-const mikeStringified = Sara;
+const mikeStringified = JSON.stringify(Sara);
 
 export {
   clubMember,
   objectSara,
-  endDay,
+  endDayIs,
   mikeStringified,
 };

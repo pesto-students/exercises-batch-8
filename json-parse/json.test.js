@@ -1,5 +1,5 @@
 import {
-  clubMember, objectSara, endDay, mikeStringified,
+  clubMember, objectSara, endDayIs, mikeStringified,
 } from './json-data';
 
 describe('JSON edit', () => {
@@ -16,7 +16,7 @@ describe('using JSON.parse', () => {
 
 describe('Simulating associative arrays', () => {
   test('should use as array correctly', () => {
-    expect(endDay).toBe('Wednesday');
+    expect(endDayIs).toBe('Wednesday');
   });
 });
 
