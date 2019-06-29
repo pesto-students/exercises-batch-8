@@ -3,7 +3,7 @@
     "segmentName": "segment-2",
     "exercises": {
         "permutate-without-repetitions": {
-            "completed": false
+            "completed": true
         },
         "fix-eslint-errors": {
             "completed": true
