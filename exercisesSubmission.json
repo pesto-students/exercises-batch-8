@@ -12,10 +12,10 @@
             "completed": true
         },
         "longest-word-in-string": {
-            "completed": false
+            "completed": true
         },
         "telephone-check": {
-            "completed": false
+            "completed": true
         },
         "rot13": {
             "completed": true
@@ -36,7 +36,7 @@
             "completed": true
         },
         "pairwise": {
-            "completed": false
+            "completed": true
         },
         "convert-to-roman": {
             "completed": true

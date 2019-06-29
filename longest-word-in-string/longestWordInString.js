@@ -1,11 +1,14 @@
 function longestWordInString(string) {
-  const words = string.split("");
-  return words.reduce((acc, word) => {
-    if (word.length > acc) {
-      return word.length;
+  const words = string.split(' ');
+  const result = {
+    length: 0,
+  };
+  words.forEach((word) => {
+    if (word.length > result.length) {
+      result.length = word.length;
     }
-    return acc;
-  }, 0);
-}
+  });
 
+  return result.length;
+}
 export { longestWordInString };
