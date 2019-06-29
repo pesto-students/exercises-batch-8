@@ -1,20 +1,12 @@
 function getIndexToIns(array, value) {
-  const sorted = array.sort();
+  const sorted = array.sort((a, b) => a - b);
 
-  // Using binary search algorithm
-  let left = 0;
-  let right = array.length - 1;
-  let mid = Number.parseInt(array.length / 2, 10);
-  console.log(mid);
-  while (left < right) {
-    if (value > mid) {
-      left = mid;
-    } else {
-      right = mid;
+  for (let i = 0; i < sorted.length; i += 1) {
+    if (sorted[i] >= value) {
+      return i;
     }
-    mid = Number.parseInt((left + right) / 2, 10);
-    console.log(left, right);
   }
+  return sorted.length;
 }
 
 export {
