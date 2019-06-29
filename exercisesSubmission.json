@@ -33,10 +33,10 @@
             "completed": false
         },
         "alien-alphabet": {
-            "completed": false
+            "completed": true
         },
         "permutate-with-repetitions": {
-            "completed": false
+            "completed": true
         },
         "throw-errors": {
             "completed": true
