@@ -41,7 +41,7 @@ class Page extends Component {
 }
 
 Page.propTypes = {
-  page: PropTypes.number.isRequired,
+  page: PropTypes.shape().isRequired,
   pageActions: PropTypes.shape().isRequired,
 };
 
