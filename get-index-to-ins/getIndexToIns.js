@@ -1,6 +1,13 @@
+function getIndexToIns(array, numberToInsert) {
+  const sortedArray = array.sort((a, b) => a - b);
 
-function getIndexToIns(...args) {
-  return args;
+  for (const [index, number] of array.entries()) {
+    if (number >= numberToInsert) {
+      return index;
+    }
+  }
+
+  return sortedArray.length;
 }
 
 export {
