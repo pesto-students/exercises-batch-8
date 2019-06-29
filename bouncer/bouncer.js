@@ -1,8 +1,8 @@
+const retainTruthy = value => !value === false;
 
-function bouncer(...args) {
-  return args;
+function bouncer(values) {
+  const truthyValues = values.filter(retainTruthy);
+  return truthyValues;
 }
 
-export {
-  bouncer,
-};
+export { bouncer };

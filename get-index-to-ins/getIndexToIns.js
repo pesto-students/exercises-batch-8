@@ -1,8 +1,10 @@
-
-function getIndexToIns(...args) {
-  return args;
+function getIndexToIns(numbers, number) {
+  return numbers
+    .concat(number)
+    .sort((a, b) => {
+      return a - b;
+    })
+    .indexOf(number);
 }
 
-export {
-  getIndexToIns,
-};
+export { getIndexToIns };
