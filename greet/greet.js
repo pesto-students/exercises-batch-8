@@ -1,6 +1,9 @@
 
 function greet(...args) {
-  return args;
+  const promise = new Promise((resolve) => {
+    resolve(`Hey ${args}`);
+  });
+  return promise;
 }
 
 export {
