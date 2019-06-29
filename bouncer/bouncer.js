@@ -1,6 +1,6 @@
 
-function bouncer(...args) {
-  return args;
+function bouncer(inputArray) {
+  return inputArray.filter(element => !!element);
 }
 
 export {
