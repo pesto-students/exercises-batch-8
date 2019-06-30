@@ -1,8 +1,7 @@
 
-function uniq(...args) {
-  return args;
+function uniq(array) {
+  return Array.from(new Set(array));
 }
-
 export {
   uniq,
 };

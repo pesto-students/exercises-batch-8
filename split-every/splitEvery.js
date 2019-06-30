@@ -1,20 +1,21 @@
+function splitEvery(extractBy, array) {
+  if (extractBy <= 0) {
+    throw new Error('The factor extractBy cannot be negative');
+  }
 
-function splitEvery(extractBy, args) {
-  const resultantArray = [];
-
-  if (!Array.isArray(args) || typeof args !== 'string') {
-    throw new Error(`Expected array or string got ${typeof args}`);
+  if (array.length >= 0) {
+    return array.slice().reduce((resultantArray, item, index) => {
+      const extractIndex = Math.floor(index / extractBy);
+      const auxiliaryArray = resultantArray;
+      if (!auxiliaryArray[extractIndex]) {
+        auxiliaryArray[extractIndex] = [];
+      }
+      auxiliaryArray[extractIndex].push(item);
+      return auxiliaryArray;
+    }, []);
   }
-  if (args.length === 0) {
-    return [];
-  }
-  const array = args;
-  for (let i = 0; i < array.length; i += extractBy) {
-    resultantArray.push(array.slice(i, extractBy + i));
-  }
-  return resultantArray;
+  return array;
 }
-
 export {
   splitEvery,
 };
