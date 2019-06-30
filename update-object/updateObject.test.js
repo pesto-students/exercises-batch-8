@@ -1,4 +1,4 @@
-import { updateObject } from './updateObject';
+import { curried as updateObject } from './updateObject';
 
 describe('updateObject', () => {
   it('updates the value at the given index of the supplied array', () => {
