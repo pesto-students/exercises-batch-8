@@ -2,13 +2,27 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    #star {
+      position: relative;
+      left: 50%;
+      -webkit-transform: translateX(-40%);
+      -ms-transform: translateX(-40%);
+      transform: translateX(-40%);
+    }
+  </style>
 </head>
+
 <body>
-  
+  <svg id="star" height="200" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,10 40,180 190,60 10,60 160,180" fill="red" />
+  </svg>
 </body>
+
 </html>
