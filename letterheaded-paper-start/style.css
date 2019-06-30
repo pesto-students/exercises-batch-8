@@ -49,3 +49,17 @@ h1 {
   color: white;
   text-shadow: 1px 1px 1px black;
 }
+
+
+footer {
+  position: absolute;
+  bottom: 0mm;
+  right: 0mm;
+  width: 100%;
+  height: 190px;
+  background-color: #ccc;
+  background-image: url("bottom-image.png"), linear-gradient(#fff, #ccc);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  border-bottom: 5px solid red;
+}

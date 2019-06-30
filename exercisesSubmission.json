@@ -6,13 +6,13 @@
             "completed": false
         },
         "cartesian-product": {
-            "completed": false
+            "completed": true
         },
         "center-text": {
             "completed": false
         },
         "cornered-string": {
-            "completed": false
+            "completed": true
         },
         "counting-anagrams": {
             "completed": false
@@ -24,22 +24,22 @@
             "completed": true
         },
         "fundamental-css-comprehension": {
-            "completed": false
+            "completed": true
         },
         "letterheaded-paper-start": {
-            "completed": false
+            "completed": true
         },
         "positioning-(information-only)": {
-            "completed": false
+            "completed": true
         },
         "positioning-(tutorial)": {
-            "completed": false
+            "completed": true
         },
         "positioning-practical": {
-            "completed": false
+            "completed": true
         },
         "styling-tables": {
-            "completed": false
+            "completed": true
         }
     }
 }
