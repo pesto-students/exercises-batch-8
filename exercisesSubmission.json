@@ -3,7 +3,7 @@
     "segmentName": "segment-2",
     "exercises": {
         "least-common-multiple": {
-            "completed": false
+            "completed": true
         },
         "integer-partition": {
             "completed": false

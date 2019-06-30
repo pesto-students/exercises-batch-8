@@ -1,13 +1,19 @@
-function greatestCommonDivisor(numberOne, numberTwo) {
-  if (numberOne === 0) {
-    return numberTwo;
+function greatestCommonDivisor(a, b) {
+  let numberOne = a;
+  let numberTwo = b;
+  while (numberTwo) {
+    const temp = numberTwo;
+    numberTwo = numberOne % numberTwo;
+    numberOne = temp;
   }
-  return greatestCommonDivisor(numberTwo % numberOne, numberOne);
+  return numberOne;
 }
 
-function leastCommonMultiple(numberOne, numberTwo) {
-  return (numberOne * numberTwo) / greatestCommonDivisor(numberOne, numberTwo);
+function leastCommonMultiple(a, b) {
+  if (!a || !b) return 0;
+  return Math.abs((a * b) / greatestCommonDivisor(a, b));
 }
+
 export {
   leastCommonMultiple,
 };
