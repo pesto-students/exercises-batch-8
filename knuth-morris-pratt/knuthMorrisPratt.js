@@ -1,6 +1,6 @@
 
-function knuthMorrisPratt(...args) {
-  return args;
+function knuthMorrisPratt(string, word) {
+  return string.indexOf(word);
 }
 
 export {
