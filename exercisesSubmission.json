@@ -15,13 +15,13 @@
             "completed": true
         },
         "set-default-property": {
-            "completed": false
+            "completed": true
         },
         "private-props": {
             "completed": true
         },
         "xprod": {
-            "completed": false
+            "completed": true
         },
         "without": {
             "completed": false
@@ -30,7 +30,7 @@
             "completed": true
         },
         "values": {
-            "completed": false
+            "completed": true
         }
     }
 }
