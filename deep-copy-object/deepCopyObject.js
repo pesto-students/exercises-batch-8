@@ -1,6 +1,6 @@
 
-function deepCopyObject(...args) {
-  return args;
+function deepCopyObject(objectToDeepClone) {
+  return JSON.parse(JSON.stringify(objectToDeepClone))
 }
 
 export {
