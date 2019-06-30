@@ -12,16 +12,16 @@
             "completed": false
         },
         "deep-copy-object": {
-            "completed": false
+            "completed": true
         },
         "advanced-box-effects": {
             "completed": true
         },
         "animation": {
-            "completed": false
+            "completed": true
         },
         "flexbox": {
-            "completed": false
+            "completed": true
         },
         "floats": {
             "completed": true
