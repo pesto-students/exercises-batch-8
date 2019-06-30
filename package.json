@@ -1,24 +1,19 @@
 {
-  "name": "pesto-exercise-repository",
+  "name": "02",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Arfat Salman <giney.paradise@gmail.com>",
+  "author": "Arfat Salman",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage"
-  },
-  "engines": {
-    "node": ">=10.15"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "dependencies": {
-    "chalk": "*",
-    "dotenv": "*",
-    "graphql-request": "*",
-    "node-fetch": "*",
-    "rollbar": "*"
+    "express": "^4.17.0",
+    "mongodb": "*"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
     "@babel/core": "*",
     "@babel/preset-env": "*",
     "babel-core": "^7.0.0-bridge",
@@ -28,16 +23,6 @@
     "eslint-plugin-import": "*",
     "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-react": "*",
-    "husky": "*",
-    "jest": "*",
-    "lint-staged": "*"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "!(*.test).js": ["eslint"]
+    "jest": "*"
   }
 }
