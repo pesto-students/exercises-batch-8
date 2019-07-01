@@ -1,8 +1,15 @@
+/* eslint-disable no-unused-vars */
+const getAttributes = () => {
+  const aTag = document.querySelector('#w3r');
+  const {
+    href, hreflang, rel, target, type,
+  } = aTag;
 
-function question3(...args) {
-  return args;
-}
-
-export {
-  question3,
+  return {
+    href,
+    hreflang,
+    rel,
+    target,
+    type,
+  };
 };
