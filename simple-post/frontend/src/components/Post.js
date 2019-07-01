@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/jsx-indent */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
