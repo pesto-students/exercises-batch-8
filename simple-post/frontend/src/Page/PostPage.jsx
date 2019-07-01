@@ -7,13 +7,24 @@ let db;
 dbReq.onupgradeneeded = event => {
   console.log('inside onupgradeneeded');
   db = event.target.result;
-  let posts = db.createObjectStore('posts', { autoIncrement: true });
+  db.createObjectStore('posts', { autoIncrement: false });
 };
 dbReq.onsuccess = event => {
   console.log('inside onsuccess');
   db = event.target.result;
 };
 
+function addPost(db, post) {
+  let tx = db.transaction(['posts'], 'readwrite');
+  let store = tx.objectStore('posts');
+  store.add(post, post.id);
+  tx.oncomplete = function() {
+    console.log('Post Stored!!');
+  };
+  tx.onerror = function(event) {
+    alert('error storing note ' + event.target.errorCode);
+  };
+}
 class PostPage extends React.Component {
   constructor() {
     super();
@@ -23,16 +34,31 @@ class PostPage extends React.Component {
       userId: ''
     };
   }
+
   componentDidMount() {
-    axios(`http://localhost:3001/post/${this.props.match.params.id}`, {
-      method: 'get',
-      headers: {
-        'pesto-password': 'darth vader'
+    let tx = db.transaction(['posts'], 'readonly');
+    let store = tx.objectStore('posts');
+    let req = store.get(1);
+    req.onsuccess = (event)  => {
+      let post = event.target.result;
+      if (post) {
+        console.log(post);
+        this.setState({...post});
+      } else {
+        console.log('asdasd');
+        axios(`http://localhost:3001/post/${this.props.match.params.id}`, {
+          method: 'get',
+          headers: {
+            'pesto-password': 'darth vader'
+          }
+        }).then(resp => {
+          this.setState(resp.data.data);
+          addPost(db, resp.data.data);
+        });
       }
-    }).then(resp => {
-      this.setState(resp.data.data);
-    });
+    };
   }
+
   render() {
     return (
       <div>
