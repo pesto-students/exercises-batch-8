@@ -1,38 +1,17 @@
-import React, { Component, Fragment } from 'react';
-
-import Post from './components/Post';
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import Posts from './components/Posts';
+import ViewPost from './components/ViewPost';
 import './App.css';
 
-class App extends Component {
-  state = {
-    posts: [],
-  };
-
-  render() {
-    return (
-      <div>
-        <h2>Posts</h2>
-        <hr />
-        <br />
-        <button onClick={this.handlePrevClick}>
-          Previous
-        </button>
-        <button onClick={this.handleNextClick}>
-          Next
-        </button>
-        <div>
-          {this.state.posts.map((post) => {
-            return (
-              <Fragment key={post.id}>
-                <Post post={post} />
-                <hr />
-              </Fragment>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <Route exact path="/" render={() => <Redirect to="/posts" />} />
+      <Route exact path="/posts" component={Posts} />
+      <Route exact path="/post/:id" component={ViewPost} />
+    </Router>
+  );
 }
 
 export default App;
