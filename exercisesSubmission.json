@@ -9,7 +9,7 @@
             "completed": false
         },
         "center-text": {
-            "completed": false
+            "completed": true
         },
         "cornered-string": {
             "completed": false
@@ -18,7 +18,7 @@
             "completed": false
         },
         "cool-information-box-start": {
-            "completed": false
+            "completed": true
         },
         "debugging-css": {
             "completed": true
