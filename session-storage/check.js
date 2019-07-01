@@ -9,3 +9,20 @@ window.setInterval(() => {
   }
 }, 200);
 
+
+const theForm = document.getElementsByTagName('form')[0];
+theForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const txtKey = document.getElementById('key');
+  const txtValue = document.getElementById('value');
+
+  if ('world' === txtKey.value && txtValue.value) {
+    sessionStorage.setItem('world', txtValue.value);
+  } else {
+    alert('Either value of key is not "world" or the value is missing.');
+  }
+
+
+  // TODO: Clear input values
+})
