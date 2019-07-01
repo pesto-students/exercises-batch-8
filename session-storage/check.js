@@ -1,6 +1,8 @@
 /* eslint-disable */
 let value = '';
+let form;
 
+window.addEventListener('DOMContentLoaded', init);
 window.setInterval(() => {
   if (value === '' || value === null) {
     value = sessionStorage.getItem('world');
@@ -9,3 +11,23 @@ window.setInterval(() => {
   }
 }, 200);
 
+function init() {
+  setRefs();
+  bindEvents();
+}
+function setRefs() {
+  form = document.querySelector('form');
+}
+function bindEvents() {
+  form.addEventListener('submit', submitForm);
+}
+function submitForm(event) {
+  event.preventDefault();
+  const key = document.querySelector('#key').value;
+  const value = document.querySelector('#value').value;
+  if ('world' === key && value) {
+    sessionStorage.setItem('world', value);
+  } else {
+    alert('Either value of key is not "world" or the value is missing.');
+  }
+}
