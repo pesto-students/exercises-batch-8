@@ -1,6 +1,12 @@
+function curry(fn, ...args) {
+  const fnCurry = (params) => {
+    if (params.length === fn.length) {
+      return fn(...params);
+    }
+    return (...fnArgs) => fnCurry([...params, ...fnArgs]);
+  };
 
-function curry(...args) {
-  return args;
+  return fnCurry(args);
 }
 
 export {
