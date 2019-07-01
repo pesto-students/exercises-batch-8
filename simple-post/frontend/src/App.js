@@ -1,18 +1,17 @@
 import React, { Component, Fragment, useEffect, useState } from 'react';
+import { BASE_URL, GET_POSTS_URL, HEADERS } from './Constants';
 
 import Post from './components/Post';
 import './App.css';
 
-function App() {
+function App({ db }) {
   const [posts, savePosts] = useState({ 1: [] });
   const [currentPage, saveCurrentPage] = useState(1);
 
   useEffect(() => {
-    console.log(currentPage);
-    console.log(posts[currentPage]);
     if (posts[currentPage].length === 0) {
-      fetch(`http://localhost:3001/posts/${currentPage}`, {
-        headers: new Headers({ 'pesto-password': 'darth vader' }),
+      fetch(`${BASE_URL}${GET_POSTS_URL}${currentPage}`, {
+        headers: new Headers(HEADERS),
       })
         .then(response => response.json())
         .then(data => savePosts({ ...posts, [currentPage]: data.data }));
