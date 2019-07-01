@@ -1,6 +1,7 @@
 /* eslint-disable */
 let value = '';
 let form;
+
 window.addEventListener('DOMContentLoaded', init);
 window.setInterval(() => {
   if (value === '' || value === null) {
@@ -30,15 +31,3 @@ function submitForm(event) {
     alert('Either value of key is not "world" or the value is missing.');
   }
 }
-
-
-
-// const theForm = document.getElementsByTagName('form')[0];
-// theForm.addEventListener('submit', function (event) {
-//   event.preventDefault();
-
-//   const txtKey = document.getElementById('key');
-//   const txtValue = document.getElementById('value');
-
-
-// }) 
