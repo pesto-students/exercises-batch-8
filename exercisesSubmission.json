@@ -21,16 +21,16 @@
             "completed": false
         },
         "canvas": {
-            "completed": false
+            "completed": true
         },
         "form-validation": {
             "completed": false
         },
         "map": {
-            "completed": false
+            "completed": true
         },
         "svg": {
-            "completed": false
+            "completed": true
         },
         "table": {
             "completed": false
