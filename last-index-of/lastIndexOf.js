@@ -10,9 +10,6 @@ function lastIndexOf(elementWhoseLastIndexIsRequired, array) {
   if (!Array.isArray(array)) {
     return createErrorMessage(`Expected array, got ${typeof numbers}`, true);
   }
-  if (!array.includes(elementWhoseLastIndexIsRequired)) {
-    return -1;
-  }
   return array.lastIndexOf(elementWhoseLastIndexIsRequired);
 }
 
