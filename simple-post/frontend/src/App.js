@@ -4,7 +4,6 @@ import Post from './components/Post';
 import { getPageData } from './apis/posts.api';
 import './App.css';
 
-// eslint-disable-next-line no-undef
 const { localStorage } = window;
 
 const updateLocalStorage = (field, cb) => {
@@ -18,7 +17,7 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
-      // eslint-disable-next-line eqeqeq
+
       disablePrev: localStorage.getItem('currentPage') == 1,
     };
     this.handleNextClick = this.handleNextClick.bind(this);
