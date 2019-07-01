@@ -25,22 +25,37 @@
   <div id="session-storage-view"></div>
 
   <script>
+
     function submitHandler() {
       const key = document.getElementById('key').value;
       const value = document.getElementById('value').value;
       sessionStorage.setItem(key, value);
-      document.getElementById('session-storage-view').innerText = `Key: ${key}, Value=${value}`;
+      loadStorage();
     }
 
-    window.setInterval(() => {
-      const storage = sessionStorage;
-      const data = {};
-      Object.keys(storage).forEach((key) => {
-        data[key] = storage.getItem(key);
-      });
-      document.getElementById('session-storage-view').innerText = JSON.stringify(data, null, 2);
-    }, 200);
+    function deleteItem(key) {
+      sessionStorage.removeItem(key);
+      loadStorage();
+    }
 
+    function loadStorage() {
+      const storage = sessionStorage;
+      const ele = document.getElementById('session-storage-view');
+      ele.innerHTML = "";
+      Object.keys(storage).forEach((key) => {
+        const div = document.createElement('div');
+        const button = document.createElement('button');
+        button.innerHTML = 'Delete';
+        button.onclick = function(){
+          deleteItem(key);
+        };
+        div.innerHTML = `Key : ${key} & Value : ${storage.getItem(key)} &nbsp;`;
+        div.append(button);
+        ele.append(div);
+      });
+    }
+
+    loadStorage();
   </script>
   <!-- Do not remove the below div -->
   <div class='status'></div>
