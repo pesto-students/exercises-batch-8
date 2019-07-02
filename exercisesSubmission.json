@@ -1,18 +1,18 @@
 {
-  "day": "day-16",
-  "segmentName": "segment-2",
-  "exercises": {
-    "cookies": {
-      "completed": false
-    },
-    "index-db": {
-      "completed": false
-    },
-    "local-storage": {
-      "completed": false
-    },
-    "session-storage": {
-      "completed": false
+    "day": "day-16",
+    "segmentName": "segment-2",
+    "exercises": {
+        "cookies": {
+            "completed": false
+        },
+        "index-db": {
+            "completed": true
+        },
+        "local-storage": {
+            "completed": false
+        },
+        "session-storage": {
+            "completed": true
+        }
     }
-  }
 }
