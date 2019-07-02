@@ -3,7 +3,7 @@
     "segmentName": "segment-2",
     "exercises": {
         "bitcoin-ticker": {
-            "completed": false
+            "completed": true
         },
         "convert-to-file-url": {
             "completed": false
@@ -15,10 +15,10 @@
             "completed": false
         },
         "date-format-tz": {
-            "completed": false
+            "completed": true
         },
         "home-dir": {
-            "completed": false
+            "completed": true
         },
         "parse-json": {
             "completed": false
