@@ -1,6 +1,7 @@
+import os from 'os';
 
-function homeDir(...args) {
-  return args;
+function homeDir() {
+  return os.homedir();
 }
 
 export {
