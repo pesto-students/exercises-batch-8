@@ -1,8 +1,12 @@
 
-function jsonResponseServer(...args) {
-  return args;
-}
+const http = require('http');
 
-export {
-  jsonResponseServer,
-};
+const jsonResponseServer = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.write(JSON.stringify({ data: 'Pesto Bootcamp!' }));
+  res.end();
+}).listen(3000);
+
+jsonResponseServer.close();
+
+export { jsonResponseServer };
