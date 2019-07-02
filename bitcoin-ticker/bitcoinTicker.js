@@ -8,7 +8,7 @@ function bitcoinTicker() {
         body += chunk;
       });
       res.on('end', () => {
-        resolve(body);
+        resolve(JSON.parse(body));
       });
     });
   });
