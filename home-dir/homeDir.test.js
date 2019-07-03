@@ -1,7 +1,7 @@
 import { homeDir } from './homeDir';
 
-describe('Template Test', () => {
-  test('Template Test', () => {
-    // Write your own test case
+describe('Home directory', () => {
+  test('if Home directory path returned is equal to actual home dir of system', () => {
+    expect(homeDir()).toBe('/home/rollaball');
   });
 });
