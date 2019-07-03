@@ -1,8 +1,10 @@
+const express = require('express')
+const app = express()
+const port = 3000
 
-function express101(...args) {
-  return args;
-}
+app.get('/', (req, res) => res.send('Hey, I am server response'))
 
-export {
-  express101,
-};
+app.get('/movie/:title', (req, res) => res.send(`My favorite movie is ${req.params['title']}`))
+
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
