@@ -6,7 +6,7 @@ const app = express();
 app.get('/', (req, res) => res.send('Hey, I am server response'));
 app.get('/movie/:title', (req, res) => {
   const { title } = req.params;
-  res.send(`My favorite movie is ${title}`);
+  return res.send(`My favorite movie is ${title}`);
 });
 
 // eslint-disable-next-line no-console

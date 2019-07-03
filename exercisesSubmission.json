@@ -9,7 +9,7 @@
             "completed": false
         },
         "express-forms": {
-            "completed": false
+            "completed": true
         },
         "express-router": {
             "completed": false
