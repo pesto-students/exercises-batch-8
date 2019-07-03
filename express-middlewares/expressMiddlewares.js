@@ -30,5 +30,5 @@ app.get('/packages', (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('listening');
+  console.log('listening to 3000');
 });
