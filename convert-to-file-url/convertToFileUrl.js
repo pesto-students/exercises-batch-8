@@ -1,6 +1,5 @@
+function convertToFileUrl() {
 
-function convertToFileUrl(...args) {
-  return args;
 }
 
 export {
