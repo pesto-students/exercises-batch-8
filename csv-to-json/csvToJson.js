@@ -6,11 +6,12 @@ function csvToJson(csvFilePath) {
   // console.log(newlineSeparatedFileContent);
   const keys = newlineSeparatedFileContent[0];
   const dataArray = newlineSeparatedFileContent.slice(1);
-  console.log(dataArray);
+  console.log(keys.length);
   dataArray.reduce((acc, hero, index) => {
     // const heroObject = {}
-    // keys.forEach(key => {]})
-    // heroObject[keys[index]] = 
+    keys.forEach((key, index) => {
+      console.log(index);
+    })
     return acc;
   }, [])
   return csvFilePath;

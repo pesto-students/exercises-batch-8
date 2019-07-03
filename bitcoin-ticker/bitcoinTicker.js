@@ -1,15 +1,20 @@
-import { promisify } from 'util';
 
 const https = require('https');
+const queryString = require('query-string');
 
 const url = 'https://api.coinmarketcap.com/v2/ticker/';
 
-async function bitcoinTicker({ limit }) {
-  const get = promisify(https.get);
-  await get(`${url}?limit=${limit}`, 'utf-8', (resp) => {
-    console.log(Object.keys(resp));
-    resp.on('data', (chunk) => {
-      console.log(chunk)
+function bitcoinTicker(queryObject) {
+  return new Promise((resolve) => {
+    const queryParams = queryString.stringify(queryObject);
+    https.get(`${url}?${queryParams}`, 'utf-8', (resp) => {
+      let data = '';
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+      resp.on('end', () => {
+        resolve(JSON.parse(data));
+      });
     });
   });
 }
