@@ -4,8 +4,10 @@ const app = express();
 
 const languages = ['JavaScript', 'Haskell', 'Python'];
 
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-  return res.send(`Hello ${languages[0]}`); // Use res.render() to render the ejs file instead of sending text response
+  res.render('index.ejs', { languages });
 });
 
 app.listen(3000, () => {
