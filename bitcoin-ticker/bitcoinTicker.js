@@ -1,6 +1,6 @@
 const https = require('https');
 
-function bitcoinTicker() {
+function bitcoinTicker({ limit }) {
   const bitcoinTickerPromise = new Promise((resolve) => {
     https.get('https://api.coinmarketcap.com/v2/ticker/', (res) => {
       let body = '';
@@ -8,12 +8,22 @@ function bitcoinTicker() {
         body += chunk;
       });
       res.on('end', () => {
-        resolve(JSON.parse(body));
+        const parsedBody = JSON.parse(body);
+        // eslint-disable-next-line max-len
+        const topRankedBitCoinsKeys = Object.keys(parsedBody.data).filter(key => parsedBody.data[key].rank <= limit);
+        const topRandkedBitCoins = topRankedBitCoinsKeys.reduce((acc, key) => {
+          acc.data[key] = parsedBody.data[key];
+          return acc;
+        }, {
+          data: {},
+        });
+        resolve(topRandkedBitCoins);
       });
     });
   });
   return bitcoinTickerPromise;
 }
-export {
-  bitcoinTicker,
-};
+bitcoinTicker({ limit: 10 }).then(val => console.log(val));
+// export {
+//   bitcoinTicker,
+// };
