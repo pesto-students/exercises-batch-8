@@ -1,8 +1,8 @@
 {
-  "name": "pesto-testing-boilerplate",
+  "name": "middleware",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Arfat Salman <giney.paradise@gmail.com>",
+  "author": "Sourabh Modi <sourabhmodi20051@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "nodemon src"
