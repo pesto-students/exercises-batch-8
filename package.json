@@ -15,6 +15,7 @@
     "chalk": "*",
     "dotenv": "*",
     "graphql-request": "*",
+    "mongodb": "^3.2.7",
     "node-fetch": "*",
     "rollbar": "*"
   },
@@ -38,6 +39,8 @@
     }
   },
   "lint-staged": {
-    "!(*.test).js": ["eslint"]
+    "!(*.test).js": [
+      "eslint"
+    ]
   }
 }

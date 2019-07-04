@@ -1,14 +1,32 @@
+const { getDb } = require('./database');
+
 /* Q1 (*)
   Return the number of movies in the "movies" collection without using array.length
 */
-const getMoviesCount = async () => {};
+const getMoviesCount = async () => {
+  const db = await getDb();
+  const movieCollection = db.collection('movies');
+  const totalMovies = await movieCollection.count({});
+  return totalMovies;
+};
 
 /* Q2 (*)
   Return the first movie with imdb rating = 9.2 and year = 1974.
   Also, use mongodb projections to only get title from mongodb as opposed
   to accessing title property from the object
 */
-const movieRating = async () => {};
+const movieRating = async () => {
+  const YEAR = 1974;
+  const IMDB_RATING = 9.2;
+
+  const db = await getDb();
+  const movieCollection = db.collection('movieDetails');
+  const movie = await movieCollection.findOne({ year: YEAR, 'imdb.rating': IMDB_RATING });
+
+  // FIXME: nothing found, should return
+  // TODO: send only selected fields
+  return movie;
+};
 
 /* Q3 (*)
   Return the number of movies written by all these people (exactly these people in this order):
@@ -87,5 +105,19 @@ const addField = async () => {};
 const incrementalUpdate = async () => {};
 
 module.exports = {
-  getMoviesCount, 
+  getMoviesCount,
+  movieRating,
+  writersIntersection,
+  writersUnion,
+  actor,
+  positionalActor,
+  comparisonOperator,
+  trimUnrated,
+  unratedByTomato,
+  goodMovies,
+  regexSearch,
+  arrayAll,
+  fieldArraySize,
+  addField,
+  incrementalUpdate,
 };
