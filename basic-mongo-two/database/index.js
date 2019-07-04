@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const { getDb } = require('./database');
 
 const getAllProjects = async () => {
@@ -6,7 +7,14 @@ const getAllProjects = async () => {
   return projects.toArray();
 };
 
+const getProject = async (id) => {
+  const db = await getDb();
+  const project = await db.collection('projects').findOne({ _id: ObjectId(id) });
+  return project;
+};
+
 
 module.exports = {
   getAllProjects,
+  getProject,
 };
