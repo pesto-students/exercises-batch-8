@@ -1,30 +1,12 @@
-const mongoose = require('mongoose');
-const { MongoClient } = require('mongodb');
-const assert = require('assert');
-
 /* Q1 (*)
   Return the number of movies in the "movies" collection without using array.length
 */
-// const MONGO_URL = 'mongodb://localhost:27017';
-// mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 
-// Connection URL
-const url = 'mongodb://localhost:27017';
+const { getDb } = require('./database');
 
-// Database Name
-const dbName = 'video';
-
-let db;
-// Use connect method to connect to the server
-MongoClient.connect(url, { useNewUrlParser: true }, async (err, client) => {
-  console.log('Connected successfully to server');
-
-  db = client.db(dbName);
-  await comparisonOperator();
-  client.close();
-});
 
 const getMoviesCount = async () => {
+  const db = await getDb();
   const collection = db.collection('movies');
   const count = await collection.count();
   return count;
@@ -37,8 +19,9 @@ const getMoviesCount = async () => {
 */
 const movieRating = async () => {
   // wip
+  const db = await getDb();
   const collection = db.collection('movieDetails');
-  const movie = await collection.findOne({ year: 1974, 'imdb.rating': 9.2 });
+  const movie = await collection.findOne({ year: 1974, 'imdb.rating': 9 });
   return movie;
 };
 
@@ -48,12 +31,9 @@ const movieRating = async () => {
   Alex Kurtzman
   Damon Lindelof
   Gene Roddenberry
-  ['Roberto Orci'
-  ,'Alex Kurtzman'
-  ,'Damon Lindelof'
-  ,'Gene Roddenberry']
 */
 const writersIntersection = async () => {
+  const db = await getDb();
   const collection = db.collection('movieDetails');
   const writers = [
     'Roberto Orci',
@@ -61,32 +41,47 @@ const writersIntersection = async () => {
     'Damon Lindelof',
     'Gene Roddenberry',
   ];
-  const movies = await collection
+  const moviesOfGivenWriters = await collection
     .find({
       writers,
     })
-    .toArray();
-  return movies;
+    .count();
+  return moviesOfGivenWriters;
 };
 
 /* Q4 (*)
   Return the number of movies written by any of the writers in Q3
 */
-const writersUnion = async () => { };
+const writersUnion = async () => {
+  const db = await getDb();
+  const collection = db.collection('movieDetails');
+  const writers = [
+    'Roberto Orci',
+    'Alex Kurtzman',
+    'Damon Lindelof',
+    'Gene Roddenberry',
+  ];
+  const moviesOfGivenWriters = await collection
+    .find({
+      writers: { $in: writers },
+    })
+    .count();
+  return moviesOfGivenWriters;
+};
 
 /* Q5 (*)
   Return the number of movies in which actor is "Jackie Chan"
 */
 const actor = async () => {
+  const db = await getDb();
   const collection = db.collection('movieDetails');
   const actorName = 'Jackie Chan';
-  const movies = await collection
+  const jackiesMovies = await collection
     .find({
       actors: actorName,
     })
-    .toArray();
-  console.log(movies);
-  return movies;
+    .count();
+  return jackiesMovies;
 };
 
 /* Q6 (*)
@@ -100,16 +95,22 @@ const positionalActor = async () => { };
   and less than or equal to 9.2
 */
 const comparisonOperator = async () => {
+  const db = await getDb();
   const collection = db.collection('movieDetails');
-  const movie = await collection.findOne({ 'imdb.rating': { $gte: 9.0, $lte: 9.2 } });
-  return movie;
+  const numberOfMovies = await collection.find({ 'imdb.rating': { $gte: 9.0, $lte: 9.2 } }).count();
+  return numberOfMovies;
 };
 
 /* Q8 (*)
   Return the number of movies which have an actual rating opposed to
   being "UNRATED" or having no "rated" field at all
 */
-const trimUnrated = async () => { };
+const trimUnrated = async () => {
+  const db = await getDb();
+  const collection = db.collection('movieDetails');
+  const numberOfMovies = await collection.find({ 'rate': { $gte: 9.0, $lte: 9.2 } }).count();
+  return numberOfMovies;
+};
 
 /* Q9 (*)
   Return number of movies in which "tomato" field exists but "tomato.rating" does not
@@ -151,5 +152,10 @@ const addField = async () => { };
 const incrementalUpdate = async () => { };
 
 module.exports = {
-  getMoviesCount
+  getMoviesCount,
+  movieRating,
+  writersIntersection,
+  writersUnion,
+  actor,
+  comparisonOperator,
 };
