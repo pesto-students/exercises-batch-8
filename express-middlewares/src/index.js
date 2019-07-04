@@ -1,6 +1,6 @@
 const express = require('express');
 const { languages } = require('./languages');
-const { packages } = require('./packages');
+const { packages } = require('../../auth-token-dummy/packages');
 
 const port = 3000;
 const app = express();
