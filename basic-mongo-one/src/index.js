@@ -1,28 +1,34 @@
-/* Q1 (*)
-  Return the number of movies in the "movies" collection without using array.length
-*/
-const getMoviesCount = async () => {};
+const { getDb } = require('./database');
 
-/* Q2 (*)
-  Return the first movie with imdb rating = 9.2 and year = 1974.
-  Also, use mongodb projections to only get title from mongodb as opposed
-  to accessing title property from the object
-*/
-const movieRating = async () => {};
+const getMoviesCount = async () => {
+  const db = await getDb();
+  const count = await db.collection('movies').count();
+  return count;
+};
 
-/* Q3 (*)
-  Return the number of movies written by all these people (exactly these people in this order):
-  Roberto Orci
-  Alex Kurtzman
-  Damon Lindelof
-  Gene Roddenberry
-*/
-const writersIntersection = async () => {};
+const movieRating = async () => {
+  const db = await getDb();
+  const movie = await db
+    .collection('movieDetails')
+    .findOne({ year: 1974, 'imdb.rating': 9 }, { projection: { title: 1, _id: 0 } });
+  return movie;
+};
+
+const writersIntersection = async () => {
+  const db = await getDb();
+  const count = db.collection('movieDetails').count({ writers: ['Roberto Orci', 'Alex Kurtzman', 'Damon Lindelof', 'Gene Roddenberry'] });
+  return count;
+};
 
 /* Q4 (*)
   Return the number of movies written by any of the writers in Q3
 */
-const writersUnion = async () => {};
+const writersUnion = async () => {
+  // WIP
+  const db = await getDb();
+  const count = db.collection('movieDetails').count({ writers: 'Roberto Orci' });
+  return count;
+};
 
 /* Q5 (*)
   Return the number of movies in which actor is "Jackie Chan"
@@ -87,5 +93,8 @@ const addField = async () => {};
 const incrementalUpdate = async () => {};
 
 module.exports = {
-  getMoviesCount, 
+  getMoviesCount,
+  movieRating,
+  writersIntersection,
+  writersUnion,
 };
