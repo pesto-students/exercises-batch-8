@@ -1,0 +1,14 @@
+{
+  "name": "express-middlewares",
+  "version": "1.0.0",
+  "description": "- Do `npm init` to set up a node project in this directory.",
+  "main": "expressMiddlewares.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
