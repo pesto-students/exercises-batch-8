@@ -108,10 +108,10 @@ const comparisonOperator = async () => {
 const trimUnrated = async () => {
   const db = await getDb();
   const collection = db.collection('movieDetails');
-  const numberOfMovies = await collection.find({ 'rate': { $gte: 9.0, $lte: 9.2 } }).count();
+  const numberOfMovies = await collection.find({ rated: { $ne: 'UNRATED' } }).count();
   return numberOfMovies;
 };
-
+trimUnrated();
 /* Q9 (*)
   Return number of movies in which "tomato" field exists but "tomato.rating" does not
 */
@@ -158,4 +158,5 @@ module.exports = {
   writersUnion,
   actor,
   comparisonOperator,
+  trimUnrated,
 };
