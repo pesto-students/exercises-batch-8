@@ -13,8 +13,20 @@ const getProject = async (id) => {
   return project;
 };
 
+const addProject = async (project) => {
+  const db = await getDb();
+  return db.collection('projects').insertOne(project);
+};
+
+
+const updateProject = async (id, project) => {
+  const db = await getDb();
+  return db.collection('projects').update({ _id: ObjectId(id), ...project });
+};
 
 module.exports = {
   getAllProjects,
   getProject,
+  addProject,
+  updateProject,
 };
