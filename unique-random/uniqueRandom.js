@@ -1,6 +1,18 @@
+function uniqueRandom(lowerLimit, upperLimit) {
+  let lastRandom;
 
-function uniqueRandom(...args) {
-  return args;
+  return function getRandom(previousRandomValue) {
+    const randomNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+    const lastRandomValueToCheck = previousRandomValue || lastRandom;
+
+    const safeRandomValue = (randomNumber === lastRandomValueToCheck)
+      ? getRandom(lastRandom)
+      : randomNumber;
+
+    lastRandom = safeRandomValue;
+
+    return safeRandomValue;
+  };
 }
 
 export {
