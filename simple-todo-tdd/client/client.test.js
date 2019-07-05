@@ -4,7 +4,7 @@ describe('client test', () => {
 
     it('should render a list of todos', () => {})
 
-    it('should render ',() => {})
+    it('should render ', () => {})
 
     it('should render a new page on Add button', () => {})
 
