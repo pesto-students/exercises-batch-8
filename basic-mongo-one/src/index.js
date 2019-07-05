@@ -24,46 +24,80 @@ const movieRating = async (db) => {
   Damon Lindelof
   Gene Roddenberry
 */
-const writersIntersection = async () => {};
+const writersIntersection = async (db) => {
+  const writers = ['Roberto Orci', 'Alex Kurtzman', 'Damon Lindelof', 'Gene Roddenberry'];
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ writers });
+};
 
 /* Q4 (*)
   Return the number of movies written by any of the writers in Q3
 */
-const writersUnion = async () => {};
+const writersUnion = async (db) => {
+  const writers = ['Roberto Orci', 'Alex Kurtzman', 'Damon Lindelof', 'Gene Roddenberry'];
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ writers: { $in: writers } });
+
+};
 
 /* Q5 (*)
   Return the number of movies in which actor is "Jackie Chan"
 */
-const actor = async () => {};
+const actor = async (db) => {
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ actors: 'Jackie Chan' });
+};
 
 /* Q6 (*)
   Return the number of movies in which actor "Jackie Chan" is second
   in the array "actors"
 */
-const positionalActor = async () => {};
+const positionalActor = async (db) => {
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ 'actors.1': 'Jackie Chan' });
+
+};
 
 /* Q7 (*)
-  Return the first movie with imdb rating greater than or equal to 9.0
+  Return the no of movies with imdb rating greater than or equal to 9.0
   and less than or equal to 9.2
 */
-const comparisonOperator = async () => {};
+const comparisonOperator = async (db) => {
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ 'imdb.rating': { $gte: 9, $lte: 9.2 } });
+};
 
 /* Q8 (*)
   Return the number of movies which have an actual rating opposed to
   being "UNRATED" or having no "rated" field at all
 */
-const trimUnrated = async () => {};
+const trimUnrated = async (db) => {
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ rated: { $ne: 'UNRATED' } });
+};
 
 /* Q9 (*)
   Return number of movies in which "tomato" field exists but "tomato.rating" does not
 */
-const unratedByTomato = async () => {};
+const unratedByTomato = async (db) => {
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({ tomato: { $exists: true }, 'tomato.rating': null });
+};
 
 /* Q10 (*)
   Return number of movies with higher imdb rating >= 9.0 OR
   metacritic >= 90
 */
-const goodMovies = async () => {};
+const goodMovies = async (db) => {
+  const movieDetails = await db.collection('movieDetails');
+  return movieDetails.count({
+    $or:
+      [
+        { 'imdb.rating': { $gte: 8.9 } },
+        { metacritic: { $gte: 90 } },
+      ],
+  });
+};
 
 /* Q11 (*)
   Return number of movies where tomato field exists AND
@@ -96,4 +130,12 @@ const incrementalUpdate = async () => {};
 module.exports = {
   getMoviesCount,
   movieRating,
+  writersIntersection,
+  writersUnion,
+  actor,
+  positionalActor,
+  comparisonOperator,
+  trimUnrated,
+  unratedByTomato,
+  goodMovies,
 };
