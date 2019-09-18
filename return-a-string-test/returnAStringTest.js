@@ -1,8 +1,8 @@
 
-function returnAStringTest(...args) {
-  return args;
+function returnAString() {
+  return 'helloworld';
 }
 
 export {
-  returnAStringTest,
+  returnAString,
 };
